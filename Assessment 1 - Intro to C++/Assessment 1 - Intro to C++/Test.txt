@@ -1,0 +1,304 @@
+____________________________________________
+Date: Mon 11 May 2015     Time: 08:55:35 AM
+____________________________________________
+Test        Function            Status
+--------------------------------------------
+Test 1      Length              Success
+Test 2      CharacterAt         Success
+Test 3      EqualTo             Success
+Test 4      Append              Success
+Test 5      Preppend            Success
+Test 6      CStr                Success
+Test 7      ToLower             Success
+Test 8      ToUpper             Success
+Test 9      Find                Success
+Test 10     Find                Success
+Test 11     Replace             Success
+Test 12     ReadFromConsole     Success
+Test 13     WriteToConsole      Success
+--------------------------------------------
+ Percent Successful: 100 %
+____________________________________________
+
+
+____________________________________________
+Date: Mon 11 May 2015     Time: 08:59:22 AM
+____________________________________________
+Test        Function            Status
+--------------------------------------------
+Test 1      Length              Success
+Test 2      CharacterAt         Success
+Test 3      EqualTo             Success
+Test 4      Append              Success
+Test 5      Preppend            Success
+Test 6      CStr                Success
+Test 7      ToLower             Success
+Test 8      ToUpper             Success
+____________________________________________
+Date: Mon 11 May 2015     Time: 09:04:29 AM
+____________________________________________
+Test        Function            Status
+--------------------------------------------
+Test 1      Length              Success
+Test 2      CharacterAt         Success
+Test 3      EqualTo             Success
+Test 4      Append              Success
+Test 5      Preppend            Success
+Test 6      CStr                Success
+Test 7      ToLower             Success
+Test 8      ToUpper             Success
+Test 9      Find                Success
+Test 10     Find                Success
+____________________________________________
+Date: Mon 11 May 2015     Time: 09:24:30 AM
+____________________________________________
+Test        Function            Status
+--------------------------------------------
+Test 1      Length              Success
+Test 2      CharacterAt         Success
+Test 3      EqualTo             Success
+Test 4      Append              Success
+Test 5      Preppend            Success
+Test 6      CStr                Success
+Test 7      ToLower             Success
+Test 8      ToUpper             Success
+____________________________________________
+Date: Mon 11 May 2015     Time: 09:25:03 AM
+____________________________________________
+Test        Function            Status
+--------------------------------------------
+Test 1      Length              Success
+Test 2      CharacterAt         Success
+Test 3      EqualTo             Success
+Test 4      Append              Success
+Test 5      Preppend            Success
+Test 6      CStr                Success
+Test 7      ToLower             Success
+Test 8      ToUpper             Success
+Test 9      Find                Success
+Test 10     Find                Success
+Test 11     Replace             Success
+Test 12     ReadFromConsole     Success
+Test 13     WriteToConsole      Success
+--------------------------------------------
+ Percent Successful: 100 %
+____________________________________________
+
+
+____________________________________________
+Date: Mon 11 May 2015     Time: 09:29:24 AM
+____________________________________________
+Test        Function            Status
+--------------------------------------------
+Test 1      Length              Success
+Test 2      CharacterAt         Success
+Test 3      EqualTo             Success
+Test 4      Append              Success
+Test 5      Preppend            Success
+Test 6      CStr                Success
+Test 7      ToLower             Success
+Test 8      ToUpper             Success
+Test 9      Find                Success
+Test 10     Find                Success
+Test 11     Replace             Success
+Test 12     ReadFromConsole     Success
+Test 13     WriteToConsole      Success
+--------------------------------------------
+ Percent Successful: 100 %
+____________________________________________
+
+
+____________________________________________
+Date: Mon 11 May 2015     Time: 09:34:10 AM
+____________________________________________
+Test        Function            Status
+--------------------------------------------
+Test 1      Length              Success
+Test 2      CharacterAt         Success
+Test 3      EqualTo             Success
+Test 4      Append              Success
+Test 5      Preppend            Success
+Test 6      CStr                Success
+Test 7      ToLower             Success
+Test 8      ToUpper             Success
+Test 9      Find                Success
+Test 10     Find                Success
+Test 11     Replace             Success
+Test 12     ReadFromConsole     Success
+Test 13     WriteToConsole      Success
+--------------------------------------------
+ Percent Successful: 100 %
+____________________________________________
+
+
+____________________________________________
+Date: Mon 11 May 2015     Time: 09:36:08 AM
+____________________________________________
+Test        Function            Status
+--------------------------------------------
+Test 1      Length              Success
+Test 2      CharacterAt         Success
+Test 3      EqualTo             Success
+Test 4      Append              Success
+Test 5      Preppend            Success
+Test 6      CStr                Success
+Test 7      ToLower             Success
+Test 8      ToUpper             Success
+Test 9      Find                Success
+Test 10     Find                Success
+Test 11     Replace             Success
+Test 12     ReadFromConsole     Success
+Test 13     WriteToConsole      Success
+--------------------------------------------
+ Percent Successful: 100 %
+____________________________________________
+
+
+____________________________________________
+Date: Tue 12 May 2015     Time: 09:37:54 AM
+____________________________________________
+Test        Function            Status
+--------------------------------------------
+Test 1      Length              Success
+Test 2      CharacterAt         Success
+Test 3      EqualTo             Success
+Test 4      Append              Failed
+____________________________________________
+Date: Tue 12 May 2015     Time: 09:39:37 AM
+____________________________________________
+Test        Function            Status
+--------------------------------------------
+Test 1      Length              Success
+Test 2      CharacterAt         Success
+Test 3      EqualTo             Success
+Test 4      Append              Failed
+____________________________________________
+Date: Tue 12 May 2015     Time: 10:11:12 AM
+____________________________________________
+Test        Function            Status
+--------------------------------------------
+Test 1      Length              Success
+Test 2      CharacterAt         Success
+Test 3      EqualTo             Success
+Test 4      Append              Success
+Test 5      Preppend            Success
+Test 6      CStr                Success
+Test 7      ToLower             Success
+Test 8      ToUpper             Success
+Test 9      Find                Success
+Test 10     Find                Success
+Test 11     Replace             Success
+Test 12     ReadFromConsole     Success
+Test 13     WriteToConsole      Success
+--------------------------------------------
+ Percent Successful: 100 %
+____________________________________________
+
+
+____________________________________________
+Date: Tue 12 May 2015     Time: 10:11:57 AM
+____________________________________________
+Test        Function            Status
+--------------------------------------------
+Test 1      Length              Success
+Test 2      CharacterAt         Success
+Test 3      EqualTo             Success
+Test 4      Append              Success
+Test 5      Preppend            Success
+Test 6      CStr                Success
+Test 7      ToLower             Success
+Test 8      ToUpper             Success
+Test 9      Find                Success
+Test 10     Find                Success
+Test 11     Replace             Failed
+Test 12     ReadFromConsole     Success
+Test 13     WriteToConsole      Success
+--------------------------------------------
+ Percent Successful: 92.3077 %
+____________________________________________
+
+
+____________________________________________
+Date: Tue 12 May 2015     Time: 10:13:08 AM
+____________________________________________
+Test        Function            Status
+--------------------------------------------
+Test 1      Length              Success
+Test 2      CharacterAt         Success
+Test 3      EqualTo             Success
+Test 4      Append              Success
+Test 5      Preppend            Success
+Test 6      CStr                Success
+Test 7      ToLower             Success
+Test 8      ToUpper             Success
+Test 9      Find                Success
+Test 10     Find                Success
+Test 11     Replace             Success
+Test 12     ReadFromConsole     Success
+Test 13     WriteToConsole      Success
+--------------------------------------------
+ Percent Successful: 100 %
+____________________________________________
+
+
+____________________________________________
+Date: Tue 12 May 2015     Time: 10:17:53 AM
+____________________________________________
+Test        Function            Status
+--------------------------------------------
+Test 1      Length              Success
+Test 2      CharacterAt         Success
+Test 3      EqualTo             Success
+Test 4      Append              Success
+Test 5      Preppend            Success
+Test 6      CStr                Success
+Test 7      ToLower             Success
+Test 8      ToUpper             Success
+Test 9      Find                Success
+Test 10     Find                Success
+Test 11     Replace             Failed
+Test 12     ReadFromConsole     Success
+Test 13     WriteToConsole      Success
+--------------------------------------------
+ Percent Successful: 92.3077 %
+____________________________________________
+
+
+____________________________________________
+Date: Tue 12 May 2015     Time: 10:18:17 AM
+____________________________________________
+Test        Function            Status
+--------------------------------------------
+Test 1      Length              Success
+Test 2      CharacterAt         Success
+Test 3      EqualTo             Success
+Test 4      Append              Success
+Test 5      Preppend            Success
+Test 6      CStr                Success
+Test 7      ToLower             Success
+Test 8      ToUpper             Success
+Test 9      Find                Success
+Test 10     Find                Success
+Test 11     Replace             Success
+Test 12     ReadFromConsole     Success
+Test 13     WriteToConsole      Success
+--------------------------------------------
+ Percent Successful: 100 %
+____________________________________________
+
+
+____________________________________________
+Date: Tue 12 May 2015     Time: 02:36:27 PM
+____________________________________________
+Test        Function            Status
+--------------------------------------------
+Test 1      Length              Success
+Test 2      CharacterAt         Success
+Test 3      EqualTo             Success
+Test 4      Append              Success
+Test 5      Preppend            Success
+Test 6      CStr                Success
+Test 7      ToLower             Success
+Test 8      ToUpper             Success
+Test 9      Find                Success
+Test 10     Find                Success
