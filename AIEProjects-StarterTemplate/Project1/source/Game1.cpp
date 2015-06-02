@@ -49,13 +49,13 @@ Game1::Game1(unsigned int windowWidth, unsigned int windowHeight, bool fullscree
 	bulletCount = 0;
 	shoot = false;
 	jump = false;
-	gravity = 9.81;
+	gravity = 20.0f;//9.81;
 
 	Left = false;
 	Leftbullet = false;
 	fall = false;
 
-	peak = 0.0f;
+	peak = -200.0f;
 	floor = posY;
 
 	shooting = false;

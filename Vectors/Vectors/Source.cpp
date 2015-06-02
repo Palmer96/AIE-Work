@@ -28,23 +28,23 @@ int main()
 	
 	std::cout << std::endl;
 	std::cout << "Add Vectors" << std::endl;
-	VecTest1 = VecTest1.AddVec(Vec1, Vec2);
+	VecTest1 = Vec1 + Vec2;
 	std::cout << "(" << VecTest1.x << "," << VecTest1.y << ")" << std::endl;
 	
-	std::cout << std::endl;
-	std::cout << "Subtract Vectors" << std::endl;
-	VecTest2 = VecTest2.SubVec(Vec1, Vec2);
-	std::cout << "(" << VecTest2.x << "," << VecTest2.y << ")" << std::endl;
-
-	std::cout << std::endl;
-	std::cout << "Vector * Float" << std::endl;
-	VecTest3 = VecTest3.VecFlo(Vec1, fFloat);
-	std::cout << "(" << VecTest3.x << "," << VecTest3.y << ")" << std::endl;
-
-	std::cout << std::endl;
-	std::cout << "Vector * Float" << std::endl;
-	VecTest4 = Vec1.FloVec(Vec1, fFloat);
-	std::cout << VecTest4 << std::endl;
+	//std::cout << std::endl;
+	//std::cout << "Subtract Vectors" << std::endl;
+	//VecTest2 = VecTest2.SubVec(Vec1, Vec2);
+	//std::cout << "(" << VecTest2.x << "," << VecTest2.y << ")" << std::endl;
+	//
+	//std::cout << std::endl;
+	//std::cout << "Vector * Float" << std::endl;
+	//VecTest3 = VecTest3.VecFlo(Vec1, fFloat);
+	//std::cout << "(" << VecTest3.x << "," << VecTest3.y << ")" << std::endl;
+	//
+	//std::cout << std::endl;
+	//std::cout << "Vector * Float" << std::endl;
+	//VecTest4 = Vec1.FloVec(Vec1, fFloat);
+	//std::cout << VecTest4 << std::endl;
 
 
 	system("pause");

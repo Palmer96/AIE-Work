@@ -4,19 +4,19 @@
 #include "Vectors.h"
 #include "Object.h"
 
-class Player::public Object
-{
-	Player();
-	~Player();
-	void Move();
-
-
-	Vector2 Vec;
-
-
-
-
-};
+//class Player::public Object
+//{
+//	Player();
+//	~Player();
+//	void Move();
+//
+//
+//	Vector2 Vec;
+//
+//
+//
+//
+//};
 
 
 
