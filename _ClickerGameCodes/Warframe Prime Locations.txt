@@ -1,0 +1,14 @@
+------------------------------------------------------------------
+Frame		Part		Location
+------------------------------------------------------------------
+Ember 		BP		T4 Defense C - ODD
+Loki 		systems		T4 Defense C
+Nova 		BP		T1 Sabotage - T2 Exterminate
+Nova 		chassis		T3 Survival C
+Nova		systems		ODS
+Nyx 		chassis		T3 Exterminate
+Rhino		Bp 		T3 Exterminate - T4 Exterminate
+Volt 		helmet  	T3 Survive B
+Volt 		chassis  	T3 Survive C
+
+
