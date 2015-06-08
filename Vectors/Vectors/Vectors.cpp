@@ -70,51 +70,26 @@ Vector2& Vector2::operator*=(const Vector2& v2)
 	return *this;
 }
 
-
-Vector2 Vector2::AddVec(Vector2 a_1, Vector2 a_2)
-{
-	Vector2 a_3 = a_1 + a_2;
-	return a_3;
-}
-Vector2 Vector2::SubVec(Vector2 a_1, Vector2 a_2)
-{
-	Vector2 a_3 = a_1 - a_2;
-	return a_3;
-
-}
 Vector2 Vector2::VecFlo(Vector2 a, float Float)
 {
-	Vector2 a2 = a * Float;
-
-	return a2;
-
+	return a * Float;
 }
 float Vector2::FloVec(Vector2 a, float Float)
 {
-
-	float a1 = Float * a.x;
-	float a2 = Float * a.y;
-
-	return a1 + a2;
-
+	return (Float * a.x) + (Float * a.y);
 }
 float Dot(Vector2 a_1, Vector2 a_2)
 {
-	float dot = (a_1.x*a_2.x) + (a_1.y*a_2.y);
-	return dot;
+	return (a_1.x*a_2.x) + (a_1.y*a_2.y);
 }
 float Magnitude(Vector2 a)
 {
-	float x = a.x * a.x;
-	float y = a.y * a.y;
-
-	return sqrt(x + y);
+	return sqrt((a.x * a.x) + (a.y * a.y));
 }
 Vector2 Normalised(Vector2 a, float magnitude)
 {
 	a.x /= magnitude;
 	a.y /= magnitude;
-
 	return a;
 }
 
@@ -368,13 +343,12 @@ float Dot(Vector4 a_1, Vector4 a_2, Vector4 a_z)
 	return dot;
 }
 //-----------Later
-/*
-			Vector4 Cross(Vector4 a_1, Vector4 a_2, Vector4 a_z)
+			Vector4 Cross(Vector4 a_1, Vector4 a_2, Vector4 a_z, Vector4 a_q)
 			{
 				Vector4 cross((a_1.y*a_2.z) - (a_1.z*a_2.y), (a_1.z*a_2.x) - (a_1.x*a_2.z), (a_1.x*a_2.y) - (a_1.y*a_2.x));
 				return cross;
 			}
-*/		
+	
 float Magnitude(Vector4 a)
 {
 	return sqrt ((a.x * a.x) + (a.y * a.y) + (a.z * a.z) + (a.q * a.q));
