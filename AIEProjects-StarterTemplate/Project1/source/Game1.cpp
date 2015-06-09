@@ -31,7 +31,7 @@ Game1::Game1(unsigned int windowWidth, unsigned int windowHeight, bool fullscree
 
 	gTexture = new Texture("./Images/gear.png");
 
-//	Vector2 PlayerVec(300.0f, 400.0f);
+	//Vector2 PlayerVec(300.0f, 400.0f);
 		posX = 300.0f;
 		posY = 400.0f;
 
@@ -255,7 +255,7 @@ void Game1::Update(float deltaTime)
 void Game1::Draw()
 {
 	// clear the back buffer
-	//Vector2 PlayerVec(300.0f, 400.0f);
+	//Vector2 PlayerVec (300.0f, 400.0f);
 	ClearScreen();
 	m_spritebatch->Begin();
 
@@ -300,6 +300,7 @@ void Game1::Draw()
 	}
 	else
 	{
+		//m_spritebatch->DrawSprite(pRTexture, PlayerVec.x, PlayerVec.y, 30, 56);
 		m_spritebatch->DrawSprite(pRTexture, posX, posY, 30, 56);
 	}
 

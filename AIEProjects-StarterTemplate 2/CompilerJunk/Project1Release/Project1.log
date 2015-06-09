@@ -1,0 +1,22 @@
+﻿Build started 9/06/2015 12:03:48 PM.
+     1>Project "C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\Project1\Project1.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\AIE_GL\include\\" /I"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\libraries\glfw3\include\GLFW\\" /I"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\libraries\glew\include\\" /I"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\Project1\include\\" /I"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\libraries\glm\\" /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\CompilerJunk\Project1Release\\" /Fd"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\CompilerJunk\Project1Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Player.cpp source\Game1.cpp
+         Player.cpp
+     1>Player.cpp(6): error C2248: 'Object::Object' : cannot access private member declared in class 'Object'
+                 c:\users\kayne.palmer\documents\visual studio 2013\projects\_work\trunk\aieprojects-startertemplate 2\project1\Object.h(8) : see declaration of 'Object::Object'
+                 c:\users\kayne.palmer\documents\visual studio 2013\projects\_work\trunk\aieprojects-startertemplate 2\project1\Object.h(7) : see declaration of 'Object'
+     1>Player.cpp(11): error C2248: 'Object::Object' : cannot access private member declared in class 'Object'
+                 c:\users\kayne.palmer\documents\visual studio 2013\projects\_work\trunk\aieprojects-startertemplate 2\project1\Object.h(8) : see declaration of 'Object::Object'
+                 c:\users\kayne.palmer\documents\visual studio 2013\projects\_work\trunk\aieprojects-startertemplate 2\project1\Object.h(7) : see declaration of 'Object'
+     1>Player.cpp(15): error C2248: 'Object::~Object' : cannot access private member declared in class 'Object'
+                 c:\users\kayne.palmer\documents\visual studio 2013\projects\_work\trunk\aieprojects-startertemplate 2\project1\Object.h(9) : see declaration of 'Object::~Object'
+                 c:\users\kayne.palmer\documents\visual studio 2013\projects\_work\trunk\aieprojects-startertemplate 2\project1\Object.h(7) : see declaration of 'Object'
+         Game1.cpp
+     1>source\Game1.cpp(19): error C2065: 'playerTex' : undeclared identifier
+     1>source\Game1.cpp(20): error C2065: 'enemyTex' : undeclared identifier
+     1>Done Building Project "C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\Project1\Project1.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.45

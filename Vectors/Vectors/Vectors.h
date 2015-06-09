@@ -10,22 +10,12 @@ public:
 	Vector2(float a_x, float a_y);
 	~Vector2();
 
-	Vector2 AddVec(Vector2 a_1, Vector2 a_2);
-	Vector2 SubVec(Vector2 a_1, Vector2 a_2);
-
 	Vector2 VecFlo(Vector2 a, float Float);
-
-
 	float FloVec(Vector2 a, float Float);
-
-
-
-	//			float MatVec(Vector2 a, float Matrix);
-	//			float MatMat(float Matrix1, float Matrix2);
-
 	float Dot(Vector2 a_1, Vector2 a_2);
 	float Magnitude(Vector2 a);
 	Vector2 Normalised(Vector2 a, float magnitude);
+
 
 
 	Vector2 operator+(const Vector2& v2) const;
@@ -34,10 +24,10 @@ public:
 	Vector2 operator-(const Vector2& v2) const;
 	Vector2& operator-=(const Vector2& v2);
 
-	Vector2 Vector2::operator/(float v2)const;
+	Vector2 operator/(const Vector2& v2)const;
 	Vector2& operator/=(const Vector2& v2);
 
-	Vector2 Vector2::operator*(float v2)const;
+	Vector2 operator*(const Vector2& v2)const;
 	Vector2& operator*=(const Vector2& v2);
 
 
@@ -60,13 +50,11 @@ public:
 	Vector3& operator+=(const Vector3& v3);
 	Vector3 operator-(const Vector3& v3) const;
 	Vector3& operator-=(const Vector3& v3);
-	Vector3 Vector3::operator/(float v3)const;
+	Vector3 operator/(const Vector3& v3)const;
 	Vector3& operator/=(const Vector3& v3);
-	Vector3 Vector3::operator*(float v3)const;
+	Vector3 operator*(const Vector3& v3)const;
 	Vector3& operator*=(const Vector3& v3);
 
-	Vector3 AddVec(Vector3 a_1, Vector3 a_2, Vector3 a_z);
-	Vector3 SubVec(Vector3 a_1, Vector3 a_2, Vector3 a_z);
 	Vector3 VecFlo(Vector3 a, float Float);
 	float FloVec(Vector3 a, float Float);
 
@@ -100,8 +88,6 @@ public:
 	Vector4 operator*(float v4)const;
 	Vector4& operator*=(const Vector4& v4);
 	
-	Vector4 AddVec(Vector4 a_1, Vector4 a_2, Vector4 a_z, Vector4 a_q);
-	Vector4 SubVec(Vector4 a_1, Vector4 a_2, Vector4 a_z, Vector4 a_q);
 	Vector4 VecFlo(Vector4 a, float Float);
 	float FloVec(Vector4 a, float Float);
 
@@ -118,7 +104,35 @@ public:
 };
 
 
+class Matrix3
+{
+	public: 
+	Matrix3();
+	Matrix3(float a11, float a12, float a13, float a21, float a22, float a23, float a31, float a32, float a33);
+	~Matrix3();
 
+	Matrix3 operator+(Matrix3 m3)const;
+	Matrix3 operator-(Matrix3 m3)const;
+	Matrix3 operator*(Matrix3 m3)const;
+	Matrix3 operator/(Matrix3 m3)const;
+
+
+	Matrix3 Translation();
+	Matrix3 Rotation(float r);
+	Matrix3 Scale(float scale);
+
+
+	float a11;
+	float a12;
+	float a13;
+	float a21;
+	float a22;
+	float a23;
+	float a31;
+	float a32;
+	float a33;
+
+};
 
 
 
