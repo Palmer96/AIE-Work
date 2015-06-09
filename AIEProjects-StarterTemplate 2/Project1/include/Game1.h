@@ -27,9 +27,20 @@ protected:
 
 	SpriteBatch *m_spritebatch;
 	Texture * background;
+	Texture * tankTex;
+	Texture * cannonTex;
+	Texture * enemyTex;
 
+	float playerPosx;
+	float playerPosy;
 
-	
+	float cannonPosx;
+	float cannonPosy;
+
+	float enemyPosx;
+	float enemyPosy;
+
+	float tankSpeed;
 
 private:
 };
