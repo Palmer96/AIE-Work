@@ -20,10 +20,9 @@ Game1::Game1(unsigned int windowWidth, unsigned int windowHeight, bool fullscree
 	cannonTex = new Texture("./Images/Tank_Cannon.png");
 	enemyTex = new Texture("./Images/enemy.png");
 
-
-
 	playerPosx = 300.0f;
 	playerPosy = 300.0f;
+	playerPosz = 1.0f;
 
 	cannonPosx = playerPosx;
 	cannonPosy = playerPosy;
@@ -32,23 +31,27 @@ Game1::Game1(unsigned int windowWidth, unsigned int windowHeight, bool fullscree
 	enemyPosy = 200.0f;
 
 	tankSpeed = 100.0f;
+
+
 }
 
 Game1::~Game1()
 {
 	SpriteBatch::Factory::Destroy(m_spritebatch);
-	}
+}
 
 
 void Game1::Update(float deltaTime)
 {
 	Input * InputManager = GetInput();
-
-	if (InputManager->IsKeyDown(GLFW_KEY_W))
-	{
-		playerPosy -= tankSpeed * deltaTime;
-		cannonPosy -= tankSpeed * deltaTime;
-	}
+	Vector3 playerPos(playerPosx, playerPosy, playerPosz);
+	Matrix3 Matrix;
+	
+		if (InputManager->IsKeyDown(GLFW_KEY_W))
+		{
+			playerPosy -= tankSpeed * deltaTime;
+			cannonPosy -= tankSpeed * deltaTime;
+		}
 	if (InputManager->IsKeyDown(GLFW_KEY_S))
 	{
 		playerPosy += tankSpeed * deltaTime;
@@ -56,9 +59,10 @@ void Game1::Update(float deltaTime)
 	}
 	if (InputManager->IsKeyDown(GLFW_KEY_A))
 	{
-		playerPosx -= tankSpeed * deltaTime;
-		cannonPosx -= tankSpeed * deltaTime;
+		//		playerPosx -= tankSpeed * deltaTime;
+		//		cannonPosx -= tankSpeed * deltaTime;
 		// will rotate tank with cannon Left
+		playerPos = Matrix.ChangeScale(playerPosx, playerPosy, playerPosz);
 	}
 	if (InputManager->IsKeyDown(GLFW_KEY_D))
 	{
@@ -97,7 +101,6 @@ void Game1::Draw()
 	m_spritebatch->DrawSprite(tankTex, playerPosx, playerPosy, 50.0f, 50.0f);
 	m_spritebatch->DrawSprite(cannonTex, cannonPosx, cannonPosy, 50.0f, 50.0f);
 	m_spritebatch->DrawSprite(enemyTex, enemyPosx, enemyPosy, 50.0f, 50.0f);
-
 
 
 	m_spritebatch->End();

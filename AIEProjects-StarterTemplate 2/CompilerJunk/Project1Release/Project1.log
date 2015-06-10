@@ -1,20 +1,17 @@
-﻿Build started 9/06/2015 4:24:38 PM.
+﻿Build started 10/06/2015 5:15:42 PM.
      1>Project "C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\Project1\Project1.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\AIE_GL\include\\" /I"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\libraries\glfw3\include\GLFW\\" /I"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\libraries\glew\include\\" /I"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\Project1\include\\" /I"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\libraries\glm\\" /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\CompilerJunk\Project1Release\\" /Fd"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\CompilerJunk\Project1Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt source\Game1.cpp
-         Game1.cpp
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\Compiled\Project1Release\Project1.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\AIE_GL\bin\\" /LIBPATH:"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\libraries\glew\lib\Release\Win32\\" /LIBPATH:"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\libraries\glfw3\lib-vc2013\\" OpenGL32.lib AIE_GL.lib glew32.lib glfw3.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\Compiled\Project1Release\Project1.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\Compiled\Project1Release\Project1.lib" /MACHINE:X86 /SAFESEH "C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\CompilerJunk\Project1Release\Floor.obj"
-         "C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\CompilerJunk\Project1Release\main.obj"
-         "C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\CompilerJunk\Project1Release\Object.obj"
-         "C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\CompilerJunk\Project1Release\Player.obj"
-         "C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\CompilerJunk\Project1Release\Game1.obj"
-         "C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\CompilerJunk\Project1Release\Vectors.obj"
-         Generating code
-         Finished generating code
-         Project1.vcxproj -> C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\Compiled\Project1Release\Project1.exe
-     1>Done Building Project "C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\Project1\Project1.vcxproj" (Build target(s)).
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\AIE_GL\include\\" /I"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\libraries\glfw3\include\GLFW\\" /I"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\libraries\glew\include\\" /I"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\Project1\include\\" /I"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\libraries\glm\\" /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\CompilerJunk\Project1Release\\" /Fd"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\CompilerJunk\Project1Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt source\Vectors.cpp
+         Vectors.cpp
+     1>source\Vectors.cpp(430): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>source\Vectors.cpp(528): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>source\Vectors.cpp(541): error C3861: 'Vector': identifier not found
+     1>source\Vectors.cpp(542): error C2664: 'Vector3::Vector3(const Vector3 &)' : cannot convert argument 1 from 'Matrix3 *const ' to 'const Vector3 &'
+                 Reason: cannot convert from 'Matrix3 *const ' to 'const Vector3'
+                 No constructor could take the source type, or constructor overload resolution was ambiguous
+     1>source\Vectors.cpp(643): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>Done Building Project "C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\AIEProjects-StarterTemplate 2\Project1\Project1.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:01.37
+Time Elapsed 00:00:00.23

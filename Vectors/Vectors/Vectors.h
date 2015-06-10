@@ -87,7 +87,7 @@ public:
 	Vector4& operator/=(const Vector4& v4);
 	Vector4 operator*(float v4)const;
 	Vector4& operator*=(const Vector4& v4);
-	
+
 	Vector4 VecFlo(Vector4 a, float Float);
 	float FloVec(Vector4 a, float Float);
 
@@ -103,10 +103,40 @@ public:
 
 };
 
+class Matrix2
+{
+public:
+	Matrix2();
+	Matrix2(float a11, float a12, float a21, float a22);
+	~Matrix2();
+
+	Matrix2 operator+(Matrix2 m2)const;
+	Matrix2 operator-(Matrix2 m2)const;
+	Matrix2 operator*(Matrix2 m2)const;
+	Matrix2 operator/(Matrix2 m2)const;
+
+	Matrix2 Transpose(Matrix2 m2);
+
+
+	Matrix2 Translation(float x);
+	Matrix2 Rotation(float r);
+	Matrix2 Scale(float x, float y);
+
+
+	float a11;
+	float a12;
+	float a21;
+	float a22;
+
+	Vector2 row1;
+	Vector2 row2;
+
+};
+
 
 class Matrix3
 {
-	public: 
+public:
 	Matrix3();
 	Matrix3(float a11, float a12, float a13, float a21, float a22, float a23, float a31, float a32, float a33);
 	~Matrix3();
@@ -114,12 +144,16 @@ class Matrix3
 	Matrix3 operator+(Matrix3 m3)const;
 	Matrix3 operator-(Matrix3 m3)const;
 	Matrix3 operator*(Matrix3 m3)const;
-	Matrix3 operator/(Matrix3 m3)const;
+
+	Vector3 operator*(Vector3 v3)const;
 
 
-	Matrix3 Translation();
+	Matrix3 Transpose(Matrix3 m3);
+
+
+	Matrix3 Translation(float x, float y);
 	Matrix3 Rotation(float r);
-	Matrix3 Scale(float scale);
+	Matrix3 Scale(float x, float y);
 
 
 	float a11;
@@ -134,7 +168,44 @@ class Matrix3
 
 };
 
+class Matrix4
+{
+public:
+	Matrix4();
+	Matrix4(float b11, float b12, float b13, float b14, float b21, float b22, float b23, float b24, float b31, float b32, float b33, float b34, float b41, float b42, float b43, float b44);
+	~Matrix4();
 
+	Matrix4 operator+(Matrix4 m4)const;
+	Matrix4 operator-(Matrix4 m4)const;
+	Matrix4 operator*(Matrix4 m4)const;
+	Matrix4 operator/(Matrix4 m4)const;
+
+	Matrix4 Transpose(Matrix4 m4);
+
+
+	Matrix4 Translation(float x, float y, float z);
+	Matrix4 Rotation(float r);
+	Matrix4 Scale(float x, float y, float z);
+
+
+	float a11;
+	float a12;
+	float a13;
+	float a14;
+	float a21;
+	float a22;
+	float a23;
+	float a24;
+	float a31;
+	float a32;
+	float a33;
+	float a34;
+	float a41;
+	float a42;
+	float a43;
+	float a44;
+
+};
 
 
 

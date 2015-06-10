@@ -21,16 +21,19 @@
     <ClCompile Include="source\Game1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Vectors.cpp">
+    <ClCompile Include="source\Bullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Object.cpp">
+    <ClCompile Include="source\Floor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
+    <ClCompile Include="source\Object.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Floor.cpp">
+    <ClCompile Include="source\Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Vectors.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,16 +41,19 @@
     <ClInclude Include="include\Game1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Vectors.h">
+    <ClInclude Include="include\Vectors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Object.h">
+    <ClInclude Include="include\Bullet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
+    <ClInclude Include="include\Floor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Floor.h">
+    <ClInclude Include="include\Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Object.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -31,8 +31,10 @@ protected:
 	Texture * cannonTex;
 	Texture * enemyTex;
 
+
 	float playerPosx;
 	float playerPosy;
+	float playerPosz;
 
 	float cannonPosx;
 	float cannonPosy;
@@ -42,7 +44,6 @@ protected:
 
 	float tankSpeed;
 
-private:
 };
 
 #endif
