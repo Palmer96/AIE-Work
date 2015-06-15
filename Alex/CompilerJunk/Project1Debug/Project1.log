@@ -1,0 +1,35 @@
+﻿Build started 15/06/2015 2:35:25 PM.
+     1>Project "C:\Users\alexander.haslam\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\Project1\Project1.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\alexander.haslam\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\AIE_GL\include\\" /I"C:\Users\alexander.haslam\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\libraries\glfw3\include\GLFW\\" /I"C:\Users\alexander.haslam\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\libraries\glew\include\\" /I"C:\Users\alexander.haslam\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\Project1\include\\" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\alexander.haslam\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\CompilerJunk\Project1Debug\\" /Fd"C:\Users\alexander.haslam\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\CompilerJunk\Project1Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt source\Game1.cpp
+         Game1.cpp
+     1>c:\users\alexander.haslam\google drive\aie stuffs\assesment 2\aieprojects-startertemplate\project1\source\game1.cpp(39): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>c:\users\alexander.haslam\google drive\aie stuffs\assesment 2\aieprojects-startertemplate\project1\source\game1.cpp(97): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\alexander.haslam\google drive\aie stuffs\assesment 2\aieprojects-startertemplate\project1\source\game1.cpp(98): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\alexander.haslam\google drive\aie stuffs\assesment 2\aieprojects-startertemplate\project1\source\game1.cpp(118): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\alexander.haslam\google drive\aie stuffs\assesment 2\aieprojects-startertemplate\project1\source\game1.cpp(123): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\alexander.haslam\google drive\aie stuffs\assesment 2\aieprojects-startertemplate\project1\source\game1.cpp(127): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\alexander.haslam\google drive\aie stuffs\assesment 2\aieprojects-startertemplate\project1\source\game1.cpp(250): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\alexander.haslam\google drive\aie stuffs\assesment 2\aieprojects-startertemplate\project1\source\game1.cpp(342): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\alexander.haslam\google drive\aie stuffs\assesment 2\aieprojects-startertemplate\project1\source\game1.cpp(348): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\alexander.haslam\google drive\aie stuffs\assesment 2\aieprojects-startertemplate\project1\source\game1.cpp(353): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\alexander.haslam\google drive\aie stuffs\assesment 2\aieprojects-startertemplate\project1\source\game1.cpp(469): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\alexander.haslam\google drive\aie stuffs\assesment 2\aieprojects-startertemplate\project1\source\game1.cpp(490): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\alexander.haslam\google drive\aie stuffs\assesment 2\aieprojects-startertemplate\project1\source\game1.cpp(603): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>c:\users\alexander.haslam\google drive\aie stuffs\assesment 2\aieprojects-startertemplate\project1\source\game1.cpp(623): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\alexander.haslam\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\Compiled\Project1Debug\Project1.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\alexander.haslam\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\AIE_GL\bin\\" /LIBPATH:"C:\Users\alexander.haslam\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\libraries\glew\lib\Release\Win32\\" /LIBPATH:"C:\Users\alexander.haslam\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\libraries\glfw3\lib-vc2013\\" OpenGL32.lib AIE_GL_d.lib glew32.lib glfw3.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\alexander.haslam\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\Compiled\Project1Debug\Project1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\alexander.haslam\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\Compiled\Project1Debug\Project1.lib" /MACHINE:X86 "C:\Users\alexander.haslam\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\CompilerJunk\Project1Debug\GameObject.obj"
+         "C:\Users\alexander.haslam\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\CompilerJunk\Project1Debug\main.obj"
+         "C:\Users\alexander.haslam\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\CompilerJunk\Project1Debug\Matrix3.obj"
+         "C:\Users\alexander.haslam\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\CompilerJunk\Project1Debug\Player.obj"
+         "C:\Users\alexander.haslam\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\CompilerJunk\Project1Debug\Ring.obj"
+         "C:\Users\alexander.haslam\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\CompilerJunk\Project1Debug\Game1.obj"
+         "C:\Users\alexander.haslam\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\CompilerJunk\Project1Debug\Trail.obj"
+         "C:\Users\alexander.haslam\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\CompilerJunk\Project1Debug\Vector2.obj"
+         "C:\Users\alexander.haslam\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\CompilerJunk\Project1Debug\Vector3.obj"
+         Project1.vcxproj -> C:\Users\alexander.haslam\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\Compiled\Project1Debug\Project1.exe
+     1>Done Building Project "C:\Users\alexander.haslam\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\Project1\Project1.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.66

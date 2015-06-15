@@ -69,9 +69,6 @@ public:
 
 };
 
-
-
-
 class Vector4
 {
 public:
@@ -103,6 +100,8 @@ public:
 
 };
 
+
+
 class Matrix2
 {
 public:
@@ -113,26 +112,23 @@ public:
 	Matrix2 operator+(Matrix2 m2)const;
 	Matrix2 operator-(Matrix2 m2)const;
 	Matrix2 operator*(Matrix2 m2)const;
-	Matrix2 operator/(Matrix2 m2)const;
+
+	Vector2 operator*(Vector2 v3)const;
+
 
 	Matrix2 Transpose(Matrix2 m2);
 
-
 	Matrix2 Translation(float x);
 	Matrix2 Rotation(float r);
-	Matrix2 Scale(float x, float y);
-
+	Matrix2 Scale(float x);
+	
 
 	float a11;
 	float a12;
 	float a21;
 	float a22;
 
-	Vector2 row1;
-	Vector2 row2;
-
 };
-
 
 class Matrix3
 {
@@ -153,9 +149,8 @@ public:
 
 	Matrix3 Translation(float x, float y);
 	Matrix3 Rotation(float r);
-	Matrix3 Scale(float x, float y, float z);
-	Vector3 ChangeScale(float x, float y, float z);
-
+	Matrix3 Scale(float x, float y);
+	Vector2 ChangeRotate(float x, float y);
 
 	float a11;
 	float a12;

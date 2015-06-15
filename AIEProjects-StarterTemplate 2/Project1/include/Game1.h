@@ -31,6 +31,11 @@ protected:
 	Texture * cannonTex;
 	Texture * enemyTex;
 
+	Texture * mouseTex;
+
+
+	float mouseX;
+	float mouseY;
 
 	float playerPosx;
 	float playerPosy;
@@ -44,6 +49,8 @@ protected:
 
 	float tankSpeed;
 
+	bool rotateLeft;
+	bool rotateRight;
 };
 
 #endif

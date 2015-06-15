@@ -1,0 +1,23 @@
+﻿Build started 14/06/2015 3:00:23 AM.
+     1>Project "S:\Users\Alex\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\AIE_GL\AIE_GL.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         S:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"S:\Users\Alex\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\AIE_GL\include\\" /I"S:\Users\Alex\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\libraries\glew\include\\" /I"S:\Users\Alex\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\libraries\glfw3\include\GLFW\\" /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"S:\Users\Alex\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\CompilerJunk\AIE_GLRelease\\" /Fd"S:\Users\Alex\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\CompilerJunk\AIE_GLRelease\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt source\Application.cpp
+         Application.cpp
+     1>S:\Program Files (x86)\Windows Kits\8.1\Include\shared\minwindef.h(130): warning C4005: 'APIENTRY' : macro redefinition
+                 S:\Users\Alex\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\libraries\glfw3\include\GLFW\glfw3.h(95) : see previous definition of 'APIENTRY'
+       Lib:
+         S:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"S:\Users\Alex\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\AIE_GL\bin\AIE_GL.lib" OpenGL32.lib glew32.lib glfw3.lib /LIBPATH:"S:\Users\Alex\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\libraries\glew\lib\Release\Win32\\" /LIBPATH:"S:\Users\Alex\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\libraries\glfw3\lib-vc2013\\" /NOLOGO /LTCG "S:\Users\Alex\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\CompilerJunk\AIE_GLRelease\Application.obj"
+         "S:\Users\Alex\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\CompilerJunk\AIE_GLRelease\Font.obj"
+         "S:\Users\Alex\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\CompilerJunk\AIE_GLRelease\Input.obj"
+         "S:\Users\Alex\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\CompilerJunk\AIE_GLRelease\lodepng.obj"
+         "S:\Users\Alex\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\CompilerJunk\AIE_GLRelease\RenderTexture.obj"
+         "S:\Users\Alex\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\CompilerJunk\AIE_GLRelease\SpriteBatch.obj"
+         "S:\Users\Alex\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\CompilerJunk\AIE_GLRelease\SpriteBatch_GL3.obj"
+         "S:\Users\Alex\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\CompilerJunk\AIE_GLRelease\Texture.obj"
+     1>glew32.lib(glew32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in OpenGL32.lib(OPENGL32.dll); second definition ignored
+         AIE_GL.vcxproj -> S:\Users\Alex\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\AIE_GL\bin\AIE_GL.lib
+     1>Done Building Project "S:\Users\Alex\Google Drive\AIE stuffs\Assesment 2\AIEProjects-StarterTemplate\AIE_GL\AIE_GL.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.51

@@ -9,53 +9,40 @@ int main()
 	std::cout << "//-------------------------------------------------------------------------//" << std::endl;
 	std::cout << "//--------//	Vector 2D	//-----------------------------------------------//" << std::endl;
 	std::cout << "//-------------------------------------------------------------------------//" << std::endl;
-	Vector2 Vec2Vec1(10.0f, 20.0f);
-	Vector2 Vec2Vec2(5.0f, 0.2f);
-	
-	Vector2 Vec2Test1(0.0f, 0.0f);
-	Vector2 Vec2Test2(0.0f, 0.0f);
-	Vector2 Vec2Test3(0.0f, 0.0f);
-	float Vec2Test4;
-	float f2Float = 5.0f;
-	
-	
-	std::cout << "Vec 1: (" << Vec2Vec1.x << "," << Vec2Vec1.y << ")" << std::endl;
+	Vector2 Vec1(10.0f, 20.0f);
+	std::cout << "Vec 1: (" << Vec1.x << "," << Vec1.y << ")" << std::endl;
+	std::cout << "       |" << Vec1.x << "|" << std::endl;
+	std::cout << "       |" << Vec1.y << "|" << std::endl;
+
+	Matrix2 Mat1(1, 2, 3, 4);
+	std::cout << "Matrix 1" << std::endl;
+	std::cout << "| " << Mat1.a11 << "  " << Mat1.a12 << " |" << std::endl;
+	std::cout << "| " << Mat1.a21 << "  " << Mat1.a22 << " |" << std::endl;
+
+
+
+	Vector2 newVec = Mat1 * Vec1;
+
+	std::cout << "(" << newVec.x << "," << newVec.y << ")" << std::endl;
+
+
+
+
+
+
+	Matrix3 Mat3Test3 = Mat3Test3.Translation(Vec1.x, Vec1.y) * Mat3Test3.Scale(Vec1.x, Vec1.y);
+	std::cout << "Matrix 1 * Matrix 2" << std::endl;
+	std::cout << "| " << Mat3Test3.a11 << "  " << Mat3Test3.a12 << "  " << Mat3Test3.a13 << " |" << std::endl;
+	std::cout << "| " << Mat3Test3.a21 << "  " << Mat3Test3.a22 << "  " << Mat3Test3.a23 << " |" << std::endl;
+	std::cout << "| " << Mat3Test3.a31 << "  " << Mat3Test3.a32 << "  " << Mat3Test3.a33 << " |" << std::endl;
+
+
+
+
+
+
+
 	/*
-	std::cout << "Vec 2: (" << Vec2Vec2.x << "," << Vec2Vec2.y << ")" << std::endl;
-	std::cout << "Float:  " << f2Float << std::endl;
-	
-	std::cout << std::endl;
-	std::cout << "Add Vectors" << std::endl;
-	Vec2Test1 = Vec2Vec1 + Vec2Vec2;
-	std::cout << "(" << Vec2Test1.x << "," << Vec2Test1.y << ")" << std::endl;
-	
-	std::cout << std::endl;
-	std::cout << "Subtract Vectors" << std::endl;
-	Vec2Test2 = Vec2Vec1 - Vec2Vec2;
-	std::cout << "(" << Vec2Test2.x << "," << Vec2Test2.y << ")" << std::endl;
-	
-	std::cout << std::endl;
-	std::cout << "Multiply Vectors" << std::endl;
-	Vec2Test2 = Vec2Vec1 * Vec2Vec2;
-	std::cout << "(" << Vec2Test2.x << "," << Vec2Test2.y << ")" << std::endl;
-	
-	std::cout << std::endl;
-	std::cout << "Divide Vectors" << std::endl;
-	Vec2Test2 = Vec2Vec1 / Vec2Vec2;
-	std::cout << "(" << Vec2Test2.x << "," << Vec2Test2.y << ")" << std::endl;
-	
-	std::cout << std::endl;
-	std::cout << "Vector * Float" << std::endl;
-	Vec2Test3 = Vec2Test3.VecFlo(Vec2Vec1, f2Float);
-	std::cout << "(" << Vec2Test3.x << "," << Vec2Test3.y << ")" << std::endl;
-	
-	std::cout << std::endl;
-	std::cout << "Float * Vector" << std::endl;
-	Vec2Test4 = Vec2Vec1.FloVec(Vec2Vec1, f2Float);
-	std::cout << Vec2Test4 << std::endl;
-	
-	
-	system("pause");
 
 std::cout << "//-------------------------------------------------------------------------//" << std::endl;
 	std::cout << "//--------//	Vector 3D	//-----------------------------------------------//" << std::endl;
@@ -153,10 +140,7 @@ std::cout << "//----------------------------------------------------------------
 	std::cout << "//--------//	Matrix 2D	//-----------------------------------------------//" << std::endl;
 	std::cout << "//-------------------------------------------------------------------------//" << std::endl;
 	
-	Matrix2 Mat2Mat1(1, 2, 3, 4);
-	std::cout << "Matrix 1" << std::endl;
-	std::cout << "| " << Mat2Mat1.a11 << "  " << Mat2Mat1.a12 << " |" << std::endl;
-	std::cout << "| " << Mat2Mat1.a21 << "  " << Mat2Mat1.a22 << " |" << std::endl;
+	
 	/*
 
 	Matrix2 Mat2Mat2(2, 3, 4, 5);
@@ -268,15 +252,7 @@ std::cout << "//----------------------------------------------------------------
 //	Mat2Mat1
 //	Vec2Vec1
 	
-float mat2x1[2][1];
 
-mat2x1[0][0] = (Mat2Mat1.a11 * Vec2Vec1.x) + (Mat2Mat1.a12 * Vec2Vec1.y);
-mat2x1[1][0] = (Mat2Mat1.a21 * Vec2Vec1.x) + (Mat2Mat1.a22 * Vec2Vec1.y);
-
-std::cout << std::endl;
-std::cout << " 2x2  x  2x1" << std::endl;
-std::cout << "| " << mat2x1[0][0] << " |" << std::endl;
-std::cout << "| " << mat2x1[1][0] << " |" << std::endl;
 
 	system("pause");
 }
