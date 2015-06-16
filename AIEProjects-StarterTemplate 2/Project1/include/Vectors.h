@@ -54,6 +54,8 @@ public:
 	Vector3& operator/=(const Vector3& v3);
 	Vector3 operator*(const Vector3& v3)const;
 	Vector3& operator*=(const Vector3& v3);
+	Vector3 operator*(const float& f1)const;
+
 
 	Vector3 VecFlo(Vector3 a, float Float);
 	float FloVec(Vector3 a, float Float);
@@ -142,15 +144,16 @@ public:
 	Matrix3 operator*(Matrix3 m3)const;
 
 	Vector3 operator*(Vector3 v3)const;
+	Matrix3 operator*(float f1)const;
 
 
 	Matrix3 Transpose(Matrix3 m3);
 
 
-	Matrix3 Translation(float x, float y);
+	Matrix3 Translation(Vector3 pos);
 	Matrix3 Rotation(float r);
-	Matrix3 Scale(float x, float y);
-	Vector2 ChangeRotate(float x, float y);
+	Matrix3 Scale(Vector3 pos);
+	Vector2 ChangeRotate(Vector3 pos);
 
 	float a11;
 	float a12;

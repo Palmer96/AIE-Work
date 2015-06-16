@@ -5,30 +5,48 @@
 
 int main()
 {
+	float rotate = 0.1f;
+	//		std::cout << "//-------------------------------------------------------------------------//" << std::endl;
+	//		std::cout << "//--------//	Vector 2D	//-----------------------------------------------//" << std::endl;
+	//		std::cout << "//-------------------------------------------------------------------------//" << std::endl;
+	//		Vector2 Vec2(10.0f, 20.0f);
+	//		std::cout << "Vec 1: (" << Vec2.x << "," << Vec2.y << ")" << std::endl;
+	//		std::cout << "       |" << Vec2.x << "|" << std::endl;
+	//		std::cout << "       |" << Vec2.y << "|" << std::endl;
+
+	Vector3 Vec3(10.0f, 20.0f, 3.0f);
+	std::cout << "Vec 1: (" << Vec3.x << "," << Vec3.y << "," << Vec3.z << ")" << std::endl;
+	std::cout << std::endl;
+
 	
-	std::cout << "//-------------------------------------------------------------------------//" << std::endl;
-	std::cout << "//--------//	Vector 2D	//-----------------------------------------------//" << std::endl;
-	std::cout << "//-------------------------------------------------------------------------//" << std::endl;
-	Vector2 Vec1(10.0f, 20.0f);
-	std::cout << "Vec 1: (" << Vec1.x << "," << Vec1.y << ")" << std::endl;
-	std::cout << "       |" << Vec1.x << "|" << std::endl;
-	std::cout << "       |" << Vec1.y << "|" << std::endl;
 
-	Matrix2 Mat1(1, 2, 3, 4);
+	//		Matrix2 Mat2(1, 2, 3, 4);
+	//		std::cout << "Matrix 1" << std::endl;
+	//		std::cout << "| " << Mat2.a11 << "  " << Mat2.a12 << " |" << std::endl;
+	//		std::cout << "| " << Mat2.a21 << "  " << Mat2.a22 << " |" << std::endl;
+
+	Matrix3 Mat3(1, 2, 3, 4, 5, 6, 7, 8, 9);
 	std::cout << "Matrix 1" << std::endl;
-	std::cout << "| " << Mat1.a11 << "  " << Mat1.a12 << " |" << std::endl;
-	std::cout << "| " << Mat1.a21 << "  " << Mat1.a22 << " |" << std::endl;
+	std::cout << "| " << Mat3.a11 << "  " << Mat3.a12 << "  " << Mat3.a13 << " |" << std::endl;
+	std::cout << "| " << Mat3.a21 << "  " << Mat3.a22 << "  " << Mat3.a23 << " |" << std::endl;
+	std::cout << "| " << Mat3.a31 << "  " << Mat3.a32 << "  " << Mat3.a33 << " |" << std::endl;
+	std::cout << std::endl;
 
+	//Vector2 newVec = Mat2 * Vec2;
 
+	//std::cout << "(" << newVec.x << "," << newVec.y << ")" << std::endl;
+	Vector3 Vec32(0.0f,0.0f,0.0f);
+	
+	while (true)
+	{
+		system("pause");
+		system("cls");
+		Vec32 = (Mat3.Rotation(rotate)  * Vec3);// *deltaTime;
+		rotate += 0.1f;
 
-	Vector2 newVec = Mat1 * Vec1;
-
-	std::cout << "(" << newVec.x << "," << newVec.y << ")" << std::endl;
-
-
-
-
-
+		std::cout << "Vec 1: (" << Vec32.x << "," << Vec32.y << "," << Vec32.z << ")" << std::endl;
+	}
+/*
 
 	Matrix3 Mat3Test3 = Mat3Test3.Translation(Vec1.x, Vec1.y) * Mat3Test3.Scale(Vec1.x, Vec1.y);
 	std::cout << "Matrix 1 * Matrix 2" << std::endl;
@@ -42,7 +60,7 @@ int main()
 
 
 
-	/*
+	
 
 std::cout << "//-------------------------------------------------------------------------//" << std::endl;
 	std::cout << "//--------//	Vector 3D	//-----------------------------------------------//" << std::endl;

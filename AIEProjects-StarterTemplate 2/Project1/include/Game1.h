@@ -51,6 +51,8 @@ protected:
 
 	bool rotateLeft;
 	bool rotateRight;
+
+	float rotate;
 };
 
 #endif

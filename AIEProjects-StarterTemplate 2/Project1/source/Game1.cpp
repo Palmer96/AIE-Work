@@ -7,10 +7,6 @@
 
 
 
-
-
-//Vector2 PlayerVec;
-
 Game1::Game1(unsigned int windowWidth, unsigned int windowHeight, bool fullscreen, const char *title) : Application(windowWidth, windowHeight, fullscreen, title)
 {
 	m_spritebatch = SpriteBatch::Factory::Create(this, SpriteBatch::GL3);
@@ -36,6 +32,8 @@ Game1::Game1(unsigned int windowWidth, unsigned int windowHeight, bool fullscree
 	rotateLeft = false;
 	rotateRight = false;
 
+	rotate = 0.1f;
+
 }
 
 Game1::~Game1()
@@ -47,13 +45,16 @@ Game1::~Game1()
 void Game1::Update(float deltaTime)
 {
 	Input * InputManager = GetInput();
-	Vector2 playerPos(playerPosx, playerPosy);
+	Vector3 playerPos(playerPosx, playerPosy, playerPosz);
 	Matrix3 Matrix;
 
 	mouseX = InputManager->GetMouseX();
 	mouseY = InputManager->GetMouseY();
 	rotateLeft = false;
 	rotateRight = false;
+
+	playerPos = (Matrix.Rotation(rotate)  * playerPos) * deltaTime;
+	rotate += 0.4f;
 
 	if (InputManager->IsKeyDown(GLFW_KEY_W))
 	{
@@ -72,7 +73,7 @@ void Game1::Update(float deltaTime)
 		//		cannonPosx -= tankSpeed * deltaTime;
 		// will rotate tank with cannon Left
 		rotateLeft = true;
-		playerPos = Matrix.ChangeRotate(playerPosx, playerPosy);
+
 	}
 	if (InputManager->IsKeyDown(GLFW_KEY_D))
 	{
@@ -95,6 +96,12 @@ void Game1::Update(float deltaTime)
 		//Shoot based on cannon rotation
 	}
 
+	if (rotateLeft == true)
+	{
+
+		//playerPos = (Matrix.Rotation(rotate)  * playerPos) * deltaTime;
+		//rotate += 0.4f;
+	}
 
 }
 

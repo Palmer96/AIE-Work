@@ -93,9 +93,12 @@ void Game1::Update(float deltaTime)
 	{
 		if (fall == false)
 		{
-			jump = true;
-			peak = posY - 10.0f;
-			//floor = posY;
+			if (jump == false)
+			{
+				jump = true;
+				peak = posY - 10.0f;
+				//floor = posY;
+			}
 		}
 	}
 	if (InputManager->IsKeyDown(GLFW_KEY_LEFT))
