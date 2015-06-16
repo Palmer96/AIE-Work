@@ -13,8 +13,9 @@ class Player//:public Object
 
 	Vector2 playerPos;
 
-	float x;
-	float y;
+	float playerPosx;
+	float playerPosy;
+	float playerPosz;
 
 
 

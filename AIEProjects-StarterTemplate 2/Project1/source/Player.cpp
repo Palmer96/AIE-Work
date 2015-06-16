@@ -2,25 +2,25 @@
 #include "Player.h"
 
 
-//Player::Player()
+Player::Player()
+{
+	//playerPos.x = 0.0f;
+	//playerPos.y = 0.0f;
+}
+
+//Player::Player(Vector3 playerPos)
 //{
-//	//playerPos.x = 0.0f;
-//	//playerPos.y = 0.0f;
+//	Vector3 playerPos(playerPosx, playerPosy, playerPosz);
+//	Matrix3 Matrix(playerPosx, 0.0f, 0.0f, 0.0f, playerPosy, 0.0f, 0.0f, 0.0f, playerPosz);
 //}
-//
-//Player::Player(Vector2 playerPos)
-//{
-//	playerPos.x = 200.0f;
-//	playerPos.y = 200.0f;
-//}
-//Player::~Player()
-//{
-//
-//}
-//void Player::Move()
-//{
-//
-//}
+Player::~Player()
+{
+
+}
+void Player::Move()
+{
+
+}
 
 
 

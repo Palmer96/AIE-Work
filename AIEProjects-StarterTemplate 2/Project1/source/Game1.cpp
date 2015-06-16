@@ -5,22 +5,31 @@
 #include "Input.h"
 #include "Vectors.h"
 
+#include <iostream>
+
 
 
 Game1::Game1(unsigned int windowWidth, unsigned int windowHeight, bool fullscreen, const char *title) : Application(windowWidth, windowHeight, fullscreen, title)
 {
 	m_spritebatch = SpriteBatch::Factory::Create(this, SpriteBatch::GL3);
 
-	background = new Texture("./Images/Background.png");
+	background = new Texture("./Images/Background3.png");
 	tankTex = new Texture("./Images/Tank_Body.png");
 	cannonTex = new Texture("./Images/Tank_Cannon.png");
 	enemyTex = new Texture("./Images/enemy.png");
-	mouseTex = new Texture("./Images/Mouse.png");
 
-	playerPosx = 300.0f;
+	arrowTex = new Texture("./Images/arrow.png");
+
+playerPosx = 300.0f;
 	playerPosy = 300.0f;
 	playerPosz = 1.0f;
 
+
+	
+	Vector3 playerPos(playerPosx, playerPosy, playerPosz);
+	Matrix3 Matrix(playerPosx, 0.0f, 0.0f, 0.0f, playerPosy, 0.0f, 0.0f, 0.0f, playerPosz);
+
+	
 	cannonPosx = playerPosx;
 	cannonPosy = playerPosy;
 
@@ -32,9 +41,11 @@ Game1::Game1(unsigned int windowWidth, unsigned int windowHeight, bool fullscree
 	rotateLeft = false;
 	rotateRight = false;
 
-	rotate = 0.1f;
+	rotate = 20.0f;
 
 }
+
+
 
 Game1::~Game1()
 {
@@ -45,17 +56,14 @@ Game1::~Game1()
 void Game1::Update(float deltaTime)
 {
 	Input * InputManager = GetInput();
-	Vector3 playerPos(playerPosx, playerPosy, playerPosz);
-	Matrix3 Matrix;
 
-	mouseX = InputManager->GetMouseX();
-	mouseY = InputManager->GetMouseY();
 	rotateLeft = false;
 	rotateRight = false;
 
-	playerPos = (Matrix.Rotation(rotate)  * playerPos) * deltaTime;
-	rotate += 0.4f;
+	//playerPos = (Matrix.Rotation(rotate)  * playerPos) * deltaTime;
+	//rotate += 10.0f;
 
+std::cout << playerPos.x << " " << playerPos.y << " " << playerPos.z << std::endl;
 	if (InputManager->IsKeyDown(GLFW_KEY_W))
 	{
 		playerPosy -= tankSpeed * deltaTime;
@@ -69,11 +77,9 @@ void Game1::Update(float deltaTime)
 	}
 	if (InputManager->IsKeyDown(GLFW_KEY_A))
 	{
-		//		playerPosx -= tankSpeed * deltaTime;
-		//		cannonPosx -= tankSpeed * deltaTime;
-		// will rotate tank with cannon Left
-		rotateLeft = true;
-
+		//rotateLeft = true;
+		playerPos = Matrix.ChangeRotate(playerPos, rotate) * deltaTime;
+		rotate += 10.0f;
 	}
 	if (InputManager->IsKeyDown(GLFW_KEY_D))
 	{
@@ -85,6 +91,7 @@ void Game1::Update(float deltaTime)
 	if (InputManager->IsKeyDown(GLFW_KEY_LEFT))
 	{
 		//Rotate Cannon Left
+		rotateLeft = true;
 	}
 	if (InputManager->IsKeyDown(GLFW_KEY_RIGHT))
 	{
@@ -96,12 +103,9 @@ void Game1::Update(float deltaTime)
 		//Shoot based on cannon rotation
 	}
 
-	if (rotateLeft == true)
-	{
+	std::cout << playerPos.x << " " << playerPos.y << " " << playerPos.z << std::endl;
 
-		//playerPos = (Matrix.Rotation(rotate)  * playerPos) * deltaTime;
-		//rotate += 0.4f;
-	}
+	
 
 }
 
@@ -124,7 +128,7 @@ void Game1::Draw()
 	m_spritebatch->DrawSprite(enemyTex, enemyPosx, enemyPosy, 50.0f, 50.0f);
 
 
-	m_spritebatch->DrawSprite(mouseTex, mouseX, mouseY, 100.0f, 100.0f);
+	m_spritebatch->DrawSprite(arrowTex, arrowPosx, arrowPosy, 25.0f, 200.0f);
 
 	m_spritebatch->End();
 

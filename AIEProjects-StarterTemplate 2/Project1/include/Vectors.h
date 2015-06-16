@@ -153,7 +153,7 @@ public:
 	Matrix3 Translation(Vector3 pos);
 	Matrix3 Rotation(float r);
 	Matrix3 Scale(Vector3 pos);
-	Vector2 ChangeRotate(Vector3 pos);
+	Vector3 ChangeRotate(Vector3 pos, float r);
 
 	float a11;
 	float a12;

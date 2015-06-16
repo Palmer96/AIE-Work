@@ -514,8 +514,8 @@ Matrix3 Matrix3::operator*(Matrix3 m3)const
 Vector3 Matrix3::operator*(Vector3 v3)const
 {
 	Vector3 b((a11 * v3.x) + (a12 * v3.y) + (a13 * v3.z),
-		(a21 * v3.x) + (a22 * v3.y) + (a23 * v3.z),
-		(a31 * v3.x) + (a32 * v3.y) + (a33 * v3.z));
+			  (a21 * v3.x) + (a22 * v3.y) + (a23 * v3.z),
+			  (a31 * v3.x) + (a32 * v3.y) + (a33 * v3.z));
 
 
 	return b;
@@ -541,18 +541,24 @@ Matrix3 Matrix3::Transpose(Matrix3 m3)
 
 Matrix3 Matrix3::Translation(Vector3 pos)
 {
-	Matrix3 translation(1.0f, 0.0f, pos.x,
-						0.0f, 1.0f, pos.y,
-						0.0f, 0.0f, 1.0f);
+	Matrix3 translation(1.0f, 0.0f, 0.0f,
+						1.0f, 1.0f, 0.0f,
+						pos.x, pos.y, 1.0f);
 	return translation;
 }
 Matrix3 Matrix3::Rotation(float r)
 {
-	Matrix3 rotate(cos(r),-sin(r), 0.0f,
-				   sin(r), cos(r), 0.0f,
+	Matrix3 rotate(cos(r), sin(r), 0.0f,
+				  -sin(r), cos(r), 0.0f,
 				     0.0f,  0.0f , 1.0f);
 	return rotate;
 }
+
+Vector3 Matrix3::ChangeRotate(Vector3 pos, float r)
+{
+	return (Rotation(r) * pos);
+}
+
 Matrix3 Matrix3::Scale(Vector3 pos)
 {
 	Matrix3 scale(pos.x, 0.0f, 0.0f,
@@ -561,16 +567,6 @@ Matrix3 Matrix3::Scale(Vector3 pos)
 	return scale;
 }
 
-Vector2 Matrix3::ChangeRotate(Vector3 pos)
-{
-	Vector3 e(pos.x, pos.y, 1);
-	//Matrix3 a(1.0f, 0.0f, x, 
-	//		  0.0f, 1.0f, y, 
-	//		  0.0f, 0.0f, 1.0f);
-	Vector3 b = Rotation(0.7f) * e;
-	Vector2 c(b.x, b.y);
-	return c;
-}
 
 
 

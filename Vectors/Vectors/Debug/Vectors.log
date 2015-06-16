@@ -1,14 +1,47 @@
-﻿Build started 16/06/2015 10:30:27 AM.
-     1>Project "C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\Vectors\Vectors\Vectors.vcxproj" on node 2 (Build target(s)).
+﻿Build started 16/06/2015 4:23:25 PM.
+     1>Project "C:\Users\kayne.palmer\Desktop\Work\trunk\Vectors\Vectors\Vectors.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
-         Source.cpp
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\Vectors\Debug\Vectors.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\Vectors\Debug\Vectors.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\Vectors\Debug\Vectors.lib" /MACHINE:X86 Debug\Source.obj
-         Debug\Vectors.obj
-         Vectors.vcxproj -> C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\Vectors\Debug\Vectors.exe
-     1>Done Building Project "C:\Users\kayne.palmer\Documents\Visual Studio 2013\Projects\_Work\trunk\Vectors\Vectors\Vectors.vcxproj" (Build target(s)).
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Vectors.cpp
+         Vectors.cpp
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(199): error C2511: 'Vector3 Vector3::operator *(const float &) const' : overloaded member function not found in 'Vector3'
+                 c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.h(42) : see declaration of 'Vector3'
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(200): error C2597: illegal reference to non-static member 'Vector3::x'
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(200): error C3867: 'Vector3::x': function call missing argument list; use '&Vector3::x' to create a pointer to member
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(201): error C2597: illegal reference to non-static member 'Vector3::y'
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(201): error C3867: 'Vector3::y': function call missing argument list; use '&Vector3::y' to create a pointer to member
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(202): error C2597: illegal reference to non-static member 'Vector3::z'
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(202): error C3867: 'Vector3::z': function call missing argument list; use '&Vector3::z' to create a pointer to member
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(448): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(525): error C2511: 'Matrix3 Matrix3::operator *(float) const' : overloaded member function not found in 'Matrix3'
+                 c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.h(133) : see declaration of 'Matrix3'
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(526): error C2597: illegal reference to non-static member 'Matrix3::a11'
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(526): error C3867: 'Matrix3::a11': function call missing argument list; use '&Matrix3::a11' to create a pointer to member
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(526): error C2597: illegal reference to non-static member 'Matrix3::a12'
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(526): error C3867: 'Matrix3::a12': function call missing argument list; use '&Matrix3::a12' to create a pointer to member
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(526): error C2597: illegal reference to non-static member 'Matrix3::a13'
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(526): error C3867: 'Matrix3::a13': function call missing argument list; use '&Matrix3::a13' to create a pointer to member
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(527): error C2597: illegal reference to non-static member 'Matrix3::a21'
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(527): error C3867: 'Matrix3::a21': function call missing argument list; use '&Matrix3::a21' to create a pointer to member
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(527): error C2597: illegal reference to non-static member 'Matrix3::a22'
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(527): error C3867: 'Matrix3::a22': function call missing argument list; use '&Matrix3::a22' to create a pointer to member
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(527): error C2597: illegal reference to non-static member 'Matrix3::a23'
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(527): error C3867: 'Matrix3::a23': function call missing argument list; use '&Matrix3::a23' to create a pointer to member
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(528): error C2597: illegal reference to non-static member 'Matrix3::a31'
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(528): error C3867: 'Matrix3::a31': function call missing argument list; use '&Matrix3::a31' to create a pointer to member
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(528): error C2597: illegal reference to non-static member 'Matrix3::a32'
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(528): error C3867: 'Matrix3::a32': function call missing argument list; use '&Matrix3::a32' to create a pointer to member
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(528): error C2597: illegal reference to non-static member 'Matrix3::a33'
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(528): error C3867: 'Matrix3::a33': function call missing argument list; use '&Matrix3::a33' to create a pointer to member
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(543): error C2511: 'Matrix3 Matrix3::Translation(Vector3)' : overloaded member function not found in 'Matrix3'
+                 c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.h(133) : see declaration of 'Matrix3'
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(557): error C2039: 'ChangeRotate' : is not a member of 'Matrix3'
+                 c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.h(133) : see declaration of 'Matrix3'
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(559): error C3861: 'Rotation': identifier not found
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(563): error C2511: 'Matrix3 Matrix3::Scale(Vector3)' : overloaded member function not found in 'Matrix3'
+                 c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.h(133) : see declaration of 'Matrix3'
+     1>c:\users\kayne.palmer\desktop\work\trunk\vectors\vectors\vectors.cpp(672): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>Done Building Project "C:\Users\kayne.palmer\Desktop\Work\trunk\Vectors\Vectors\Vectors.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:00.53
+Time Elapsed 00:00:00.38

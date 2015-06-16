@@ -7,6 +7,10 @@ Description:
 #define GAME1_H
 
 #include "Application.h"
+
+#include "Vectors.h"
+
+
 class SpriteBatch;
 
 class Game1 : public Application
@@ -31,8 +35,7 @@ protected:
 	Texture * cannonTex;
 	Texture * enemyTex;
 
-	Texture * mouseTex;
-
+	Texture * arrowTex;
 
 	float mouseX;
 	float mouseY;
@@ -47,12 +50,20 @@ protected:
 	float enemyPosx;
 	float enemyPosy;
 
+	float arrowPosx;
+	float arrowPosy;
+
+
 	float tankSpeed;
 
 	bool rotateLeft;
 	bool rotateRight;
 
 	float rotate;
+
+	Vector3 playerPos;
+	Matrix3 Matrix;
+
 };
 
 #endif
