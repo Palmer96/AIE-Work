@@ -462,15 +462,15 @@ Matrix2 Matrix2::Scale(float x)
 
 Matrix3::Matrix3()
 {
-	a11 = 1.0f;
-	a12 = 0.0f;
-	a13 = 0.0f;
-	a21 = 0.0f;
-	a22 = 1.0f;
-	a23 = 0.0f;
-	a31 = 0.0f;
-	a32 = 0.0f;
-	a33 = 1.0f;
+	Mat[0][0] = 1.0f;
+	Mat[1][0] = 0.0f;
+	Mat[2][0] = 0.0f;
+	Mat[0][1] = 0.0f;
+	Mat[1][1] = 1.0f;
+	Mat[2][1] = 0.0f;
+	Mat[0][2] = 0.0f;
+	Mat[1][2] = 0.0f;
+	Mat[2][2] = 1.0f;
 }
 Matrix3::Matrix3(float b11, float b12, float b13, float b21, float b22, float b23, float b31, float b32, float b33)
 {
@@ -483,6 +483,17 @@ Matrix3::Matrix3(float b11, float b12, float b13, float b21, float b22, float b2
 	a31 = b31;
 	a32 = b32;
 	a33 = b33;
+
+	Mat[0][0] = b11;
+	Mat[1][0] = b12;
+	Mat[2][0] = b13;
+	Mat[0][1] = b21;
+	Mat[1][1] = b22;
+	Mat[2][1] = b23;
+	Mat[0][2] = b31;
+	Mat[1][2] = b32;
+	Mat[2][2] = b33;
+
 }
 Matrix3::~Matrix3()
 {
@@ -491,25 +502,26 @@ Matrix3::~Matrix3()
 
 Matrix3 Matrix3::operator+(Matrix3 m3)const
 {
-	Matrix3 b((a11 + m3.a11), (a12 + m3.a12), (a13 + m3.a13),
-		(a21 + m3.a21), (a22 + m3.a22), (a23 + m3.a23),
-		(a31 + m3.a31), (a32 + m3.a32), (a33 + m3.a33));
+	Matrix3 b((Mat[0][0] + m3.Mat[0][0]), (Mat[1][0] + m3.Mat[1][0]), (Mat[2][0] + m3.Mat[2][0]),
+			  (Mat[0][1] + m3.Mat[0][1]), (Mat[1][1] + m3.Mat[1][1]), (Mat[2][1] + m3.Mat[2][1]),
+			  (Mat[0][2] + m3.Mat[0][2]), (Mat[1][2] + m3.Mat[1][2]), (Mat[2][2] + m3.Mat[2][2]));
 	return b;
 }
 Matrix3 Matrix3::operator-(Matrix3 m3)const
 {
-	Matrix3 b((a11 - m3.a11), (a12 - m3.a12), (a13 - m3.a13),
-		(a21 - m3.a21), (a22 - m3.a22), (a23 - m3.a23),
-		(a31 - m3.a31), (a32 - m3.a32), (a33 - m3.a33));
+	Matrix3 b((Mat[0][0] - m3.Mat[0][0]), (Mat[1][0] - m3.Mat[1][0]), (Mat[2][0] - m3.Mat[2][0]),
+			  (Mat[0][1] - m3.Mat[0][1]), (Mat[1][1] - m3.Mat[1][1]), (Mat[2][1] - m3.Mat[2][1]),
+			  (Mat[0][2] - m3.Mat[0][2]), (Mat[1][2] - m3.Mat[1][2]), (Mat[2][2] - m3.Mat[2][2]));
 	return b;
 }
 Matrix3 Matrix3::operator*(Matrix3 m3)const
 {
 	Matrix3 b((a11 * m3.a11) + (a12 * m3.a21) + (a13 * m3.a31), (a11 * m3.a12) + (a12 * m3.a22) + (a13 * m3.a32), (a11 * m3.a13) + (a12 * m3.a23) + (a13 * m3.a33),
-		(a21 * m3.a11) + (a22 * m3.a21) + (a23 * m3.a31), (a21 * m3.a12) + (a22 * m3.a22) + (a23 * m3.a32), (a21 * m3.a13) + (a22 * m3.a23) + (a23 * m3.a33),
-		(a31 * m3.a11) + (a32 * m3.a21) + (a33 * m3.a31), (a31 * m3.a12) + (a32 * m3.a22) + (a33 * m3.a32), (a31 * m3.a13) + (a32 * m3.a23) + (a33 * m3.a33));
+			  (a21 * m3.a11) + (a22 * m3.a21) + (a23 * m3.a31), (a21 * m3.a12) + (a22 * m3.a22) + (a23 * m3.a32), (a21 * m3.a13) + (a22 * m3.a23) + (a23 * m3.a33),
+			  (a31 * m3.a11) + (a32 * m3.a21) + (a33 * m3.a31), (a31 * m3.a12) + (a32 * m3.a22) + (a33 * m3.a32), (a31 * m3.a13) + (a32 * m3.a23) + (a33 * m3.a33));
 	return b;
 }
+
 
 Vector3 Matrix3::operator*(Vector3 v3)const
 {
@@ -554,7 +566,7 @@ Matrix3 Matrix3::Rotation(float r)
 	return rotate;
 }
 
-Vector3 Matrix3::ChangeRotate(Vector3 pos, float r)
+Matrix3 Matrix3::ChangeRotate(Matrix3 pos, float r)
 {
 	return (Rotation(r) * pos);
 }
@@ -567,6 +579,21 @@ Matrix3 Matrix3::Scale(Vector3 pos)
 	return scale;
 }
 
+float *Matrix3::GetMatrix()
+{
+	float Matr[3][3];
+	Mat[0][0] = a11;
+	Mat[1][0] = a12;
+	Mat[2][0] = a13;
+	Mat[0][1] = a21;
+	Mat[1][1] = a22;
+	Mat[2][1] = a23;
+	Mat[0][2] = a31;
+	Mat[1][2] = a32;
+	Mat[2][2] = a33;
+   
+	return *Matr;
+}
 
 
 

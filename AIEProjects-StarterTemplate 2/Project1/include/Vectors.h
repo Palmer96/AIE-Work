@@ -142,6 +142,7 @@ public:
 	Matrix3 operator+(Matrix3 m3)const;
 	Matrix3 operator-(Matrix3 m3)const;
 	Matrix3 operator*(Matrix3 m3)const;
+	Matrix3 operator*=(Matrix3 m3)const;
 
 	Vector3 operator*(Vector3 v3)const;
 	Matrix3 operator*(float f1)const;
@@ -153,7 +154,11 @@ public:
 	Matrix3 Translation(Vector3 pos);
 	Matrix3 Rotation(float r);
 	Matrix3 Scale(Vector3 pos);
-	Vector3 ChangeRotate(Vector3 pos, float r);
+	Matrix3 ChangeRotate(Matrix3 pos, float r);
+
+	float* GetMatrix();
+
+	float Mat[3][3];
 
 	float a11;
 	float a12;

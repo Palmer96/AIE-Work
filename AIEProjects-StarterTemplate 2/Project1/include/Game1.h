@@ -40,16 +40,7 @@ protected:
 	float mouseX;
 	float mouseY;
 
-	float playerPosx;
-	float playerPosy;
-	float playerPosz;
-
-	float cannonPosx;
-	float cannonPosy;
-
-	float enemyPosx;
-	float enemyPosy;
-
+	
 	float arrowPosx;
 	float arrowPosy;
 
@@ -62,6 +53,8 @@ protected:
 	float rotate;
 
 	Vector3 playerPos;
+Vector3 cannonPos;
+	Vector3 enemyPos;
 	Matrix3 Matrix;
 
 };

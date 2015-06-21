@@ -20,21 +20,12 @@ Game1::Game1(unsigned int windowWidth, unsigned int windowHeight, bool fullscree
 
 	arrowTex = new Texture("./Images/arrow.png");
 
-playerPosx = 300.0f;
-	playerPosy = 300.0f;
-	playerPosz = 1.0f;
 
+	Vector3 playerPos(300.0f, 300.0f, 1.0f);
+	Matrix3 Matrix(1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, playerPos.x, playerPos.y, 1.0f);
 
-	
-	Vector3 playerPos(playerPosx, playerPosy, playerPosz);
-	Matrix3 Matrix(playerPosx, 0.0f, 0.0f, 0.0f, playerPosy, 0.0f, 0.0f, 0.0f, playerPosz);
-
-	
-	cannonPosx = playerPosx;
-	cannonPosy = playerPosy;
-
-	enemyPosx = 200.0f;
-	enemyPosy = 200.0f;
+	Vector3 enemyPos(playerPos.x, playerPos.y, playerPos.z);
+	Vector3 cannonPos(200.0f, 200.0f, 1.0f);
 
 	tankSpeed = 100.0f;
 
@@ -66,25 +57,26 @@ void Game1::Update(float deltaTime)
 std::cout << playerPos.x << " " << playerPos.y << " " << playerPos.z << std::endl;
 	if (InputManager->IsKeyDown(GLFW_KEY_W))
 	{
-		playerPosy -= tankSpeed * deltaTime;
-		cannonPosy -= tankSpeed * deltaTime;
+		playerPos.y -= tankSpeed * deltaTime;
+		cannonPos.y -= tankSpeed * deltaTime;
 	}
 
 	if (InputManager->IsKeyDown(GLFW_KEY_S))
 	{
-		playerPosy += tankSpeed * deltaTime;
-		cannonPosy += tankSpeed * deltaTime;
+		playerPos.y += tankSpeed * deltaTime;
+		cannonPos.y += tankSpeed * deltaTime;
 	}
 	if (InputManager->IsKeyDown(GLFW_KEY_A))
 	{
-		//rotateLeft = true;
-		playerPos = Matrix.ChangeRotate(playerPos, rotate) * deltaTime;
+		//Matrix = 
+		Matrix = Matrix.ChangeRotate(Matrix,rotate);
+		//Matrix.ChangeRotate(playerPos, rotate);// *deltaTime;
 		rotate += 10.0f;
 	}
 	if (InputManager->IsKeyDown(GLFW_KEY_D))
 	{
-		playerPosx += tankSpeed * deltaTime;
-		cannonPosx += tankSpeed * deltaTime;
+		playerPos.x += tankSpeed * deltaTime;
+		cannonPos.x += tankSpeed * deltaTime;
 		// will rotate tank with cannon Right
 	}
 
@@ -114,18 +106,18 @@ void Game1::Draw()
 	// clear the back buffer
 	ClearScreen();
 	m_spritebatch->Begin();
-	Matrix3 scale;
+	//Matrix3 scale;
 
 	// TODO: draw stuff.
 
 	m_spritebatch->DrawSprite(background, 320, 240, 640, 480);
-	m_spritebatch->DrawSprite(tankTex, playerPosx, playerPosy, 50.0f, 50.0f);
-//	if (rotateLeft == true)
-//	{
-//		m_spritebatch->DrawSpriteTransformed3x3(tankTex, //, 50.0f, 50.0f, playerPosx, playerPosy)
-//	}
-	m_spritebatch->DrawSprite(cannonTex, cannonPosx, cannonPosy, 50.0f, 50.0f);
-	m_spritebatch->DrawSprite(enemyTex, enemyPosx, enemyPosy, 50.0f, 50.0f);
+	//m_spritebatch->DrawSprite(tankTex, playerPosx, playerPosy, 50.0f, 50.0f);
+	//if (rotateLeft == true)
+	//{
+		m_spritebatch->DrawSpriteTransformed3x3(tankTex, Matrix.GetMatrix(), 100.0f, 100.0f, Matrix.a11, Matrix.a22);
+	//}
+	m_spritebatch->DrawSprite(cannonTex, cannonPos.x, cannonPos.y, 50.0f, 50.0f);
+	m_spritebatch->DrawSprite(enemyTex, enemyPos.x, enemyPos.y, 50.0f, 50.0f);
 
 
 	m_spritebatch->DrawSprite(arrowTex, arrowPosx, arrowPosy, 25.0f, 200.0f);
