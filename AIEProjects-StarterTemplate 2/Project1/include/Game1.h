@@ -8,8 +8,8 @@ Description:
 
 #include "Application.h"
 
-#include "Vectors.h"
-
+#include "MathLib.h"
+#include "Object.h"
 
 class SpriteBatch;
 
@@ -46,16 +46,20 @@ protected:
 
 
 	float tankSpeed;
+	Vector3 VTankSpeed;
 
 	bool rotateLeft;
 	bool rotateRight;
 
 	float rotate;
 
+	Object player;
+
 	Vector3 playerPos;
-Vector3 cannonPos;
+	Vector3 cannonPos;
 	Vector3 enemyPos;
-	Matrix3 Matrix;
+	Matrix3 playerMat;
+
 
 };
 

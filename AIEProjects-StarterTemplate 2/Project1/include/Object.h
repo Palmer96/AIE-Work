@@ -1,11 +1,21 @@
 #ifndef _OBJECT_H
 #define _OBJECT_H
 
-#include "Vectors.h"
+#include "MathLib.h"
 
 class Object
 {
+public:
 	Object();
+	Object(Vector3 Vec);
+	void UpdateTransform();
+
+
+	Vector3 coords;
+	Vector2 direction;
+	float fRotation;
+	Matrix3 transform;
+
 	~Object();
 	void Move();
 
