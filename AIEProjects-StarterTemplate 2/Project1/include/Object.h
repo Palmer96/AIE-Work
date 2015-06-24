@@ -16,6 +16,8 @@ public:
 	float fRotation;
 	Matrix3 transform;
 
+	Matrix3 playerMat;
+
 	~Object();
 	void Move();
 

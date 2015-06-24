@@ -17,29 +17,31 @@ Game1::Game1(unsigned int windowWidth, unsigned int windowHeight, bool fullscree
 	tankTex = new Texture("./Images/Tank_Body.png");
 	cannonTex = new Texture("./Images/Tank_Cannon.png");
 	enemyTex = new Texture("./Images/enemy.png");
+	ballTex = new Texture("./Images/arrow.png");
 
-	arrowTex = new Texture("./Images/arrow.png");
 
-	
 	Vector3 playerPos(300.0f, 300.0f, 1.0f);
 
-	 Object player(playerPos);
+	Object player(playerPos);
 	//Matrix3 playerMat(1.0f, 0.0f, playerPos.x,
 	//				  0.0f, 1.0f, playerPos.y,
 	//				  0.0f, 0.0f, 1.0f);
 
 	Matrix3 playerMat(1.0f, 0.0f, 0.0f,
-			          0.0f, 1.0f, 0.0f,
-					  playerPos.x, playerPos.y, 1.0f);
+		0.0f, 1.0f, 0.0f,
+		playerPos.x, playerPos.y, 1.0f);
 
 	Vector3 enemyPos(playerPos.x, playerPos.y, 1.0f);
 
 	Vector3 cannonPos(200.0f, 200.0f, 1.0f);
-	Matrix3 cannonMat(1.0f, 0.0f, cannonPos.x,
-					  0.0f, 1.0f, cannonPos.y,
-					  0.0f, 0.0f, 1.0f);
 
-	Vector3 VTankSpeed (10.0f,10.0f, 1.0f);
+	Object cannon(cannonPos);
+
+	Matrix3 cannonMat(1.0f, 0.0f, cannonPos.x,
+		0.0f, 1.0f, cannonPos.y,
+		0.0f, 0.0f, 1.0f);
+
+	Vector3 VTankSpeed(10.0f, 10.0f, 1.0f);
 	tankSpeed = 100.0f;
 
 	rotateLeft = false;
@@ -47,6 +49,18 @@ Game1::Game1(unsigned int windowWidth, unsigned int windowHeight, bool fullscree
 
 	rotate = 20.0f;
 
+	Vector3 directionT(playerPos.x, playerPos.y + 20.0f, 1.0f);
+	Matrix3 directionTMat(1.0f, 0.0f, 0.0f,
+					  0.0f, 1.0f, 0.0f,
+					  playerPos.x, playerPos.y, 1.0f);
+
+	Vector3 directionC(playerPos.x, playerPos.y + 20.0f, 1.0f);
+	Vector2 line(100.0f, 100.0f);
+	shoot = false;
+
+
+	Vector2 ballPos(100.0f, 100.0f);
+	Vector2 ballVel(10.0f, 10.0f);
 }
 
 
@@ -64,44 +78,62 @@ void Game1::Update(float deltaTime)
 	std::cout << playerPos.x << " " << playerPos.y << " " << std::endl;
 	if (InputManager->IsKeyDown(GLFW_KEY_W))
 	{
-		playerPos.y -= tankSpeed * deltaTime;
-		cannonPos.y -= tankSpeed * deltaTime;
+		//--------Move Foward
 
-		playerMat = playerMat * playerMat.Translation(VTankSpeed * deltaTime);
+		//playerMat = player.playerMat.Translation(VTankSpeed * deltaTime) *playerMat;
+
+		//playerPos = playerMat.Translation(playerPos) * direction;
+		playerMat = playerMat * playerMat.Transpose(playerMat.Translation(playerPos));
 	}
 
 	if (InputManager->IsKeyDown(GLFW_KEY_S))
 	{
-		playerPos.y += tankSpeed * deltaTime;
-		cannonPos.y += tankSpeed * deltaTime;
+		//--------Move Back
+
 	}
 	if (InputManager->IsKeyDown(GLFW_KEY_A))
 	{
-		playerMat = playerMat.ChangeRotation(playerMat, 1*deltaTime);
-		//rotate += 10.0f;
+		//--------Rotate Tank and Cannon Left
+		player.playerMat = player.playerMat.ChangeRotation(player.playerMat, 1 * deltaTime);
+		cannonMat = cannonMat.ChangeRotation(cannonMat, 1 * deltaTime);
+	//	directionTMat = player.playerMat.ChangeRotation(player.playerMat, 1 * deltaTime);
 	}
 	if (InputManager->IsKeyDown(GLFW_KEY_D))
 	{
-		playerPos.x += tankSpeed * deltaTime;
-		cannonPos.x += tankSpeed * deltaTime;
-		// will rotate tank with cannon Right
+		//--------Rotate Tank and Cannon Right
+		player.playerMat = player.playerMat.ChangeRotation(player.playerMat, -1 * deltaTime);
+		cannonMat = cannonMat.ChangeRotation(cannonMat, -1 * deltaTime);
+	//	directionTMat = player.playerMat.ChangeRotation(player.playerMat, -1 * deltaTime);
 	}
 
 	if (InputManager->IsKeyDown(GLFW_KEY_LEFT))
 	{
-		//Rotate Cannon Left
+		//--------Rotate Cannon Left
+		cannonMat = cannonMat.ChangeRotation(cannonMat, 1.5f * deltaTime);
 	}
 	if (InputManager->IsKeyDown(GLFW_KEY_RIGHT))
 	{
-		//Rotate Cannon Right
+		//--------Rotate Cannon Right
+		cannonMat = cannonMat.ChangeRotation(cannonMat, -1.5f * deltaTime);
 	}
 
-	if (InputManager->IsKeyDown(GLFW_KEY_SPACE))
+	if (InputManager->WasKeyPressed(GLFW_KEY_SPACE))
 	{
-		//Shoot based on cannon rotation
+		//--------Shoot based on cannon rotation
+		shoot = true;
+		line.x += 10.0f * deltaTime;
 	}
 
-	std::cout << playerPos.x << " " << playerPos.y << " " << std::endl;
+	if (shoot == true)
+	{
+		line.x += 10.0f * deltaTime;
+	}
+
+	//ballPos += (ballPos.VecFlo(ballVel, deltaTime));
+	ballPos = ballPos + ballVel;
+
+
+	std::cout << ballPos.x << " " << ballPos.y << " " << std::endl;
 
 	/*
 	//--------player-Movement--------//
@@ -114,18 +146,18 @@ void Game1::Update(float deltaTime)
 
 	//--------Enemy-------//
 	//spawn around edge
-	
-	// if player x > enemy x 
+
+	// if player x > enemy x
 	// then enemy x increase
 	// else x decrease
 
-	// if player y > enemy y 
+	// if player y > enemy y
 	// then enemy y increase
 	// else enemy decrease
 	*/
 
 	player.UpdateTransform();
-
+	cannon.UpdateTransform();
 }
 
 void Game1::Draw()
@@ -133,18 +165,25 @@ void Game1::Draw()
 	// clear the back buffer
 	ClearScreen();
 	m_spritebatch->Begin();
-	//Matrix3 scale;
+
 
 	// TODO: draw stuff.
 
 	//m_spritebatch->DrawSprite(background, 320, 240, 640, 480);
-	m_spritebatch->DrawSpriteTransformed3x3(tankTex, playerMat.GetMatrix(), 100.0f, 100.0f/*, playerMat.a11, playerMat.a22*/);
+	m_spritebatch->DrawSpriteTransformed3x3(tankTex, player.playerMat.GetMatrix(), 100.0f, 100.0f);
+	m_spritebatch->DrawSpriteTransformed3x3(cannonTex, cannonMat.GetMatrix(), 100.0f, 100.0f);
 
-	m_spritebatch->DrawSprite(cannonTex, cannonPos.x, cannonPos.y, 50.0f, 50.0f);
+	m_spritebatch->DrawSpriteTransformed3x3(ballTex, player.playerMat.GetMatrix(), 20.0f, 10.0f, 0.5, 8);
+	m_spritebatch->DrawSpriteTransformed3x3(ballTex, cannonMat.GetMatrix(), 20.0f, 10.0f, 0.5, 9);
+
+
+	//	m_spritebatch->DrawLine(line.x, line.y, line.x+100.0f, line.y, 5.0f);
+
+	//m_spritebatch->DrawSprite(ballTex, ballPos.x, ballPos.y, 50.0f, 50.0f);
+
+	//m_spritebatch->DrawSpriteTransformed3x3(tankTex, player.playerMat.GetMatrix(), 200.0f, 200.0f, 100.0f, 100.0f);
+
 	//m_spritebatch->DrawSprite(enemyTex, enemyPos.x, enemyPos.y, 50.0f, 50.0f);
-
-
-	//m_spritebatch->DrawSprite(arrowTex, arrowPosx, arrowPosy, 25.0f, 200.0f);
 
 	m_spritebatch->End();
 

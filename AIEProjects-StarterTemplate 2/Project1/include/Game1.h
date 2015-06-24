@@ -26,7 +26,6 @@ public:
 	// update / draw called each frame automaticly
 	virtual void Update(float deltaTime);
 	virtual void Draw();
-
 protected:
 
 	SpriteBatch *m_spritebatch;
@@ -34,15 +33,7 @@ protected:
 	Texture * tankTex;
 	Texture * cannonTex;
 	Texture * enemyTex;
-
-	Texture * arrowTex;
-
-	float mouseX;
-	float mouseY;
-
-	
-	float arrowPosx;
-	float arrowPosy;
+	Texture * ballTex;
 
 
 	float tankSpeed;
@@ -54,13 +45,24 @@ protected:
 	float rotate;
 
 	Object player;
+	Object cannon;
 
 	Vector3 playerPos;
 	Vector3 cannonPos;
 	Vector3 enemyPos;
 	Matrix3 playerMat;
+	Matrix3 cannonMat;
+	Vector3 directionT;
+	Matrix3 directionTMat;
+	Vector3 directionC;
+
+	Vector2 line;
+	Vector2 ballPos;
+	Vector2 ballVel;
 
 
+
+	bool shoot;
 };
 
 #endif
