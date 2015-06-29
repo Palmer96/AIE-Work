@@ -553,9 +553,9 @@ Matrix3 Matrix3::Transpose(Matrix3 m3)
 
 Matrix3 Matrix3::Translation(Vector3 pos)
 {
-	Matrix3 translation(1.0f, 0.0f, pos.x,
-						1.0f, 1.0f, pos.y,
-						0.0f, 0.0f, 1.0f);
+	Matrix3 translation(1.0f, 0.0f, 0.0f,
+						1.0f, 1.0f, 0.0f,
+						pos.x, pos.y, 1.0f);
 	return translation;
 }
 Matrix3 Matrix3::Rotation(float r)

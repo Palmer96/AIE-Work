@@ -20,6 +20,7 @@ Game1::Game1(unsigned int windowWidth, unsigned int windowHeight, bool fullscree
 	ballTex = new Texture("./Images/arrow.png");
 
 
+	//Vector3 playerPos(300.0f, 300.0f, 1.0f);
 	Vector3 playerPos(300.0f, 300.0f, 1.0f);
 
 	Object player(playerPos);
@@ -69,6 +70,7 @@ Game1::Game1(unsigned int windowWidth, unsigned int windowHeight, bool fullscree
 
 	Matrix3 MatTranslation = MatTranslation.Translation(playerPos);
 	Matrix3 MatRotate = MatTranslation.Rotation(0);
+	Matrix3 CanMatRotate = MatTranslation.Rotation(0);
 	Matrix3 MatScale = MatTranslation.Scale(playerPos);
 	i = 15;
 	enemyTotal = 0;
@@ -92,42 +94,41 @@ void Game1::Update(float deltaTime)
 	{
 		//--------Move Foward
 
-		//playerPos.x += 10.0f;
-		playerPos *= directionT;
+		playerPos.y -= 10.0f;
+		cannonPos.y -= 10.0f;
+		//playerPos *= directionT;
 		//MatTranslation = playerMat.Translation(playerPos) * directionTMat;
 	}
 
 	if (InputManager->IsKeyDown(GLFW_KEY_S))
 	{
 		//--------Move Back
+		playerPos.y += 10.0f;
+		cannonPos.y += 10.0f;
 
 	}
 	if (InputManager->IsKeyDown(GLFW_KEY_A))
 	{
 		//--------Rotate Tank and Cannon Left
 		MatRotate = MatRotate * playerMat.Rotation(1 * deltaTime);
-		//	player.playerMat = player.playerMat.ChangeRotation(player.playerMat, 1 * deltaTime);
-		cannonMat = cannonMat.ChangeRotation(cannonMat, 1 * deltaTime);
-		//	directionTMat = player.playerMat.ChangeRotation(player.playerMat, 1 * deltaTime);
+		CanMatRotate = CanMatRotate * cannonMat.Rotation(1 * deltaTime);
 	}
 	if (InputManager->IsKeyDown(GLFW_KEY_D))
 	{
 		//--------Rotate Tank and Cannon Right
 		MatRotate = MatRotate * playerMat.Rotation(-1 * deltaTime);
-		//player.playerMat = player.playerMat.ChangeRotation(player.playerMat, -1 * deltaTime);
-		cannonMat = cannonMat.ChangeRotation(cannonMat, -1 * deltaTime);
-		//	directionTMat = player.playerMat.ChangeRotation(player.playerMat, -1 * deltaTime);
+		CanMatRotate = CanMatRotate * cannonMat.Rotation(-1 * deltaTime);
 	}
 
 	if (InputManager->IsKeyDown(GLFW_KEY_LEFT))
 	{
 		//--------Rotate Cannon Left
-		cannonMat = cannonMat.ChangeRotation(cannonMat, 1.5f * deltaTime);
+		CanMatRotate = CanMatRotate * cannonMat.Rotation(1.5 * deltaTime);
 	}
 	if (InputManager->IsKeyDown(GLFW_KEY_RIGHT))
 	{
 		//--------Rotate Cannon Right
-		cannonMat = cannonMat.ChangeRotation(cannonMat, -1.5f * deltaTime);
+		CanMatRotate = CanMatRotate * cannonMat.Rotation(-1.5 * deltaTime);
 	}
 
 	if (InputManager->WasKeyPressed(GLFW_KEY_SPACE))
@@ -145,15 +146,12 @@ void Game1::Update(float deltaTime)
 	//ballPos += (ballPos.VecFlo(ballVel, deltaTime));
 	ballPos = ballPos + ballVel;
 
-
-	std::cout << ballPos.x << " " << ballPos.y << " " << std::endl;
-
-	i++;
-	if (i = 100)
-	{
-		i = 0;
-		enemyTotal++;
-	}
+	//		i++;
+	//		if (i = 100)
+	//		{
+	//			i = 0;
+	//			enemyTotal++;
+	//		}
 //	enemy[j].y += 10.0f;
 	/*
 	//--------player-Movement--------//
@@ -176,12 +174,11 @@ void Game1::Update(float deltaTime)
 	// else enemy decrease
 	*/
 
-	MatTranslation = playerMat.Translation(playerPos);
+	
 
 
-	playerMat = MatTranslation *  MatRotate * MatScale;
-	//	player.UpdateTransform();
-	cannon.UpdateTransform();
+	playerMat = playerMat.Translation(playerPos) *  MatRotate * MatScale;
+	cannonMat = cannonMat.Translation(cannonPos) *  CanMatRotate * MatScale;
 }
 
 void Game1::Draw()
@@ -192,20 +189,18 @@ void Game1::Draw()
 
 
 	// TODO: draw stuff.
-
-	//m_spritebatch->DrawSprite(background, 320, 240, 640, 480);
 	m_spritebatch->DrawSpriteTransformed3x3(tankTex, playerMat.GetMatrix(), 100.0f, 100.0f);
 	m_spritebatch->DrawSpriteTransformed3x3(cannonTex, cannonMat.GetMatrix(), 100.0f, 100.0f);
 
 	m_spritebatch->DrawSpriteTransformed3x3(ballTex, player.playerMat.GetMatrix(), 20.0f, 10.0f, 0.5, 8);
 	m_spritebatch->DrawSpriteTransformed3x3(ballTex, cannonMat.GetMatrix(), 20.0f, 10.0f, 0.5, 9);
 
-	while (j <= enemyTotal)
-	{
-		m_spritebatch->DrawSprite(cannonTex, enemy[j].x, enemy[j].y, 75.0f, 75.0f);
-		j++;
-	}
-	j = 0;
+	//while (j <= enemyTotal)
+	//{
+	//	m_spritebatch->DrawSprite(cannonTex, enemy[j].x, enemy[j].y, 75.0f, 75.0f);
+	//	j++;
+	//}
+	//j = 0;
 
 
 	m_spritebatch->End();

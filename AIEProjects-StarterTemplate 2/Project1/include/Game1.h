@@ -65,12 +65,13 @@ protected:
 	Matrix3 MatRotate;
 	Matrix3 MatScale;
 
+	Matrix3 CanMatRotate;
 	bool shoot;
 
 	int i;
 	int j;
 	int enemyTotal;
-	Vector2 enemy[40];
+	//Vector2 enemy[40];
 };
 
 #endif
