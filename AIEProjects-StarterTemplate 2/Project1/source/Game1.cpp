@@ -51,8 +51,13 @@ Game1::Game1(unsigned int windowWidth, unsigned int windowHeight, bool fullscree
 
 	Vector3 directionT(playerPos.x, playerPos.y + 20.0f, 1.0f);
 	Matrix3 directionTMat(1.0f, 0.0f, 0.0f,
-					  0.0f, 1.0f, 0.0f,
-					  playerPos.x, playerPos.y, 1.0f);
+						  0.0f, 1.0f, 0.0f,
+						playerPos.x, playerPos.y, 1.0f);
+
+	//Matrix3 directionTMat(1.0f, 0.0f, playerPos.x,
+	//					  0.0f, 1.0f, playerPos.y,
+	//					  0.0f, 0.0f, 1.0f);
+
 
 	Vector3 directionC(playerPos.x, playerPos.y + 20.0f, 1.0f);
 	Vector2 line(100.0f, 100.0f);
@@ -61,6 +66,13 @@ Game1::Game1(unsigned int windowWidth, unsigned int windowHeight, bool fullscree
 
 	Vector2 ballPos(100.0f, 100.0f);
 	Vector2 ballVel(10.0f, 10.0f);
+
+	Matrix3 MatTranslation = MatTranslation.Translation(playerPos);
+	Matrix3 MatRotate = MatTranslation.Rotation(0);
+	Matrix3 MatScale = MatTranslation.Scale(playerPos);
+	i = 15;
+	enemyTotal = 0;
+	Vector2 enemy(300.0f, 300.0f);
 }
 
 
@@ -80,10 +92,9 @@ void Game1::Update(float deltaTime)
 	{
 		//--------Move Foward
 
-		//playerMat = player.playerMat.Translation(VTankSpeed * deltaTime) *playerMat;
-
-		//playerPos = playerMat.Translation(playerPos) * direction;
-		playerMat = playerMat * playerMat.Transpose(playerMat.Translation(playerPos));
+		//playerPos.x += 10.0f;
+		playerPos *= directionT;
+		//MatTranslation = playerMat.Translation(playerPos) * directionTMat;
 	}
 
 	if (InputManager->IsKeyDown(GLFW_KEY_S))
@@ -94,16 +105,18 @@ void Game1::Update(float deltaTime)
 	if (InputManager->IsKeyDown(GLFW_KEY_A))
 	{
 		//--------Rotate Tank and Cannon Left
-		player.playerMat = player.playerMat.ChangeRotation(player.playerMat, 1 * deltaTime);
+		MatRotate = MatRotate * playerMat.Rotation(1 * deltaTime);
+		//	player.playerMat = player.playerMat.ChangeRotation(player.playerMat, 1 * deltaTime);
 		cannonMat = cannonMat.ChangeRotation(cannonMat, 1 * deltaTime);
-	//	directionTMat = player.playerMat.ChangeRotation(player.playerMat, 1 * deltaTime);
+		//	directionTMat = player.playerMat.ChangeRotation(player.playerMat, 1 * deltaTime);
 	}
 	if (InputManager->IsKeyDown(GLFW_KEY_D))
 	{
 		//--------Rotate Tank and Cannon Right
-		player.playerMat = player.playerMat.ChangeRotation(player.playerMat, -1 * deltaTime);
+		MatRotate = MatRotate * playerMat.Rotation(-1 * deltaTime);
+		//player.playerMat = player.playerMat.ChangeRotation(player.playerMat, -1 * deltaTime);
 		cannonMat = cannonMat.ChangeRotation(cannonMat, -1 * deltaTime);
-	//	directionTMat = player.playerMat.ChangeRotation(player.playerMat, -1 * deltaTime);
+		//	directionTMat = player.playerMat.ChangeRotation(player.playerMat, -1 * deltaTime);
 	}
 
 	if (InputManager->IsKeyDown(GLFW_KEY_LEFT))
@@ -135,6 +148,13 @@ void Game1::Update(float deltaTime)
 
 	std::cout << ballPos.x << " " << ballPos.y << " " << std::endl;
 
+	i++;
+	if (i = 100)
+	{
+		i = 0;
+		enemyTotal++;
+	}
+//	enemy[j].y += 10.0f;
 	/*
 	//--------player-Movement--------//
 	// W/A = foward/back
@@ -156,7 +176,11 @@ void Game1::Update(float deltaTime)
 	// else enemy decrease
 	*/
 
-	player.UpdateTransform();
+	MatTranslation = playerMat.Translation(playerPos);
+
+
+	playerMat = MatTranslation *  MatRotate * MatScale;
+	//	player.UpdateTransform();
 	cannon.UpdateTransform();
 }
 
@@ -170,20 +194,19 @@ void Game1::Draw()
 	// TODO: draw stuff.
 
 	//m_spritebatch->DrawSprite(background, 320, 240, 640, 480);
-	m_spritebatch->DrawSpriteTransformed3x3(tankTex, player.playerMat.GetMatrix(), 100.0f, 100.0f);
+	m_spritebatch->DrawSpriteTransformed3x3(tankTex, playerMat.GetMatrix(), 100.0f, 100.0f);
 	m_spritebatch->DrawSpriteTransformed3x3(cannonTex, cannonMat.GetMatrix(), 100.0f, 100.0f);
 
 	m_spritebatch->DrawSpriteTransformed3x3(ballTex, player.playerMat.GetMatrix(), 20.0f, 10.0f, 0.5, 8);
 	m_spritebatch->DrawSpriteTransformed3x3(ballTex, cannonMat.GetMatrix(), 20.0f, 10.0f, 0.5, 9);
 
+	while (j <= enemyTotal)
+	{
+		m_spritebatch->DrawSprite(cannonTex, enemy[j].x, enemy[j].y, 75.0f, 75.0f);
+		j++;
+	}
+	j = 0;
 
-	//	m_spritebatch->DrawLine(line.x, line.y, line.x+100.0f, line.y, 5.0f);
-
-	//m_spritebatch->DrawSprite(ballTex, ballPos.x, ballPos.y, 50.0f, 50.0f);
-
-	//m_spritebatch->DrawSpriteTransformed3x3(tankTex, player.playerMat.GetMatrix(), 200.0f, 200.0f, 100.0f, 100.0f);
-
-	//m_spritebatch->DrawSprite(enemyTex, enemyPos.x, enemyPos.y, 50.0f, 50.0f);
 
 	m_spritebatch->End();
 

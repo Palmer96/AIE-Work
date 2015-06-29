@@ -61,8 +61,16 @@ protected:
 	Vector2 ballVel;
 
 
+	Matrix3 MatTranslation;
+	Matrix3 MatRotate;
+	Matrix3 MatScale;
 
 	bool shoot;
+
+	int i;
+	int j;
+	int enemyTotal;
+	Vector2 enemy[40];
 };
 
 #endif
