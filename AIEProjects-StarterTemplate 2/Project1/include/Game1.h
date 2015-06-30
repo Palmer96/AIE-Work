@@ -59,7 +59,7 @@ protected:
 	Vector3 directionC;
 
 	Vector2 line;
-	Vector2 ballPos;
+	Vector3 ballPos;
 	Vector2 ballVel;
 
 

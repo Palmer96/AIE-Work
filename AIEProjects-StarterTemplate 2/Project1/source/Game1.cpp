@@ -43,7 +43,7 @@ Game1::Game1(unsigned int windowWidth, unsigned int windowHeight, bool fullscree
 	Vector2 line(100.0f, 100.0f);
 	shoot = false;
 
-	Vector2 ballPos(300.0f, 300.0f);
+	Vector3 ballPos(300.0f, 300.0f, 1.0f);
 	Vector2 ballVel(10.0f, 10.0f);
 
 	Matrix3 MatTranslation = MatTranslation.Translation(playerPos);
@@ -133,13 +133,21 @@ void Game1::Update(float deltaTime)
 	{
 		//--------Shoot based on cannon rotation
 		shoot = true;
-		line.x += 10.0f * deltaTime;
+		//line.x += 10.0f * deltaTime;
 	}
 
 	if (shoot == true)
 	{
 		line.x += 10.0f * deltaTime;
+		i++;
+		ballPos -= upVec * 50.0f * deltaTime;
 	}
+
+	//if (i = 15)
+	//{
+	//	i = 0;
+	//	shoot = false;
+	//}
 
 	//ballPos.x += ballVel.x * deltaTime;
 			//ballPos *=  ballVel;
