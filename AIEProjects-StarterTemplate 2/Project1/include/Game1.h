@@ -42,8 +42,10 @@ protected:
 	bool rotateLeft;
 	bool rotateRight;
 
-	float rotate;
+	float Trotate;
+	float Crotate;
 
+	Vector3 scale;
 	Object player;
 	Object cannon;
 

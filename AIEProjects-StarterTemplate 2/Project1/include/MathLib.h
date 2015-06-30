@@ -30,8 +30,7 @@ public:
 	Vector2 operator*(const Vector2& v2)const;
 	Vector2& operator*=(const Vector2& v2);
 
-
-
+	Vector2 operator*(float rhs) const;
 
 	float x;
 	float y;
@@ -62,8 +61,8 @@ public:
 
 	float Dot(Vector3 a_1, Vector3 a_2, Vector3 a_z);
 	Vector3 Cross(Vector3 a_1, Vector3 a_2, Vector3 a_z);
-	float Magnitude(Vector3 a);
-	Vector3 Normalised(Vector3 a, float magnitude);
+	float Magnitude();
+	Vector3 Normalised();
 
 	float x;
 	float y;

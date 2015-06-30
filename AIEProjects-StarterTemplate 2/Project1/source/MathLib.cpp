@@ -218,30 +218,28 @@ float Vector3::FloVec(Vector3 a, float Float)
 }
 
 
-float Dot(Vector3 a_1, Vector3 a_2, Vector3 a_z)
+float Vector3::Dot(Vector3 a_1, Vector3 a_2, Vector3 a_z)
 {
 	float dot = (a_1.x*a_2.x) + (a_1.y*a_2.y) + (a_1.z*a_2.z);
 	return dot;
 }
-Vector3 Cross(Vector3 a_1, Vector3 a_2, Vector3 a_z)
+Vector3 Vector3::Cross(Vector3 a_1, Vector3 a_2, Vector3 a_z)
 {
 	Vector3 cross((a_1.y*a_2.z) - (a_1.z*a_2.y), (a_1.z*a_2.x) - (a_1.x*a_2.z), (a_1.x*a_2.y) - (a_1.y*a_2.x));
 	return cross;
 }
-float Magnitude(Vector3 a)
+float Vector3::Magnitude()
 {
-	float x = a.x * a.x;
-	float y = a.y * a.y;
-	float z = a.z * a.z;
-	return sqrt(x + y + z);
+	return sqrt(x*x + y*y + z*z);
 }
-Vector3 Normalised(Vector3 a, float magnitude)
+Vector3 Vector3::Normalised()
 {
-	a.x /= magnitude;
-	a.y /= magnitude;
-	a.z /= magnitude;
+	float magnitude = Magnitude();
+	x /= magnitude;
+	y /= magnitude;
+	z /= magnitude;
 
-	return a;
+	return *this;
 }
 
 
@@ -367,6 +365,11 @@ Vector4 Normalised(Vector4 a, float magnitude)
 	a.q /= magnitude;
 
 	return a;
+}
+
+Vector2 Vector2::operator*(float rhs) const
+{
+	return Vector2(x*rhs, y*rhs);
 }
 
 //-------------------------------------------------------------------------//
@@ -553,9 +556,9 @@ Matrix3 Matrix3::Transpose(Matrix3 m3)
 
 Matrix3 Matrix3::Translation(Vector3 pos)
 {
-	Matrix3 translation(1.0f, 0.0f, 0.0f,
-						1.0f, 1.0f, 0.0f,
-						pos.x, pos.y, 1.0f);
+	Matrix3 translation(1.0f, 0.0f, pos.x,
+						0.0f, 1.0f, pos.y,
+						0.0f, 0.0f, 1.0f);
 	return translation;
 }
 Matrix3 Matrix3::Rotation(float r)
