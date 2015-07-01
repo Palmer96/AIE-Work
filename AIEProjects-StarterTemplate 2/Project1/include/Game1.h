@@ -34,7 +34,7 @@ protected:
 	Texture * cannonTex;
 	Texture * enemyTex;
 	Texture * ballTex;
-
+	Texture * deadTex;
 
 	float tankSpeed;
 	Vector3 VTankSpeed;
@@ -60,7 +60,7 @@ protected:
 
 	Vector2 line;
 	Vector3 ballPos;
-	Vector2 ballVel;
+	Vector3 ballVel;
 
 
 	Matrix3 MatTranslation;
@@ -74,6 +74,9 @@ protected:
 	int j;
 	int enemyTotal;
 	//Vector2 enemy[40];
+
+	bool bAlive;
+	float Vel;
 };
 
 #endif

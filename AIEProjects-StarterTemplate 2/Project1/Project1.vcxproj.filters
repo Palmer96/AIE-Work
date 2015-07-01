@@ -24,18 +24,12 @@
     <ClCompile Include="source\Object.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\MathLib.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Game1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Object.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\MathLib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

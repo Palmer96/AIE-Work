@@ -202,7 +202,7 @@ void Game1::Update(float deltaTime)
 
 	}
 
-
+	
 
 	// collision
 
