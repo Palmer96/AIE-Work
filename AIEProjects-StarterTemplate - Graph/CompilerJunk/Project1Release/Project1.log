@@ -1,0 +1,23 @@
+﻿Build started 13/07/2015 4:44:38 PM.
+     1>Project "C:\Users\kayne.palmer\Desktop\AIEProjects-StarterTemplate\Project1\Project1.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\kayne.palmer\Desktop\AIEProjects-StarterTemplate\AIE_GL\include\\" /I"C:\Users\kayne.palmer\Desktop\AIEProjects-StarterTemplate\libraries\glfw3\include\GLFW\\" /I"C:\Users\kayne.palmer\Desktop\AIEProjects-StarterTemplate\libraries\glew\include\\" /I"C:\Users\kayne.palmer\Desktop\AIEProjects-StarterTemplate\Project1\include\\" /I"C:\Users\kayne.palmer\Desktop\AIEProjects-StarterTemplate\libraries\glm\\" /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\kayne.palmer\Desktop\AIEProjects-StarterTemplate\CompilerJunk\Project1Release\\" /Fd"C:\Users\kayne.palmer\Desktop\AIEProjects-StarterTemplate\CompilerJunk\Project1Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Graph.cpp MathLib.cpp main.cpp source\Game1.cpp
+         Graph.cpp
+     1>c:\users\kayne.palmer\desktop\aieprojects-startertemplate\project1\Graph.h(20): warning C4099: 'Edge' : type name first seen using 'struct' now seen using 'class'
+                 c:\users\kayne.palmer\desktop\aieprojects-startertemplate\project1\Graph.h(6) : see declaration of 'Edge'
+     1>Graph.cpp(27): error C2065: 'start' : undeclared identifier
+     1>Graph.cpp(28): error C2065: 'end' : undeclared identifier
+     1>Graph.cpp(29): error C2065: 'cost' : undeclared identifier
+         MathLib.cpp
+     1>MathLib.cpp(451): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>MathLib.cpp(691): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+         main.cpp
+     1>c:\users\kayne.palmer\desktop\aieprojects-startertemplate\project1\Graph.h(20): warning C4099: 'Edge' : type name first seen using 'struct' now seen using 'class'
+                 c:\users\kayne.palmer\desktop\aieprojects-startertemplate\project1\Graph.h(6) : see declaration of 'Edge'
+         Game1.cpp
+     1>C:\Users\kayne.palmer\Desktop\AIEProjects-StarterTemplate\Project1\include\Game1.h(10): fatal error C1083: Cannot open include file: 'Graph.h': No such file or directory
+     1>Done Building Project "C:\Users\kayne.palmer\Desktop\AIEProjects-StarterTemplate\Project1\Project1.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.76
