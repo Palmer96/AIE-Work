@@ -6,6 +6,7 @@
 
 
 class Edge;
+class Graph;
 
 class Node
 {

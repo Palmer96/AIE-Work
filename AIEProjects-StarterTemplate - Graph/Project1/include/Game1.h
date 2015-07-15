@@ -29,6 +29,7 @@ protected:
 
 	SpriteBatch *m_spritebatch;
 	Graph *pGraph;
+	
 	Texture * NodeTexture;
 
 private:

@@ -1,10 +1,10 @@
 #include "Graph.h"
 #include "MathLib.h"
 
-
 Graph::Graph()
 {
 	Vector2 data;
+	Node* node1 = new Node(Vector2(0.0f, 0.0f));
 }
 
 
@@ -16,10 +16,10 @@ Graph::~Graph()
 
 Node* Graph::AddNode(Vector2 data)
 {
-	Node* node = new Node(data);
+	Node* node = new Node;
 	node->data = data;
-	//nodeArray.push_back(node);
 
+	nodeArray.push_back(node);
 	return node;
 }
 
