@@ -3,8 +3,8 @@
 
 Graph::Graph()
 {
-	Vector2 data;
-	Node* node1 = new Node(Vector2(0.0f, 0.0f));
+	//Vector2 data;
+	//Node* node1 = new Node(Vector2(0.0f, 0.0f));
 }
 
 
@@ -16,17 +16,19 @@ Graph::~Graph()
 
 Node* Graph::AddNode(Vector2 data)
 {
-	Node* node = new Node;
-	node->data = data;
-
+	Node* node = new Node(data);
 	nodeArray.push_back(node);
 	return node;
 }
 
-void Graph::AddEdge(Edge * a_edge)
+void Graph::AddEdge(Node* a_start, Node* a_end, int data)
 {
-	Edge edge = *a_edge;
+	Edge* edge = new Edge(a_start, a_end, data);
+	a_start->AddEdge(edge);// start;
+	a_end->AddEdge(edge);
 
+	//node1->edgeArray.push_back(&edge);
+	//edge.start->edgeArray.push_back(&edge);
 }
 
 Node::Node()
@@ -41,26 +43,24 @@ Node::Node(Vector2 VecData)
 	data = VecData;
 }
 
+void Node::AddEdge(Edge* a_edge)
+{
+	edgeArray.push_back(a_edge);
+}
+
 Edge::Edge()
 {
 
 }
+
 Edge::Edge(Node* a_start, Node* a_end, int a_cost)
 {
-	start = *a_start;
-	end = *a_end;
+	start = a_start;
+	end = a_end;
 	cost = a_cost;
 }
 
-void Node::AddEdge(Node *a_start, Node *a_end, int a_cost)
-{
-	Edge edge(a_start, a_end, a_cost);
-}
 
-void Graph::AddEdge2(Node *a_start, Node *a_end, int a_cost)
-{
-	Edge edge(a_start, a_end, a_cost);
-}
 
 
 

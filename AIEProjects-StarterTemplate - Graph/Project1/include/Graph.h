@@ -14,18 +14,22 @@ public:
 	Node();
 	Node(Vector2 nodePos);
 
+
+	std::vector <Edge*> edgeArray;
 	Vector2 data;
 
-	void AddEdge(Node *a_start, Node *a_end, int a_cost);
+	void AddEdge(Edge* a_edge);
+
 };
 
 class Edge
 {
 public:
 	Edge();
-	Edge(Node *a_start, Node *a_end, int a_cost);
-	Node start;
-	Node end;
+	Edge(Node* a_start, Node* a_end, int a_cost);
+
+	Node* start;
+	Node* end;
 	int cost;
 
 };
@@ -34,17 +38,16 @@ class Graph
 public:
 
 
-	std::vector < Node*> nodeArray;
 
-	std::vector < Edge*> edgeArray;
 
 	Graph();
-	//Graph(Texture* tex);
 	~Graph();
 
+	std::vector < Node*> nodeArray;
+
 	Node* AddNode(Vector2 data);
-	void AddEdge(Edge * a_edge);
-	void AddEdge2(Node *a_start, Node *a_end, int a_cost);
+	void AddEdge(Node* a_start, Node* a_end, int data);
+
 
 	//void Draw(SpriteBatch& m_spritebatch);
 
