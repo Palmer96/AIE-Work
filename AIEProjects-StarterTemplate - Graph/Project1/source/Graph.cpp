@@ -60,7 +60,7 @@ Edge::Edge(Node* a_start, Node* a_end, int a_cost)
 	end = a_end;
 	cost = a_cost;
 
-	transversed = false;
+	//traveled = false;
 }
 
 
@@ -87,18 +87,31 @@ void Graph::DrawCircle(SpriteBatch& a_spriteBatch, Vector2 pos, float radius)
 }
 
 
-void Graph::CalculatePath()
-{
-//	for (int i = 0; i < nodeArray.size(); i++)
-//	{
-//		nodeArray[i]->N = nullptr;
-//		nodeArray[i]->G = std::numeric_limits<float>::max();
-//
-//		NodeQueue.push_back(nodeArray[0]);
-//
-//		nodeArray[0]->N = 0.0f;
-//		nodeArray[0]->G = nodeArray[0];
-//
-//
-//	}
-}
+//		void Graph::CalculatePath()
+//		{
+//			for (int i = 0; i < nodeArray.size(); i++)
+//			{
+//				nodeArray[i]->N = nullptr;
+//				nodeArray[i]->G = std::numeric_limits<float>::max();
+//		
+//				nodeQueue.push_back(nodeArray[0]);
+//		
+//				nodeArray[0]->N = 0.0f;
+//				nodeArray[0]->G = nodeArray[0];
+//			}
+//		
+//			while (nodeQueue.size() != 0)
+//			{
+//				int index = CheapestNode();
+//			
+//			Node* currentNode = nodeQueue[index];
+//			nodeQueue.erase(nodeQueue.begin() + index);
+//		
+//			currentNode->traveled = true;
+//		}
+//		}
+//		
+//		int Graph::CheapestNode()
+//		{
+//		
+//		}

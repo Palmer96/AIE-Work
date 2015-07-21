@@ -90,28 +90,38 @@ void Game1::Draw()
 	//		loop through all nodes
 	for (int i = 0; i < pGraph->nodeArray.size(); i++)
 	{	// show nodes
+
+
+
+
+		//pGraph->nodeArray[i]->traveled = true;
+
+		if (pGraph->nodeArray[i]->traveled == true)
+		{	// change color to show that this path has been taken
+			m_spritebatch->SetRenderColor(0, 0, 255, 200);
+		}
+		else
+		{
+			// 
+			m_spritebatch->SetRenderColor(255, 255, 255, 255);
+		}
+
 		pGraph->DrawCircle(*m_spritebatch, pGraph->nodeArray[i]->data, 10.0f);
 
+		m_spritebatch->SetRenderColor(0, 0, 255, 25);
 		for (int j = 0; j < pGraph->nodeArray[i]->edgeArray.size(); j++)
 		{
 			//		show edges
 			Node* startNode = pGraph->nodeArray[i]->edgeArray[j]->start;
 			Node* endNode = pGraph->nodeArray[i]->edgeArray[j]->end;
 
-			if (pGraph->nodeArray[i]->edgeArray[j]->transversed == true)
-			{	// change color to show that this path has been taken
-				m_spritebatch->SetRenderColor(0, 0, 255, 100);
-			}
-			else
-			{
-				// 
-				m_spritebatch->SetRenderColor(255, 255, 255, 255);
-			}
+
+			
 			m_spritebatch->DrawLine(startNode->data.x,
 				startNode->data.y,
 				endNode->data.x,
 				endNode->data.y, 3.0f);
-			m_spritebatch->SetRenderColor(255, 255, 255, 255);
+			//m_spritebatch->SetRenderColor(255, 255, 255, 255);
 		}
 	}
 

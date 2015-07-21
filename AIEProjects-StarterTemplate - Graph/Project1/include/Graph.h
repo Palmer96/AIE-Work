@@ -19,7 +19,10 @@ public:
 	Vector2 data;
 
 	void AddEdge(Edge* a_edge);
+	bool traveled;
 
+	float N;
+	float G;
 };
 
 class Edge
@@ -31,7 +34,7 @@ public:
 	Node* start;
 	Node* end;
 	int cost;
-	bool transversed;
+	
 
 };
 class Graph
@@ -55,8 +58,11 @@ public:
 	void DrawCircle(SpriteBatch& a_spriteBatch, Vector2 pos, float radius);
 
 	//GraphNodeTex
+	std::vector <Node*> nodeQueue;
 
 	void CalculatePath();
-	
+	int CheapestNode();
+
+
 };
 
