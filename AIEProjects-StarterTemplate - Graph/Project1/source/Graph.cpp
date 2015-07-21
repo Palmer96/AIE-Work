@@ -5,6 +5,7 @@ Graph::Graph()
 {
 	//Vector2 data;
 	//Node* node1 = new Node(Vector2(0.0f, 0.0f));
+
 }
 
 
@@ -34,7 +35,7 @@ void Graph::AddEdge(Node* a_start, Node* a_end, int data)
 Node::Node()
 {
 	//cost = 0;
-	Node* node = new Node(Vector2 (0.0f, 0.0f));
+	Node* node = new Node(Vector2(0.0f, 0.0f));
 	//node->data = data;
 }
 
@@ -58,6 +59,8 @@ Edge::Edge(Node* a_start, Node* a_end, int a_cost)
 	start = a_start;
 	end = a_end;
 	cost = a_cost;
+
+	transversed = false;
 }
 
 
@@ -81,4 +84,21 @@ void Graph::DrawCircle(SpriteBatch& a_spriteBatch, Vector2 pos, float radius)
 
 		oldPos = newPos;
 	}
+}
+
+
+void Graph::CalculatePath()
+{
+//	for (int i = 0; i < nodeArray.size(); i++)
+//	{
+//		nodeArray[i]->N = nullptr;
+//		nodeArray[i]->G = std::numeric_limits<float>::max();
+//
+//		NodeQueue.push_back(nodeArray[0]);
+//
+//		nodeArray[0]->N = 0.0f;
+//		nodeArray[0]->G = nodeArray[0];
+//
+//
+//	}
 }

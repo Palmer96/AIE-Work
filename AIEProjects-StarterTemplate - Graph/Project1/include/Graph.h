@@ -31,6 +31,7 @@ public:
 	Node* start;
 	Node* end;
 	int cost;
+	bool transversed;
 
 };
 class Graph
@@ -55,6 +56,7 @@ public:
 
 	//GraphNodeTex
 
-
+	void CalculatePath();
+	
 };
 
