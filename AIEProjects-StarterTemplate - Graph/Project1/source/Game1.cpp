@@ -44,26 +44,6 @@ Game1::~Game1()
 
 void Game1::Update(float deltaTime)
 {
-	// --------// change color of selected node to green/red \\--------
-	/*
-	Input * InputManager = GetInput();
-
-
-	if (InputManager->WasMouseButtonPressed(GLFW_MOUSE_BUTTON_1))
-	{
-	//if (MouseClickInRange(InputManager->GetMouseX, InputManager->GetMouseY))
-	{
-	green = true;
-	}
-	}
-	if (InputManager->WasMouseButtonPressed(GLFW_MOUSE_BUTTON_2))
-	{
-	//	if (MouseClickInRange())
-	{
-	red = true;
-	}
-	}
-	*/
 
 }
 
@@ -75,8 +55,8 @@ void Game1::Draw()
 	// TODO: draw stuff.	
 
 	m_spritebatch->Begin();
-
-
+	//-----------------// Grid //-----------------//
+						/*
 	for (int i = 0; i < 10; i++)
 	{
 		m_spritebatch->SetRenderColor(0, 255, 0, 255);
@@ -87,12 +67,12 @@ void Game1::Draw()
 	}
 
 	m_spritebatch->SetRenderColor(255, 255, 255, 255);
+	pGraph->DrawCircle(*m_spritebatch, pGraph->nodeArray[0]->data, cSize);
+	pGraph->DrawCircle(*m_spritebatch, pGraph->nodeArray[59]->data, cSize);
+	
 	//		loop through all nodes
 	for (int i = 0; i < pGraph->nodeArray.size(); i++)
 	{	// show nodes
-
-
-
 
 		//pGraph->nodeArray[i]->traveled = true;
 
@@ -105,7 +85,7 @@ void Game1::Draw()
 			// 
 			m_spritebatch->SetRenderColor(255, 255, 255, 255);
 		}
-
+		
 		pGraph->DrawCircle(*m_spritebatch, pGraph->nodeArray[i]->data, 10.0f);
 
 		m_spritebatch->SetRenderColor(0, 0, 255, 25);
@@ -131,6 +111,10 @@ void Game1::Draw()
 	//	----// color for end path \\----
 	//m_spritebatch->SetRenderColor(255, 0, 0, 255);
 	//m_spritebatch->DrawLine(100.0f, 100.0f, 150.0f, 150.0f, 3.0f);
+	*/
+	//--------------------------------------------//
+
+
 
 	m_spritebatch->End();
 
