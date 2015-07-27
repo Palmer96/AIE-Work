@@ -1,0 +1,99 @@
+void Graph::Dijkstras()
+{
+	for (int i = 0; i < nodes.size(); i++)
+	{
+		nodes[i]->color.x = 255;
+		nodes[i]->color.y = 255;
+		nodes[i]->color.z = 255;
+		nodes[i]->fTravelCost = 100000;
+		nodes[i]->bOnOpen = false;
+		if (nodes[i]->bIsStart == true)
+		{
+			startNode = nodes[i];
+			nodes[i]->fTravelCost = 0;
+			startNode->fTravelCost = 0;
+		}
+		else if (nodes[i]->bIsEnd == true)
+		{
+			endNode = nodes[i];
+		}
+	}
+	
+	open.push_back(startNode);
+	
+	Vector2 distance;
+
+	Node* shortest;
+
+	Node* currentNode = open[0];
+
+	bool bSorted = false;
+	int count = 0;
+
+	Node* smallest;
+	
+	while (true)
+	{
+		count = 0;
+		smallest = open[0];
+		for (int j = 0; j < open.size() - 1; j++)
+		{
+			if (open[j]->fTravelCost < smallest->fTravelCost)
+			{
+				smallest = open[j];
+				count = j;
+			}
+		}
+		
+		currentNode = smallest;
+
+		if (currentNode == endNode)
+		{
+			break;
+		}
+		for (int i = 0; i < currentNode->edges.size(); i++)
+		{
+			distance.x = currentNode->edges[i].end->data.x - currentNode->data.x;
+			distance.y = currentNode->edges[i].end->data.y - currentNode->data.y;
+
+			if ((distance.Length() + currentNode->fTravelCost) < currentNode->edges[i].end->fTravelCost)
+			{
+				currentNode->edges[i].end->fTravelCost = (distance.Length() + currentNode->fTravelCost);
+				currentNode->edges[i].end->previous = currentNode;
+				
+			}
+			if (currentNode->edges[i].end->bOnOpen == false)
+			{
+				open.push_back(currentNode->edges[i].end);
+				currentNode->edges[i].end->bOnOpen = true;
+			}
+
+			currentNode->edges[i].color.x = 0;
+			currentNode->edges[i].color.y = 0;
+			currentNode->edges[i].color.z = 0;
+		}
+		open.erase(open.begin() + count);
+	}
+
+	while (currentNode != startNode)
+	{
+		currentNode->color.x = 125;
+		currentNode->color.y = 0;
+		currentNode->color.z = 255;
+		for (int i = 0; i < currentNode->edges.size(); i++)
+		{
+			currentNode->size = 12;
+			if (currentNode->edges[i].end = currentNode->previous)
+			{
+				currentNode->edges[i].color.x = 125;
+				currentNode->edges[i].color.y = 0;
+				currentNode->edges[i].color.z = 255;
+				currentNode->edges[i].size = 5;
+			}
+		}
+		
+		currentNode = currentNode->previous;
+	}
+	
+	
+}
