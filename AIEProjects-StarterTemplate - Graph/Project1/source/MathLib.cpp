@@ -95,9 +95,9 @@ float Dot(Vector2 a_1, Vector2 a_2)
 {
 	return (a_1.x*a_2.x) + (a_1.y*a_2.y);
 }
-float Magnitude(Vector2 a)
+float Vector2::Magnitude()
 {
-	return sqrt((a.x * a.x) + (a.y * a.y));
+	return sqrt((x * x) + (y * y));
 }
 Vector2 Normalised(Vector2 a, float magnitude)
 {

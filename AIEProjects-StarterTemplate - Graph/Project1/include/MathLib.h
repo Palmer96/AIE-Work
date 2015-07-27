@@ -12,7 +12,7 @@ public:
 	Vector2 VecFlo(Vector2 a, float Float);
 	float FloVec(Vector2 a, float Float);
 	float Dot(Vector2 a_1, Vector2 a_2);
-	float Magnitude(Vector2 a);
+	float Magnitude();
 	Vector2 Normalised(Vector2 a, float magnitude);
 
 

@@ -14,15 +14,24 @@ public:
 	Node();
 	Node(Vector2 nodePos);
 
-
-	std::vector <Edge*> edgeArray;
+	Node* previous;
+	std::vector <Edge*> edges;
 	Vector2 data;
 
+	Vector3 color;
+
 	void AddEdge(Edge* a_edge);
+
 	bool traveled;
 
 	float N;
 	float G;
+
+	bool bIsStart;
+	bool bIsEnd;
+
+
+	float travelCost;
 };
 
 class Edge
@@ -35,7 +44,7 @@ public:
 	Node* end;
 	int cost;
 	
-
+	Vector3 color;
 };
 class Graph
 {
@@ -47,7 +56,7 @@ public:
 	Graph();
 	~Graph();
 
-	std::vector < Node*> nodeArray;
+	std::vector < Node*> nodes;
 
 	Node* AddNode(Vector2 data);
 	void AddEdge(Node* a_start, Node* a_end, int data);
@@ -60,8 +69,17 @@ public:
 	//GraphNodeTex
 	std::vector <Node*> nodeQueue;
 
+	void Dijkstras();
+	bool ActivateDijkstras;
 	void CalculatePath();
 	int CheapestNode();
+
+	
+
+	Node* startNode;
+	Node* endNode;
+
+
 
 
 };

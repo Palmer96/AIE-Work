@@ -23,7 +23,7 @@ Game1::Game1(unsigned int windowWidth, unsigned int windowHeight, bool fullscree
 	{
 		for (int i = j; i < 5 + j; i++)
 		{
-			pGraph->AddEdge(pGraph->nodeArray[i], pGraph->nodeArray[i + 1], 1);
+			pGraph->AddEdge(pGraph->nodes[i], pGraph->nodes[i + 1], 1);
 		}
 	}
 
@@ -31,9 +31,14 @@ Game1::Game1(unsigned int windowWidth, unsigned int windowHeight, bool fullscree
 	{
 		for (int i = j; i < 10 + j; i += 5)
 		{
-			pGraph->AddEdge(pGraph->nodeArray[i], pGraph->nodeArray[i + 6], 1);
+			pGraph->AddEdge(pGraph->nodes[i], pGraph->nodes[i + 6], 1);
 		}
 	}
+
+	pGraph->nodes[0]->bIsStart = true;
+	pGraph->nodes[59]->bIsEnd = true;
+
+	pGraph->ActivateDijkstras = false;
 }
 
 Game1::~Game1()
@@ -44,7 +49,13 @@ Game1::~Game1()
 
 void Game1::Update(float deltaTime)
 {
+	Input * InputManager = GetInput();
 
+	if (InputManager->WasKeyPressed(GLFW_KEY_SPACE))
+	{
+		pGraph->Dijkstras();
+		pGraph->ActivateDijkstras = true;
+	}
 }
 
 void Game1::Draw()
@@ -56,62 +67,70 @@ void Game1::Draw()
 
 	m_spritebatch->Begin();
 	//-----------------// Grid //-----------------//
-						/*
+
 	for (int i = 0; i < 10; i++)
 	{
 		m_spritebatch->SetRenderColor(0, 255, 0, 255);
-		pGraph->DrawCircle(*m_spritebatch, pGraph->nodeArray[0]->data, i);
+		pGraph->DrawCircle(*m_spritebatch, pGraph->nodes[0]->data, i);
 
 		m_spritebatch->SetRenderColor(255, 0, 0, 255);
-		pGraph->DrawCircle(*m_spritebatch, pGraph->nodeArray[59]->data, i);
+		pGraph->DrawCircle(*m_spritebatch, pGraph->nodes[59]->data, i);
 	}
 
 	m_spritebatch->SetRenderColor(255, 255, 255, 255);
-	pGraph->DrawCircle(*m_spritebatch, pGraph->nodeArray[0]->data, cSize);
-	pGraph->DrawCircle(*m_spritebatch, pGraph->nodeArray[59]->data, cSize);
-	
+	pGraph->DrawCircle(*m_spritebatch, pGraph->nodes[0]->data, 20.0f);
+	pGraph->DrawCircle(*m_spritebatch, pGraph->nodes[59]->data, 20.0f);
+
 	//		loop through all nodes
-	for (int i = 0; i < pGraph->nodeArray.size(); i++)
+	for (int i = 0; i < pGraph->nodes.size(); i++)
 	{	// show nodes
 
-		//pGraph->nodeArray[i]->traveled = true;
+		pGraph->DrawCircle(*m_spritebatch, pGraph->nodes[i]->data, 10.0f);
 
-		if (pGraph->nodeArray[i]->traveled == true)
-		{	// change color to show that this path has been taken
-			m_spritebatch->SetRenderColor(0, 0, 255, 200);
-		}
-		else
-		{
-			// 
-			m_spritebatch->SetRenderColor(255, 255, 255, 255);
-		}
-		
-		pGraph->DrawCircle(*m_spritebatch, pGraph->nodeArray[i]->data, 10.0f);
-
-		m_spritebatch->SetRenderColor(0, 0, 255, 25);
-		for (int j = 0; j < pGraph->nodeArray[i]->edgeArray.size(); j++)
+		//m_spritebatch->SetRenderColor(0, 0, 255, 25);
+	
+		for (int j = 0; j < pGraph->nodes[i]->edges.size(); j++)
 		{
 			//		show edges
-			Node* startNode = pGraph->nodeArray[i]->edgeArray[j]->start;
-			Node* endNode = pGraph->nodeArray[i]->edgeArray[j]->end;
+			Node* startNode = pGraph->nodes[i]->edges[j]->start;
+			Node* endNode = pGraph->nodes[i]->edges[j]->end;
 
+			m_spritebatch->SetRenderColor(255,255,255, 255);
 
-			
 			m_spritebatch->DrawLine(startNode->data.x,
 				startNode->data.y,
 				endNode->data.x,
-				endNode->data.y, 3.0f);
+				endNode->data.y, 2.0f);
 			//m_spritebatch->SetRenderColor(255, 255, 255, 255);
 		}
+
 	}
+	if (pGraph->ActivateDijkstras == true)
+	{
+		for (int i = 0; i < pGraph->nodes.size(); i++)
+		{
+			for (int j = 0; j < pGraph->nodes[i]->edges.size(); j++)
+			{
+				//		show edges
+				
 
-	
+				m_spritebatch->SetRenderColor(pGraph->nodes[i]->edges[j]->color.x, pGraph->nodes[i]->edges[j]->color.y, 255, 255);
 
 
+Node* startNode = pGraph->nodes[i]->edges[j]->start;
+				Node* endNode = pGraph->nodes[i]->edges[j]->end;
+				m_spritebatch->DrawLine(startNode->data.x,
+					startNode->data.y,
+					endNode->data.x,
+					endNode->data.y, 3.0f);
+				//m_spritebatch->SetRenderColor(255, 255, 255, 255);
+			}
+		}
+	}
 	//	----// color for end path \\----
 	//m_spritebatch->SetRenderColor(255, 0, 0, 255);
 	//m_spritebatch->DrawLine(100.0f, 100.0f, 150.0f, 150.0f, 3.0f);
-	*/
+
 	//--------------------------------------------//
 
 

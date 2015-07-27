@@ -18,7 +18,7 @@ Graph::~Graph()
 Node* Graph::AddNode(Vector2 data)
 {
 	Node* node = new Node(data);
-	nodeArray.push_back(node);
+	nodes.push_back(node);
 	return node;
 }
 
@@ -36,6 +36,8 @@ Node::Node()
 {
 	//cost = 0;
 	Node* node = new Node(Vector2(0.0f, 0.0f));
+	bIsStart = false;
+	bIsEnd = false;
 	//node->data = data;
 }
 
@@ -46,7 +48,7 @@ Node::Node(Vector2 VecData)
 
 void Node::AddEdge(Edge* a_edge)
 {
-	edgeArray.push_back(a_edge);
+	edges.push_back(a_edge);
 }
 
 Edge::Edge()
@@ -87,17 +89,116 @@ void Graph::DrawCircle(SpriteBatch& a_spriteBatch, Vector2 pos, float radius)
 }
 
 
+
+
+void Graph::Dijkstras()
+{
+	for (int i = 0; i < nodes.size(); i++)
+	{
+		if (nodes[i]->bIsStart = true)
+		{
+			startNode = nodes[i];
+		}
+		if (nodes[i]->bIsEnd = true)
+		{
+			endNode = nodes[i];
+		}
+	}
+	nodeQueue.push_back(startNode);
+
+	Vector2 distance;
+
+	Node* currentNode = nodeQueue[0];
+	Node* shortest;
+	Node* smallest;
+
+	bool bSorted = false;
+	int count = 0;
+
+	while (true)
+	{
+		count = 0;
+		smallest = nodeQueue[0];
+		for (int j = 0; j < nodeQueue.size(); j++)
+		{
+			if (nodeQueue[j]->travelCost < smallest->travelCost)
+			{
+				smallest = nodeQueue[j];
+				count = j;
+			}
+		}
+
+		currentNode = smallest;
+
+		if (currentNode == endNode)
+		{
+			break;
+		}
+
+		for (int i = 0; i < currentNode->edges.size(); i++)
+		{
+			distance.x = currentNode->edges[i]->end->data.x - currentNode->data.x;
+			distance.y = currentNode->edges[i]->end->data.y - currentNode->data.y;
+
+			if ((distance.Magnitude() + currentNode->travelCost) < currentNode->edges[i]->end->travelCost)
+			{
+				currentNode->edges[i]->end->travelCost = (distance.Magnitude() + currentNode->travelCost);
+				currentNode->edges[i]->end->previous = currentNode;
+			}
+			if (currentNode->edges[i]->end->traveled == false)
+			{
+				nodeQueue.push_back(currentNode->edges[i]->end);
+				currentNode->edges[i]->end->traveled = true;
+			}
+			currentNode->edges[i]->color.x = 0;
+			currentNode->edges[i]->color.y = 0;
+			currentNode->edges[i]->color.z = 255;
+		}
+		nodeQueue.erase(nodeQueue.begin() + count);
+	}
+
+	while (currentNode != startNode)
+	{
+		currentNode->color.x = 255;
+		currentNode->color.y = 0;
+		currentNode->color.z = 0;
+		for (int i = 0; i < currentNode->edges.size(); i++)
+		{
+			if (currentNode->edges[i]->end = currentNode->previous)
+			{
+				currentNode->color.x = 0;
+				currentNode->color.y = 255;
+				currentNode->color.z = 0;
+			}
+		}
+		currentNode = currentNode->previous;
+	}
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
 //		void Graph::CalculatePath()
 //		{
 //			for (int i = 0; i < nodeArray.size(); i++)
 //			{
-//				nodeArray[i]->N = nullptr;
-//				nodeArray[i]->G = std::numeric_limits<float>::max();
+//				nodes[i]->N = nullptr;
+//				nodes[i]->G = std::numeric_limits<float>::max();
 //		
 //				nodeQueue.push_back(nodeArray[0]);
 //		
-//				nodeArray[0]->N = 0.0f;
-//				nodeArray[0]->G = nodeArray[0];
+//				nodes[0]->N = 0.0f;
+//				nodes[0]->G = nodeArray[0];
 //			}
 //		
 //			while (nodeQueue.size() != 0)
