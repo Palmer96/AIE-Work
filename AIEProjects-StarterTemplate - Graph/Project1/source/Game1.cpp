@@ -4,7 +4,8 @@
 #include "Font.h"
 #include "Input.h"
 #include "Graph.h"
-#include <iostream>
+//#include ""
+
 
 Game1::Game1(unsigned int windowWidth, unsigned int windowHeight, bool fullscreen, const char *title) : Application(windowWidth, windowHeight, fullscreen, title)
 {
@@ -39,6 +40,8 @@ Game1::Game1(unsigned int windowWidth, unsigned int windowHeight, bool fullscree
 	pGraph->nodes[59]->bIsEnd = true;
 
 	pGraph->ActivateDijkstras = false;
+
+	playerTex = new Texture("./Images/Background3.png");
 }
 
 Game1::~Game1()

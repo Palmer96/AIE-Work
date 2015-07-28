@@ -28,6 +28,8 @@ public:
 protected:
 
 	SpriteBatch *m_spritebatch;
+	Texture * playerTex;
+
 	Graph *pGraph;
 
 private:
