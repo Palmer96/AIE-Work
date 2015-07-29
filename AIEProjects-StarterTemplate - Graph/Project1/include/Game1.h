@@ -29,6 +29,7 @@ protected:
 
 	SpriteBatch *m_spritebatch;
 	Texture * playerTex;
+	Texture * personTex;
 
 	Graph *pGraph;
 
