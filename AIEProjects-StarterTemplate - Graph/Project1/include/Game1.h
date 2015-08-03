@@ -33,6 +33,23 @@ protected:
 
 	Graph *pGraph;
 
+
+	//Agents person;
+
+
+	Vector3 playerPos;
+	Matrix3 playerMat;
+
+
+	float rotate;
+	Vector3 scale;
+
+	Vector2 agentPos;
+
+	int k;
+
+
+
 private:
 };
 

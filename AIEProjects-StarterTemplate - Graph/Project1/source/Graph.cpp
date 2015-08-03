@@ -1,5 +1,6 @@
 #include "Graph.h"
 #include "MathLib.h"
+#include "SpriteBatch.h"
 
 Graph::Graph()
 {
@@ -174,45 +175,13 @@ void Graph::Dijkstras()
 		currentNode = currentNode->previous;
 	}
 
+	//ClearScreen();
+
+	// TODO: draw stuff.	
+
+
+
 
 
 
 }
-
-
-
-
-
-
-
-
-
-
-//		void Graph::CalculatePath()
-//		{
-//			for (int i = 0; i < nodeArray.size(); i++)
-//			{
-//				nodes[i]->N = nullptr;
-//				nodes[i]->G = std::numeric_limits<float>::max();
-//		
-//				nodeQueue.push_back(nodeArray[0]);
-//		
-//				nodes[0]->N = 0.0f;
-//				nodes[0]->G = nodeArray[0];
-//			}
-//		
-//			while (nodeQueue.size() != 0)
-//			{
-//				int index = CheapestNode();
-//			
-//			Node* currentNode = nodeQueue[index];
-//			nodeQueue.erase(nodeQueue.begin() + index);
-//		
-//			currentNode->traveled = true;
-//		}
-//		}
-//		
-//		int Graph::CheapestNode()
-//		{
-//		
-//		}

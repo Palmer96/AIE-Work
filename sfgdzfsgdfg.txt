@@ -1,0 +1,277 @@
+
+#pragma once
+#include <MathLib\Vector.h>
+
+class AiAgent;
+class GameObject;
+
+class IBehaviour
+{
+public:
+	float weight;
+
+	IBehaviour() : weight(1.0f){}
+	virtual MathLib::Vector2 Update(AiAgent* agent) = 0;
+
+};
+
+class Seek : public IBehaviour
+{
+	MathLib::Vector2* target;
+
+
+public:
+
+	MathLib::Vector2 Update(AiAgent* agent);
+	void SetTarget(MathLib::Vector2* target);
+
+};
+
+class Flee : public IBehaviour
+{
+	MathLib::Vector2* target;
+
+
+public:
+
+	MathLib::Vector2 Update(AiAgent* agent);
+	void SetTarget(MathLib::Vector2* target);
+
+};
+
+class Wander : public IBehaviour
+{
+	MathLib::Vector2 circle;
+	MathLib::Vector2 displacement;
+
+	float distance;
+	float radius;
+
+
+public:
+
+	Wander() : radius(5.0f), distance(5.0f){}
+	MathLib::Vector2 Update(AiAgent* agent);
+
+};
+
+class Pursue : public IBehaviour
+{
+	GameObject* target;
+
+
+public:
+
+	MathLib::Vector2 Update(AiAgent* agent);
+	void SetTarget(GameObject* target);
+
+};
+
+class Evade : public IBehaviour
+{
+	GameObject* target;
+
+
+public:
+
+	MathLib::Vector2 Update(AiAgent* agent);
+	void SetTarget(GameObject* target);
+
+};
+
+class Arrival : public IBehaviour
+{
+	MathLib::Vector2* target;
+	int arriveRadius;
+
+public:
+
+	Arrival() : arriveRadius(100.0f){}
+	MathLib::Vector2 Update(AiAgent* agent);
+	void SetTarget(MathLib::Vector2* target);
+
+};
+
+class Avoid : public IBehaviour
+{
+	MathLib::Vector2* target;
+	int avoidRadius;
+
+public:
+
+	Avoid() : avoidRadius(100.0f){}
+	MathLib::Vector2 Update(AiAgent* agent);
+	void SetTarget(MathLib::Vector2* target);
+
+};
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------
+
+
+#include "Behaviours.h"
+#include "AiAgent.h"
+#include "GameObject.h"
+#include <random>
+#include <time.h>
+
+MathLib::Vector2 Seek::Update(AiAgent* agent)
+{
+	return (MathLib::Normalize(*target - *agent->position) * agent->speed) - agent->velocity;
+}
+void Seek::SetTarget(MathLib::Vector2* a_target)
+{
+	this->target = a_target;
+}
+
+
+MathLib::Vector2 Flee::Update(AiAgent* agent)
+{
+	return ((MathLib::Normalize(*agent->position - *target) * agent->speed) - agent->velocity);
+}
+void Flee::SetTarget(MathLib::Vector2* a_target)
+{
+	this->target = a_target;
+}
+
+
+MathLib::Vector2 Wander::Update(AiAgent* agent)
+{
+	circle = agent->velocity;
+	
+	if (!(circle == MathLib::Vector2(0.0f, 0.0f)))
+		circle.Normalize();
+	
+	circle *= distance;
+
+	srand(time(NULL));
+	int angle = rand();
+
+	displacement.x = cos(angle) * radius;
+	displacement.y = sin(angle) * radius;
+
+	return (MathLib::Normalize(circle + displacement) * agent->speed) - agent->velocity;
+
+}
+
+MathLib::Vector2 Pursue::Update(AiAgent* agent)
+{
+	return (MathLib::Normalize(target->position + target->AI->velocity - *agent->position) * agent->speed) - agent->velocity;
+}
+void Pursue::SetTarget(GameObject* a_target)
+{
+	this->target = a_target;
+}
+
+
+MathLib::Vector2 Evade::Update(AiAgent* agent)
+{
+	return (MathLib::Normalize(*agent->position - target->position + target->AI->velocity) * agent->speed) - agent->velocity;
+}
+void Evade::SetTarget(GameObject* a_target)
+{
+	this->target = a_target;
+}
+
+
+MathLib::Vector2 Arrival::Update(AiAgent* agent)
+{
+	MathLib::Vector2 dir = MathLib::Normalize(*target - *agent->position);
+	float dist = MathLib::Magnitude(*target - *agent->position);
+
+	MathLib::Vector2 seekForce = dir * agent->speed;
+
+	float scalar = MathLib::Clamp(dist / 100.0f, std::numeric_limits<float>::min(), 1);
+
+	if (scalar < 1)
+	{
+		seekForce *= scalar;
+		seekForce += (MathLib::Normalize(agent->velocity) * -1) * MathLib::Magnitude(agent->velocity) * MathLib::Dot(dir, MathLib::Normalize(agent->velocity)) * 2;
+	}
+
+	return seekForce - agent->velocity;
+
+
+};
+void Arrival::SetTarget(MathLib::Vector2* a_target)
+{
+	this->target = a_target;
+}
+
+
+
+MathLib::Vector2 Avoid::Update(AiAgent* agent)
+{
+	//MathLib::Vector2 dir = MathLib::Normalize(*target - *agent->position);
+	//float dist = MathLib::Magnitude(*target - *agent->position);
+	//
+	//MathLib::Vector2 seekForce = dir * agent->speed;
+	//
+	//float scalar = MathLib::Clamp(dist / 100.0f, std::numeric_limits<float>::min(), 1);
+	//
+	//if (scalar < 1)
+	//{
+	//	seekForce *= scalar;
+	//	seekForce += (MathLib::Normalize(agent->velocity) * -1) * MathLib::Magnitude(agent->velocity) * MathLib::Dot(dir, MathLib::Normalize(agent->velocity)) * 2;
+	//}
+	//
+	//return seekForce - agent->velocity;
+	return MathLib::Vector2();
+
+};
+void Avoid::SetTarget(MathLib::Vector2* a_target)
+{
+	this->target = a_target;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

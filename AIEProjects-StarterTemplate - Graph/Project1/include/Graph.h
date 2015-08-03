@@ -71,7 +71,6 @@ public:
 
 	void Dijkstras();
 	bool ActivateDijkstras;
-	void CalculatePath();
 	int CheapestNode();
 
 	
@@ -80,7 +79,20 @@ public:
 	Node* endNode;
 
 
-
+protected:
+	SpriteBatch *m_spritebatch;
 
 };
+
+
+
+
+
+
+
+
+
+
+
+
 

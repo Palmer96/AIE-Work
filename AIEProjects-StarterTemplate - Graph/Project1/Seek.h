@@ -1,5 +1,6 @@
 #pragma once
 #include "IBehaviour.h"
+#include "Agents.h"
 
 
 
@@ -9,6 +10,14 @@ public:
 	Seek();
 	~Seek();
 
+
+
 	virtual void Update(Agents *pAgent);
+
+
+	
+
+
+
 };
 

@@ -81,47 +81,47 @@ void Game1::Update(float deltaTime)
 	if (InputManager->IsKeyDown(GLFW_KEY_W))
 	{
 		//--------Move Foward
-		playerPos -= upVec * 100.0f * deltaTime;
+		playerPos -= upVec * 300.0f * deltaTime;
 
 		if (InputManager->IsKeyDown(GLFW_KEY_A))
 		{
 			//--------Rotate Tank and Cannon Left
 			//MatRotate = MatRotate * playerMat.Rotation(1 * deltaTime);
-			Trotate -= 1 * deltaTime;
+			Trotate -= 2 * deltaTime;
 			//CanMatRotate = CanMatRotate * cannonMat.Rotation(1 * deltaTime);
-			Crotate -= 1 * deltaTime;
+			Crotate -= 2 * deltaTime;
 		}
 		if (InputManager->IsKeyDown(GLFW_KEY_D))
 		{
 			//--------Rotate Tank and Cannon Right
 			//	MatRotate = MatRotate * playerMat.Rotation(-1 * deltaTime);
-			Trotate += 1 * deltaTime;
+			Trotate += 2 * deltaTime;
 			//CanMatRotate = CanMatRotate * cannonMat.Rotation(-1 * deltaTime);
-			Crotate += 1 * deltaTime;
+			Crotate += 2 * deltaTime;
 
 		}
 	}
 	if (InputManager->IsKeyDown(GLFW_KEY_S))
 	{
 		//--------Move Back
-		playerPos += upVec * 50.0f * deltaTime;
+		playerPos += upVec * 150.0f * deltaTime;
 		//playerPos.y += 10.0f;
 		//cannonPos.y += 10.0f;
 		if (InputManager->IsKeyDown(GLFW_KEY_A))
 		{
 			//--------Rotate Tank and Cannon Left
 			//MatRotate = MatRotate * playerMat.Rotation(1 * deltaTime);
-			Trotate -= 1 * deltaTime;
+			Trotate += 2 * deltaTime;
 			//CanMatRotate = CanMatRotate * cannonMat.Rotation(1 * deltaTime);
-			Crotate -= 1 * deltaTime;
+			Crotate += 2 * deltaTime;
 		}
 		if (InputManager->IsKeyDown(GLFW_KEY_D))
 		{
 			//--------Rotate Tank and Cannon Right
 			//	MatRotate = MatRotate * playerMat.Rotation(-1 * deltaTime);
-			Trotate += 1 * deltaTime;
+			Trotate -= 2 * deltaTime;
 			//CanMatRotate = CanMatRotate * cannonMat.Rotation(-1 * deltaTime);
-			Crotate += 1 * deltaTime;
+			Crotate -= 2 * deltaTime;
 
 		}
 
