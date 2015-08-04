@@ -148,10 +148,10 @@ void Graph::Dijkstras()
 				currentNode->edges[i]->end->travelCost = (distance.Magnitude() + currentNode->travelCost);
 				currentNode->edges[i]->end->previous = currentNode;
 			}
-			if (currentNode->edges[i]->end->traveled == false)
+			if (currentNode->edges[i]->end->traversed == false)
 			{
 				nodeQueue.push_back(currentNode->edges[i]->end);
-				currentNode->edges[i]->end->traveled = true;
+				currentNode->edges[i]->end->traversed = true;
 			}
 			currentNode->edges[i]->color.x = 0;
 			currentNode->edges[i]->color.y = 0;
@@ -176,4 +176,81 @@ void Graph::Dijkstras()
 		}
 		currentNode = currentNode->previous;
 	}
+}
+
+
+std::vector<Vector2> Graph::Dijkstras(Node* a_startNode, Node* a_endNode)
+{
+	Node* currentNode;
+	std::vector <Node*> open;
+	a_endNode = nullptr;
+
+	for (int i = 0; i < nodes.size(); i++)
+	{
+		nodes[i]->traversed = false;
+		nodes[i]->previous = nullptr;
+		nodes[i]->G = std::numeric_limits<float>::max();
+	}
+
+
+	a_startNode->previous = a_startNode;
+	a_startNode->G = 0.0f;
+	open.push_back(a_startNode);
+
+	while (open.empty() != true)
+	{
+		//std::sort(open.begin(), open.end(), SortByG);
+
+		currentNode = open.back();
+		currentNode->traversed = true;
+		open.pop_back();
+
+		for (int i = 0; i < currentNode->edges.size(); i++)
+		{
+			Node* startNode = currentNode->edges[i]->start;
+			Node* endNode = currentNode->edges[i]->end;
+			Edge* currentEdge = currentNode->edges[i];
+
+
+			//if (endNode->transversable != true)
+			if (endNode->traversed != true)
+			{
+				float NewG = currentNode->G + currentEdge->cost;
+				if (NewG < endNode->G)
+				{
+					endNode->previous = currentNode;
+					endNode->G = NewG;
+
+					bool foundEndNode = false;
+					for (int j = 0; j < open.size(); j++)
+					{
+						if (open[j] == endNode)
+						{
+							foundEndNode = true;
+							break;
+						}
+					}
+					if (foundEndNode == false)
+					{
+						open.push_back(endNode);
+					}
+				}
+			}
+		}
+	}
+
+	std::vector<Vector2> Path;
+	currentNode = a_endNode;
+	a_startNode->previous = nullptr;
+	while (currentNode != NULL)
+	{
+		Path.push_back(currentNode->data);
+		currentNode = currentNode->previous;
+	}
+	std::reverse(Path.begin(), Path.end());
+
+	Path[5];
+
+	return Path;
+
 }

@@ -22,7 +22,7 @@ public:
 
 	void AddEdge(Edge* a_edge);
 
-	bool traveled;
+	bool traversed;
 	bool transversable;
 	float N;
 	float G;
@@ -65,8 +65,8 @@ public:
 	void DrawCircle(SpriteBatch& a_spriteBatch, Vector2 pos, float radius);
 
 	std::vector <Node*> nodeQueue;
-
 	void Dijkstras();
+	std::vector<Vector2> Dijkstras(Node* a_startNode, Node* a_endNode);
 	bool ActivateDijkstras;
 	int CheapestNode();
 

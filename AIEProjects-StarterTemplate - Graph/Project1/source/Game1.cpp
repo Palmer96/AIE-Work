@@ -183,7 +183,7 @@ Game1::Game1(unsigned int windowWidth, unsigned int windowHeight, bool fullscree
 
 
 
-	Alpha= 255;
+	Alpha = 255;
 }
 
 Game1::~Game1()
@@ -196,13 +196,14 @@ void Game1::Update(float deltaTime)
 {
 	Input * InputManager = GetInput();
 	//-----------------// Dijkstras //-----------------//
-	/*
-pGraph->Dijkstras();
-if (InputManager->WasKeyPressed(GLFW_KEY_SPACE))
-{
-pGraph->ActivateDijkstras = true;
-}
-*/
+
+
+	if (InputManager->WasKeyPressed(GLFW_KEY_SPACE))
+	{
+		pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300]);
+		//pGraph->ActivateDijkstras = true;
+	}
+
 
 	//-----------------// Steering //-----------------//
 
@@ -247,27 +248,27 @@ pGraph->ActivateDijkstras = true;
 
 
 
-	counter1  ++;
-	counter2  ++;
-	counter3  ++;
-	counter4  ++;
-	counter5  ++;
-	counter6  ++;
-	counter7  ++;
-	counter8  ++;
-	counter9  ++;
-	counter10 ++;
-	counter11 ++;
-	counter12 ++;
-	counter13 ++;
-	counter14 ++;
-	counter15 ++;
-	counter16 ++;
-	counter17 ++;
-	counter18 ++;
-	counter19 ++;
-	counter20 ++;
-	counter21 ++;
+	counter1++;
+	counter2++;
+	counter3++;
+	counter4++;
+	counter5++;
+	counter6++;
+	counter7++;
+	counter8++;
+	counter9++;
+	counter10++;
+	counter11++;
+	counter12++;
+	counter13++;
+	counter14++;
+	counter15++;
+	counter16++;
+	counter17++;
+	counter18++;
+	counter19++;
+	counter20++;
+	counter21++;
 
 
 	int amount = 40;
@@ -474,6 +475,12 @@ void Game1::Draw()
 
 
 	}
+
+
+
+
+
+
 	if (pGraph->ActivateDijkstras == true)
 	{
 		for (int i = 0; i < pGraph->nodes.size() - 1; i++)
@@ -516,48 +523,85 @@ void Game1::Draw()
 	m_spritebatch->SetRenderColor(255, 0, 0, 255);
 	m_spritebatch->DrawSprite(bloodTex, Blood1.x, Blood1.y, 20.0f, 20.0f);
 	m_spritebatch->SetRenderColor(255, 0, 0, 245);
-	m_spritebatch->DrawSprite(bloodTex, Blood2.x, Blood2.y, 20.0f, 20.0f); 
+	m_spritebatch->DrawSprite(bloodTex, Blood2.x, Blood2.y, 20.0f, 20.0f);
 	m_spritebatch->SetRenderColor(255, 0, 0, 235);
-	m_spritebatch->DrawSprite(bloodTex, Blood3.x, Blood3.y, 20.0f, 20.0f); 
+	m_spritebatch->DrawSprite(bloodTex, Blood3.x, Blood3.y, 20.0f, 20.0f);
 	m_spritebatch->SetRenderColor(255, 0, 0, 225);
-	m_spritebatch->DrawSprite(bloodTex, Blood4.x, Blood4.y, 20.0f, 20.0f); 
+	m_spritebatch->DrawSprite(bloodTex, Blood4.x, Blood4.y, 20.0f, 20.0f);
 	m_spritebatch->SetRenderColor(255, 0, 0, 215);
-	m_spritebatch->DrawSprite(bloodTex, Blood5.x, Blood5.y, 20.0f, 20.0f); 
+	m_spritebatch->DrawSprite(bloodTex, Blood5.x, Blood5.y, 20.0f, 20.0f);
 	m_spritebatch->SetRenderColor(255, 0, 0, 205);
-	m_spritebatch->DrawSprite(bloodTex, Blood6.x, Blood6.y, 20.0f, 20.0f); 
+	m_spritebatch->DrawSprite(bloodTex, Blood6.x, Blood6.y, 20.0f, 20.0f);
 	m_spritebatch->SetRenderColor(255, 0, 0, 195);
-	m_spritebatch->DrawSprite(bloodTex, Blood7.x, Blood7.y, 20.0f, 20.0f); 
+	m_spritebatch->DrawSprite(bloodTex, Blood7.x, Blood7.y, 20.0f, 20.0f);
 	m_spritebatch->SetRenderColor(255, 0, 0, 185);
-	m_spritebatch->DrawSprite(bloodTex, Blood8.x, Blood8.y, 20.0f, 20.0f); 
+	m_spritebatch->DrawSprite(bloodTex, Blood8.x, Blood8.y, 20.0f, 20.0f);
 	m_spritebatch->SetRenderColor(255, 0, 0, 175);
-	m_spritebatch->DrawSprite(bloodTex, Blood9.x, Blood9.y, 20.0f, 20.0f); 
+	m_spritebatch->DrawSprite(bloodTex, Blood9.x, Blood9.y, 20.0f, 20.0f);
 	m_spritebatch->SetRenderColor(255, 0, 0, 165);
-	m_spritebatch->DrawSprite(bloodTex, Blood10.x, Blood10.y, 20.0f, 20.0f); 
+	m_spritebatch->DrawSprite(bloodTex, Blood10.x, Blood10.y, 20.0f, 20.0f);
 	m_spritebatch->SetRenderColor(255, 0, 0, 155);
-	m_spritebatch->DrawSprite(bloodTex, Blood11.x, Blood11.y, 20.0f, 20.0f); 
+	m_spritebatch->DrawSprite(bloodTex, Blood11.x, Blood11.y, 20.0f, 20.0f);
 	m_spritebatch->SetRenderColor(255, 0, 0, 145);
-	m_spritebatch->DrawSprite(bloodTex, Blood12.x, Blood12.y, 20.0f, 20.0f); 
+	m_spritebatch->DrawSprite(bloodTex, Blood12.x, Blood12.y, 20.0f, 20.0f);
 	m_spritebatch->SetRenderColor(255, 0, 0, 135);
-	m_spritebatch->DrawSprite(bloodTex, Blood13.x, Blood13.y, 20.0f, 20.0f); 
+	m_spritebatch->DrawSprite(bloodTex, Blood13.x, Blood13.y, 20.0f, 20.0f);
 	m_spritebatch->SetRenderColor(255, 0, 0, 125);
-	m_spritebatch->DrawSprite(bloodTex, Blood14.x, Blood14.y, 20.0f, 20.0f); 
+	m_spritebatch->DrawSprite(bloodTex, Blood14.x, Blood14.y, 20.0f, 20.0f);
 	m_spritebatch->SetRenderColor(255, 0, 0, 115);
-	m_spritebatch->DrawSprite(bloodTex, Blood15.x, Blood15.y, 20.0f, 20.0f); 
+	m_spritebatch->DrawSprite(bloodTex, Blood15.x, Blood15.y, 20.0f, 20.0f);
 	m_spritebatch->SetRenderColor(255, 0, 0, 105);
-	m_spritebatch->DrawSprite(bloodTex, Blood16.x, Blood16.y, 20.0f, 20.0f); 
+	m_spritebatch->DrawSprite(bloodTex, Blood16.x, Blood16.y, 20.0f, 20.0f);
 	m_spritebatch->SetRenderColor(255, 0, 0, 95);
 	m_spritebatch->DrawSprite(bloodTex, Blood17.x, Blood17.y, 20.0f, 20.0f);
 	m_spritebatch->SetRenderColor(255, 0, 0, 85);
-	m_spritebatch->DrawSprite(bloodTex, Blood18.x, Blood18.y, 20.0f, 20.0f); 
+	m_spritebatch->DrawSprite(bloodTex, Blood18.x, Blood18.y, 20.0f, 20.0f);
 	m_spritebatch->SetRenderColor(255, 0, 0, 75);
-	m_spritebatch->DrawSprite(bloodTex, Blood19.x, Blood19.y, 20.0f, 20.0f); 
+	m_spritebatch->DrawSprite(bloodTex, Blood19.x, Blood19.y, 20.0f, 20.0f);
 	m_spritebatch->SetRenderColor(255, 0, 0, 65);
-	m_spritebatch->DrawSprite(bloodTex, Blood20.x, Blood20.y, 20.0f, 20.0f); 
+	m_spritebatch->DrawSprite(bloodTex, Blood20.x, Blood20.y, 20.0f, 20.0f);
 	m_spritebatch->SetRenderColor(255, 0, 0, 55);
 	m_spritebatch->DrawSprite(bloodTex, Blood21.x, Blood21.y, 20.0f, 20.0f);
 
 	m_spritebatch->SetRenderColor(255, 255, 255, 255);
 	m_spritebatch->DrawSpriteTransformed3x3(playerTex, playerMat.GetMatrix(), 25.0f, 75.0f);
+
+
+
+
+
+
+	std::vector<Vector2> Path;
+
+	
+	//Path = 
+		std::cout << pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300]).size() << std::endl;
+
+		//std::cout << 
+	//Path.begin()->x;
+	//std::cout << Path.size();
+		//<< std::endl;
+	
+
+//	for (int i = 0; i < pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300]).size(); i++)
+//	{
+	//	m_spritebatch->DrawLine(Path.begin()->x, Path.begin()->y, Path.end.x, Path.end.x, 2.0f);
+		//	pGraph->DrawCircle(*m_spritebatch, pGraph->nodes[2300]->data, i);
+		//	pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300]).data
+
+		//pGraph->DrawCircle(*m_spritebatch, pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300])[i].x, i);
+		//  m_spritebatch->DrawLine(pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300])[i].x,
+		//	pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300])[i].y,
+		//	pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300])[i + 1].x,
+		//	pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300])[i + 1].y, 2.0f);
+
+
+		//	pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300])[4];
+//	}
+
+
+
+
 
 	m_spritebatch->End();
 

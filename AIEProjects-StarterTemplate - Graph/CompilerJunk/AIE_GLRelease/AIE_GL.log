@@ -1,23 +1,9 @@
-﻿Build started 21/07/2015 8:40:49 AM.
-     1>Project "C:\Users\kayne.palmer\Desktop\Work\trunk\AIEProjects-StarterTemplate - Graph\AIE_GL\AIE_GL.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\kayne.palmer\Desktop\Work\trunk\AIEProjects-StarterTemplate - Graph\AIE_GL\include\\" /I"C:\Users\kayne.palmer\Desktop\Work\trunk\AIEProjects-StarterTemplate - Graph\libraries\glew\include\\" /I"C:\Users\kayne.palmer\Desktop\Work\trunk\AIEProjects-StarterTemplate - Graph\libraries\glfw3\include\GLFW\\" /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\kayne.palmer\Desktop\Work\trunk\AIEProjects-StarterTemplate - Graph\CompilerJunk\AIE_GLRelease\\" /Fd"C:\Users\kayne.palmer\Desktop\Work\trunk\AIEProjects-StarterTemplate - Graph\CompilerJunk\AIE_GLRelease\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt source\Application.cpp
-         Application.cpp
-     1>C:\Program Files (x86)\Windows Kits\8.1\Include\shared\minwindef.h(130): warning C4005: 'APIENTRY' : macro redefinition
-                 C:\Users\kayne.palmer\Desktop\Work\trunk\AIEProjects-StarterTemplate - Graph\libraries\glfw3\include\GLFW\glfw3.h(95) : see previous definition of 'APIENTRY'
-       Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\kayne.palmer\Desktop\Work\trunk\AIEProjects-StarterTemplate - Graph\AIE_GL\bin\AIE_GL.lib" OpenGL32.lib glew32.lib glfw3.lib /LIBPATH:"C:\Users\kayne.palmer\Desktop\Work\trunk\AIEProjects-StarterTemplate - Graph\libraries\glew\lib\Release\Win32\\" /LIBPATH:"C:\Users\kayne.palmer\Desktop\Work\trunk\AIEProjects-StarterTemplate - Graph\libraries\glfw3\lib-vc2013\\" /NOLOGO /LTCG "C:\Users\kayne.palmer\Desktop\Work\trunk\AIEProjects-StarterTemplate - Graph\CompilerJunk\AIE_GLRelease\Application.obj"
-         "C:\Users\kayne.palmer\Desktop\Work\trunk\AIEProjects-StarterTemplate - Graph\CompilerJunk\AIE_GLRelease\Font.obj"
-         "C:\Users\kayne.palmer\Desktop\Work\trunk\AIEProjects-StarterTemplate - Graph\CompilerJunk\AIE_GLRelease\Input.obj"
-         "C:\Users\kayne.palmer\Desktop\Work\trunk\AIEProjects-StarterTemplate - Graph\CompilerJunk\AIE_GLRelease\lodepng.obj"
-         "C:\Users\kayne.palmer\Desktop\Work\trunk\AIEProjects-StarterTemplate - Graph\CompilerJunk\AIE_GLRelease\RenderTexture.obj"
-         "C:\Users\kayne.palmer\Desktop\Work\trunk\AIEProjects-StarterTemplate - Graph\CompilerJunk\AIE_GLRelease\SpriteBatch.obj"
-         "C:\Users\kayne.palmer\Desktop\Work\trunk\AIEProjects-StarterTemplate - Graph\CompilerJunk\AIE_GLRelease\SpriteBatch_GL3.obj"
-         "C:\Users\kayne.palmer\Desktop\Work\trunk\AIEProjects-StarterTemplate - Graph\CompilerJunk\AIE_GLRelease\Texture.obj"
-     1>glew32.lib(glew32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in OpenGL32.lib(OPENGL32.dll); second definition ignored
-         AIE_GL.vcxproj -> C:\Users\kayne.palmer\Desktop\Work\trunk\AIEProjects-StarterTemplate - Graph\AIE_GL\bin\AIE_GL.lib
-     1>Done Building Project "C:\Users\kayne.palmer\Desktop\Work\trunk\AIEProjects-StarterTemplate - Graph\AIE_GL\AIE_GL.vcxproj" (Build target(s)).
+﻿Build started 3/08/2015 8:07:15 PM.
+     1>Project "C:\Users\Kayne\Desktop\Work\trunk\AIEProjects-StarterTemplate - Graph\AIE_GL\AIE_GL.vcxproj" on node 2 (Build target(s)).
+     1>Lib:
+         AIE_GL.vcxproj -> C:\Users\Kayne\Desktop\Work\trunk\AIEProjects-StarterTemplate - Graph\AIE_GL\bin\AIE_GL.lib
+     1>Done Building Project "C:\Users\Kayne\Desktop\Work\trunk\AIEProjects-StarterTemplate - Graph\AIE_GL\AIE_GL.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.64
+Time Elapsed 00:00:02.53
