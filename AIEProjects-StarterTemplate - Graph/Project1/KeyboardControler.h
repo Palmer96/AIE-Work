@@ -8,6 +8,6 @@ public:
 	KeyboardControler();
 	~KeyboardControler();
 
-	virtual void Update(Agents *pAgent);
+//	virtual void Update(Agents *pAgent);
 };
 

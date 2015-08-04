@@ -54,6 +54,8 @@ public:
 
 };
 
+/*
+
 class Pursue : public IBehaviour
 {
 	GameObject* target;
@@ -103,3 +105,5 @@ public:
 	void SetTarget(Vector2* target);
 
 };
+
+*/

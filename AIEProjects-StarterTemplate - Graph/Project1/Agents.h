@@ -22,9 +22,9 @@ public:
 
 
 
-protected:
+//protected:
 
-	SpriteBatch *m_spritebatch;
+//	SpriteBatch *m_spritebatch;
 
 	std::vector < IBehaviour * > m_behaviours;
 

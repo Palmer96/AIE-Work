@@ -46,7 +46,7 @@ void Agents::Draw(Texture *personTex)
 
 	//m_spritebatch->Begin();
 
-	m_spritebatch->DrawSprite(personTex, m_position.x, m_position.y, 10.0f, 10.0f);
+//	m_spritebatch->DrawSprite(personTex, m_position.x, m_position.y, 10.0f, 10.0f);
 
 	//m_spritebatch->End();
 

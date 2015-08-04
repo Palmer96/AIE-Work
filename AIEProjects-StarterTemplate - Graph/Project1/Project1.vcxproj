@@ -92,7 +92,6 @@
     <ClCompile Include="KeyboardControler.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Seek.cpp" />
     <ClCompile Include="source\Game1.cpp" />
     <ClCompile Include="source\Graph.cpp" />
     <ClCompile Include="source\MathLib.cpp" />
@@ -106,7 +105,6 @@
     <ClInclude Include="include\MathLib.h" />
     <ClInclude Include="KeyboardControler.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="Seek.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

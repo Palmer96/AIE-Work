@@ -1,0 +1,75 @@
+std::vector<Vector2> Graph::Dijkstras(Node* a_startNode, Node* a_endNode)
+{
+	Node* currentNode;
+	std::vector <Node*> open;
+	a_endNode = nullptr;
+
+	for (int i = 0; i < nodes.size(); i++)
+	{
+		nodes[i]->m_traversed = false;
+		nodes[i]->m_previous = nullptr;
+		nodes[i]->m_gScore = std::numeric_limits<float>::max();
+	}
+
+	a_startNode->m_previous = a_startNode;
+	a_startNode->m_gScore = 0.0f;
+	open.push_back(a_startNode);
+
+	while (open.empty() != true)
+	{
+
+		std::sort(open.begin(), open.end(), SortByGScore);
+
+		currentNode = open.back();
+		currentNode->m_traversed = true;
+		open.pop_back();
+
+		for (int i = 0; i < currentNode->edges.size(); i++)
+		{
+			Node* startNode = currentNode->edges[i]->m_start;
+			Node* endNode = currentNode->edges[i]->m_end;
+			Edge* currentEdge = currentNode->edges[i];
+
+			if (endNode->m_traversed != true)
+			{
+				float newGScore = currentNode->m_gScore + currentEdge->m_cost;
+				if (newGScore < endNode->m_gScore)
+				{
+					endNode->m_previous = currentNode;
+					endNode->m_gScore = newGScore;
+
+					bool foundEndNode = false;
+					for (int j = 0; j < open.size(); j++)
+					{
+						if (open[j] == endNode)
+						{
+							foundEndNode = true;
+							break;
+						}
+					}
+		
+					if (foundEndNode == false)
+					{
+						open.push_back(endNode);
+					}
+					
+				}
+			}
+		}
+	}
+
+	std::vector<Vector2> Path;
+	currentNode = a_endNode;
+	a_startNode->m_previous = nullptr;
+	while (currentNode != NULL)
+	{
+		Path.push_back(currentNode->m_data);
+		currentNode = currentNode->m_previous;
+	}
+	std::reverse(Path.begin(), Path.end());
+
+	return Path;
+
+
+
+}

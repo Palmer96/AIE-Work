@@ -214,8 +214,8 @@ void Game1::Update(float deltaTime)
 
 
 	playerMat = playerMat.Translation(playerPos) *  playerMat.Rotation(Trotate) * playerMat.Scale(scale);
-
-
+	 
+ 
 	cannonMat = cannonMat.Translation(cannonPos) *  CanMatRotate * MatScale;
 
 

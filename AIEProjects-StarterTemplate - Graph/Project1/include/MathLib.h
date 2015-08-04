@@ -13,9 +13,10 @@ public:
 	float FloVec(Vector2 a, float Float);
 	float Dot(Vector2 a_1, Vector2 a_2);
 	float Magnitude();
-	Vector2 Normalised(Vector2 a, float magnitude);
+	Vector2 Normalised(Vector2 a);
 
 
+	bool EqualVector(Vector2 v1, Vector2 v2);
 
 	Vector2 operator+(const Vector2& v2) const;
 	Vector2& operator+=(const Vector2& v2);

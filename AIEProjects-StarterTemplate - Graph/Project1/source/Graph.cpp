@@ -39,6 +39,8 @@ Node::Node()
 	Node* node = new Node(Vector2(0.0f, 0.0f));
 	bIsStart = false;
 	bIsEnd = false;
+
+	transversable = true;
 	//node->data = data;
 }
 
@@ -174,14 +176,4 @@ void Graph::Dijkstras()
 		}
 		currentNode = currentNode->previous;
 	}
-
-	//ClearScreen();
-
-	// TODO: draw stuff.	
-
-
-
-
-
-
 }

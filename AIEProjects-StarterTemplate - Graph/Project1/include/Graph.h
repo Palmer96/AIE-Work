@@ -23,7 +23,7 @@ public:
 	void AddEdge(Edge* a_edge);
 
 	bool traveled;
-
+	bool transversable;
 	float N;
 	float G;
 
@@ -62,11 +62,8 @@ public:
 	void AddEdge(Node* a_start, Node* a_end, int data);
 
 
-	//void Draw(SpriteBatch& m_spritebatch);
-
 	void DrawCircle(SpriteBatch& a_spriteBatch, Vector2 pos, float radius);
 
-	//GraphNodeTex
 	std::vector <Node*> nodeQueue;
 
 	void Dijkstras();

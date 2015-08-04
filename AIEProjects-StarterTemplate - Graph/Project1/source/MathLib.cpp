@@ -21,6 +21,30 @@ Vector2::~Vector2()
 
 }
 
+bool Vector2::EqualVector(Vector2 v1, Vector2 v2)
+{
+	if ((v1.x = v2.x) && (v1.y = v2.y))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+//	bool Vector2::operator==(const Vector2& v2)const
+//	{
+//		if ((x = v2.x) && (y = v2.y))
+//		{
+//			return true;
+//		}
+//		else
+//		{
+//			return false;
+//		}
+//	}
+
 
 Vector2 Vector2::operator+(const Vector2& v2)const
 {
@@ -99,10 +123,10 @@ float Vector2::Magnitude()
 {
 	return sqrt((x * x) + (y * y));
 }
-Vector2 Normalised(Vector2 a, float magnitude)
+Vector2 Normalised(Vector2 a)
 {
-	a.x /= magnitude;
-	a.y /= magnitude;
+	a.x /= a.Magnitude();
+	a.y /= a.Magnitude();
 	return a;
 }
 
