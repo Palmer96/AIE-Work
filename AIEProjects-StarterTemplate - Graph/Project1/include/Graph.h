@@ -64,12 +64,14 @@ public:
 
 	void DrawCircle(SpriteBatch& a_spriteBatch, Vector2 pos, float radius);
 
-	std::vector <Node*> nodeQueue;
-	void Dijkstras();
+	
+	//void Dijkstras();
 	std::vector<Vector2> Dijkstras(Node* a_startNode, Node* a_endNode);
 	bool ActivateDijkstras;
 	int CheapestNode();
+	bool SortByG(Node* a, Node* b);
 
+	//Node* ClosestNode(Vector2);
 	
 
 	Node* startNode;

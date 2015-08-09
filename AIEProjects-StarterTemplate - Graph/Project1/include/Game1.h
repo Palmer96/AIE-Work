@@ -35,7 +35,7 @@ protected:
 	Texture * bloodTex;
 
 
-
+	std::vector <Vector2> Path;
 
 
 	Graph *pGraph;

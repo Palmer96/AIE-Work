@@ -200,8 +200,8 @@ void Game1::Update(float deltaTime)
 
 	if (InputManager->WasKeyPressed(GLFW_KEY_SPACE))
 	{
-		pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300]);
-		//pGraph->ActivateDijkstras = true;
+		Path = pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300]);
+		pGraph->ActivateDijkstras = true;
 	}
 
 
@@ -214,6 +214,21 @@ void Game1::Update(float deltaTime)
 	{
 		//--------Move Foward
 		playerPos -= upVec * 300.0f * deltaTime;
+
+		//for (int i = 0; i < pGraph->nodes.size(); i++)
+		//{
+		//	if (pGraph->nodes[i]->transversable)
+		//	{
+		//		if (Magnitude(pGraph->nodes[i]->data - playerPos) =< 5.0f)
+		//		{
+		//			playerPos -= upVec * 300.0f * deltaTime;
+		//		}
+		//	}
+		//	else
+		//	{
+		//		playerPos += upVec * 300.0f * deltaTime;
+		//	}
+		//}
 
 		if (InputManager->IsKeyDown(GLFW_KEY_LEFT))
 		{
@@ -381,9 +396,9 @@ void Game1::Update(float deltaTime)
 
 
 
+	Vector2 vec2ofPlayer(playerPos.x, playerPos.y);
 
-
-
+//	std::cout << pGraph->ClosestNode(vec2ofPlayer) << std::endl;
 
 
 
@@ -406,15 +421,15 @@ void Game1::Draw()
 
 	//-----------------// Grid //-----------------//
 
-	for (int i = 0; i < 10; i++)
-	{
-		m_spritebatch->SetRenderColor(0, 255, 0, 255);
-		pGraph->DrawCircle(*m_spritebatch, pGraph->nodes[0]->data, i);
-
-		m_spritebatch->SetRenderColor(255, 0, 0, 255);
-		pGraph->DrawCircle(*m_spritebatch, pGraph->nodes[2300]->data, i);
-	}
-
+//	for (int i = 0; i < 10; i++)
+//	{
+//		m_spritebatch->SetRenderColor(0, 255, 0, 255);
+//		pGraph->DrawCircle(*m_spritebatch, pGraph->nodes[0]->data, i);
+//
+//		m_spritebatch->SetRenderColor(255, 0, 0, 255);
+//		pGraph->DrawCircle(*m_spritebatch, pGraph->nodes[2300]->data, i);
+//	}
+//
 	m_spritebatch->SetRenderColor(255, 255, 255, 255);
 	//		loop through all nodes
 	for (int i = 0; i < pGraph->nodes.size(); i++)
@@ -483,31 +498,13 @@ void Game1::Draw()
 
 	if (pGraph->ActivateDijkstras == true)
 	{
-		for (int i = 0; i < pGraph->nodes.size() - 1; i++)
+		m_spritebatch->SetRenderColor(255, 0, 0, 255);
+		for (int i = 0; i < Path.size() - 1; i++)
 		{
-			for (int j = 0; j < pGraph->nodes[i]->edges.size() - 1; j++)
-			{
-				//		show edges
 
-				m_spritebatch->SetRenderColor(255, i * 20, j * 20, 255);
-				//	m_spritebatch->SetRenderColor(pGraph->nodeQueue[i]->edges[j]->color.x, pGraph->nodeQueue[i]->edges[j]->color.y, pGraph->nodeQueue[i]->edges[j]->color.z, 255);
-
-
-
-				//pGraph->nodeQueue[i]->color.x
-
-
-				Node* startNode = pGraph->nodes[i]->edges[j]->start;
-				Node* endNode = pGraph->nodes[i]->edges[j]->end;
-				m_spritebatch->DrawLine(startNode->data.x,
-					startNode->data.y,
-					endNode->data.x,
-					endNode->data.y, 3.0f);
-
-
-				//m_spritebatch->SetRenderColor(255, 255, 255, 255);
-			}
+			m_spritebatch->DrawLine(Path[i].x, Path[i].y, Path[i + 1].x, Path[i + 1].y, 2.0f);
 		}
+		m_spritebatch->SetRenderColor(255, 255, 255, 255);
 	}
 	//	----// color for end path \\----
 	//m_spritebatch->SetRenderColor(255, 0, 0, 255);
@@ -568,36 +565,21 @@ void Game1::Draw()
 
 
 
-
-
-
-	std::vector<Vector2> Path;
-
-	
-	//Path = 
-		std::cout << pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300]).size() << std::endl;
-
-		//std::cout << 
-	//Path.begin()->x;
-	//std::cout << Path.size();
-		//<< std::endl;
-	
-
-//	for (int i = 0; i < pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300]).size(); i++)
-//	{
+	//	for (int i = 0; i < pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300]).size(); i++)
+	//	{
 	//	m_spritebatch->DrawLine(Path.begin()->x, Path.begin()->y, Path.end.x, Path.end.x, 2.0f);
-		//	pGraph->DrawCircle(*m_spritebatch, pGraph->nodes[2300]->data, i);
-		//	pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300]).data
+	//	pGraph->DrawCircle(*m_spritebatch, pGraph->nodes[2300]->data, i);
+	//	pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300]).data
 
-		//pGraph->DrawCircle(*m_spritebatch, pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300])[i].x, i);
-		//  m_spritebatch->DrawLine(pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300])[i].x,
-		//	pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300])[i].y,
-		//	pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300])[i + 1].x,
-		//	pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300])[i + 1].y, 2.0f);
+	//pGraph->DrawCircle(*m_spritebatch, pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300])[i].x, i);
+	//  m_spritebatch->DrawLine(pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300])[i].x,
+	//	pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300])[i].y,
+	//	pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300])[i + 1].x,
+	//	pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300])[i + 1].y, 2.0f);
 
 
-		//	pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300])[4];
-//	}
+	//	pGraph->Dijkstras(pGraph->nodes[0], pGraph->nodes[2300])[4];
+	//	}
 
 
 

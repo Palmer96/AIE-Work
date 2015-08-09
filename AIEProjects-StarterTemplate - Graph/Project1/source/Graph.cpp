@@ -1,6 +1,7 @@
 #include "Graph.h"
 #include "MathLib.h"
 #include "SpriteBatch.h"
+#include <algorithm>
 
 Graph::Graph()
 {
@@ -45,8 +46,15 @@ Node::Node()
 }
 
 Node::Node(Vector2 VecData)
-{
+{	
 	data = VecData;
+	Node* node = new Node(Vector2(0.0f, 0.0f));
+	bIsStart = false;
+	bIsEnd = false;
+
+	transversable = true;
+	
+
 }
 
 void Node::AddEdge(Edge* a_edge)
@@ -93,97 +101,102 @@ void Graph::DrawCircle(SpriteBatch& a_spriteBatch, Vector2 pos, float radius)
 
 
 
-
+/*
 void Graph::Dijkstras()
 {
-	for (int i = 0; i < nodes.size(); i++)
-	{
-		if (nodes[i]->bIsStart = true)
-		{
-			startNode = nodes[i];
-		}
-		if (nodes[i]->bIsEnd = true)
-		{
-			endNode = nodes[i];
-		}
-	}
-	nodeQueue.push_back(startNode);
+for (int i = 0; i < nodes.size(); i++)
+{
+if (nodes[i]->bIsStart = true)
+{
+startNode = nodes[i];
+}
+if (nodes[i]->bIsEnd = true)
+{
+endNode = nodes[i];
+}
+}
+nodeQueue.push_back(startNode);
 
-	Vector2 distance;
+Vector2 distance;
 
-	Node* currentNode = nodeQueue[0];
-	Node* shortest;
-	Node* smallest;
+Node* currentNode = nodeQueue[0];
+Node* shortest;
+Node* smallest;
 
-	bool bSorted = false;
-	int count = 0;
+bool bSorted = false;
+int count = 0;
 
-	while (true)
-	{
-		count = 0;
-		smallest = nodeQueue[0];
-		for (int j = 0; j < nodeQueue.size(); j++)
-		{
-			if (nodeQueue[j]->travelCost < smallest->travelCost)
-			{
-				smallest = nodeQueue[j];
-				count = j;
-			}
-		}
-
-		currentNode = smallest;
-
-		if (currentNode == endNode)
-		{
-			break;
-		}
-
-		for (int i = 0; i < currentNode->edges.size(); i++)
-		{
-			distance.x = currentNode->edges[i]->end->data.x - currentNode->data.x;
-			distance.y = currentNode->edges[i]->end->data.y - currentNode->data.y;
-
-			if ((distance.Magnitude() + currentNode->travelCost) < currentNode->edges[i]->end->travelCost)
-			{
-				currentNode->edges[i]->end->travelCost = (distance.Magnitude() + currentNode->travelCost);
-				currentNode->edges[i]->end->previous = currentNode;
-			}
-			if (currentNode->edges[i]->end->traversed == false)
-			{
-				nodeQueue.push_back(currentNode->edges[i]->end);
-				currentNode->edges[i]->end->traversed = true;
-			}
-			currentNode->edges[i]->color.x = 0;
-			currentNode->edges[i]->color.y = 0;
-			currentNode->edges[i]->color.z = 255;
-		}
-		nodeQueue.erase(nodeQueue.begin() + count);
-	}
-
-	while (currentNode != startNode)
-	{
-		currentNode->color.x = 255;
-		currentNode->color.y = 0;
-		currentNode->color.z = 0;
-		for (int i = 0; i < currentNode->edges.size(); i++)
-		{
-			if (currentNode->edges[i]->end = currentNode->previous)
-			{
-				currentNode->color.x = 0;
-				currentNode->color.y = 255;
-				currentNode->color.z = 0;
-			}
-		}
-		currentNode = currentNode->previous;
-	}
+while (true)
+{
+count = 0;
+smallest = nodeQueue[0];
+for (int j = 0; j < nodeQueue.size(); j++)
+{
+if (nodeQueue[j]->travelCost < smallest->travelCost)
+{
+smallest = nodeQueue[j];
+count = j;
+}
 }
 
+currentNode = smallest;
+
+if (currentNode == endNode)
+{
+break;
+}
+
+for (int i = 0; i < currentNode->edges.size(); i++)
+{
+distance.x = currentNode->edges[i]->end->data.x - currentNode->data.x;
+distance.y = currentNode->edges[i]->end->data.y - currentNode->data.y;
+
+if ((distance.Magnitude() + currentNode->travelCost) < currentNode->edges[i]->end->travelCost)
+{
+currentNode->edges[i]->end->travelCost = (distance.Magnitude() + currentNode->travelCost);
+currentNode->edges[i]->end->previous = currentNode;
+}
+if (currentNode->edges[i]->end->traversed == false)
+{
+nodeQueue.push_back(currentNode->edges[i]->end);
+currentNode->edges[i]->end->traversed = true;
+}
+currentNode->edges[i]->color.x = 0;
+currentNode->edges[i]->color.y = 0;
+currentNode->edges[i]->color.z = 255;
+}
+nodeQueue.erase(nodeQueue.begin() + count);
+}
+
+while (currentNode != startNode)
+{
+currentNode->color.x = 255;
+currentNode->color.y = 0;
+currentNode->color.z = 0;
+for (int i = 0; i < currentNode->edges.size(); i++)
+{
+if (currentNode->edges[i]->end = currentNode->previous)
+{
+currentNode->color.x = 0;
+currentNode->color.y = 255;
+currentNode->color.z = 0;
+}
+}
+currentNode = currentNode->previous;
+}
+}
+*/
+
+bool SortByG(Node* a, Node* b)
+{
+	return a->G > b->G;
+}
 
 std::vector<Vector2> Graph::Dijkstras(Node* a_startNode, Node* a_endNode)
 {
 	Node* currentNode;
 	std::vector <Node*> open;
-	a_endNode = nullptr;
+	//	a_endNode = nullptr;
 
 	for (int i = 0; i < nodes.size(); i++)
 	{
@@ -199,8 +212,7 @@ std::vector<Vector2> Graph::Dijkstras(Node* a_startNode, Node* a_endNode)
 
 	while (open.empty() != true)
 	{
-		//std::sort(open.begin(), open.end(), SortByG);
-
+	//	std::sort(open.begin(), open.end());
 		currentNode = open.back();
 		currentNode->traversed = true;
 		open.pop_back();
@@ -212,27 +224,29 @@ std::vector<Vector2> Graph::Dijkstras(Node* a_startNode, Node* a_endNode)
 			Edge* currentEdge = currentNode->edges[i];
 
 
-			//if (endNode->transversable != true)
-			if (endNode->traversed != true)
+			if (endNode->transversable != false)
 			{
-				float NewG = currentNode->G + currentEdge->cost;
-				if (NewG < endNode->G)
+				if (endNode->traversed != true)
 				{
-					endNode->previous = currentNode;
-					endNode->G = NewG;
+					float NewG = currentNode->G + currentEdge->cost;
+					if (NewG < endNode->G)
+					{
+						endNode->previous = currentNode;
+						endNode->G = NewG;
 
-					bool foundEndNode = false;
-					for (int j = 0; j < open.size(); j++)
-					{
-						if (open[j] == endNode)
+						bool foundEndNode = false;
+						for (int j = 0; j < open.size(); j++)
 						{
-							foundEndNode = true;
-							break;
+							if (open[j] == endNode)
+							{
+								foundEndNode = true;
+								break;
+							}
 						}
-					}
-					if (foundEndNode == false)
-					{
-						open.push_back(endNode);
+						if (foundEndNode == false)
+						{
+							open.push_back(endNode);
+						}
 					}
 				}
 			}
@@ -254,3 +268,31 @@ std::vector<Vector2> Graph::Dijkstras(Node* a_startNode, Node* a_endNode)
 	return Path;
 
 }
+
+//Node* Graph::ClosestNode(Vector2 Pos)
+//{
+//	Node* currentNode = nodes[0];
+	//closestNode
+//	Vector2 aPos(Pos.x, Pos.y);
+//	for (int i = 0; i < nodes.size(); i++)
+//	{
+//		
+//		if (((currentNode->data - Pos).Magnitude) > ((nodes[i]->data - Pos).Magnitude))
+//
+//		{
+//			currentNode = nodes[i];
+//		}
+//
+//	}
+//	return currentNode;
+
+//	for (int i = 0; i < nodes.size(); i++)
+//	{
+//		if (nodes[i]->data.x - Pos.x == 4 && nodes[i]->data.y - Pos.y == 4)
+//		{
+//			return nodes[i];
+//		}
+//	}
+//	return nodes[0];
+
+//}
