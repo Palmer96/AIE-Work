@@ -69,9 +69,9 @@ public:
 	std::vector<Vector2> Dijkstras(Node* a_startNode, Node* a_endNode);
 	bool ActivateDijkstras;
 	int CheapestNode();
-	bool SortByG(Node* a, Node* b);
+	//bool SortByG(Node* a, Node* b);
 
-	//Node* ClosestNode(Vector2);
+	Node* ClosestNode(Vector3);
 	
 
 	Node* startNode;

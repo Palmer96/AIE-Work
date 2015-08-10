@@ -56,7 +56,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)AIE_GL\include\;$(SolutionDir)libraries\glfw3\include\GLFW\;$(SolutionDir)libraries\glew\include\;$(ProjectDir)include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)AIE_GL\include\;$(SolutionDir)libraries\glfw3\include\GLFW\;$(SolutionDir)Project1;$(SolutionDir)libraries\glew\include\;$(ProjectDir)include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -87,6 +87,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Agents.cpp" />
+    <ClCompile Include="Blood.cpp" />
     <ClCompile Include="DrunkenModifier.cpp" />
     <ClCompile Include="IBehaviour.cpp" />
     <ClCompile Include="KeyboardControler.cpp" />
@@ -98,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Agents.h" />
+    <ClInclude Include="Blood.h" />
     <ClInclude Include="DrunkenModifier.h" />
     <ClInclude Include="IBehaviour.h" />
     <ClInclude Include="include\Game1.h" />

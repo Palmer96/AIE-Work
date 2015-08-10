@@ -3,6 +3,7 @@
 #include "SpriteBatch.h"
 #include <algorithm>
 
+
 Graph::Graph()
 {
 	//Vector2 data;
@@ -20,6 +21,7 @@ Graph::~Graph()
 Node* Graph::AddNode(Vector2 data)
 {
 	Node* node = new Node(data);
+	node->data = data;
 	nodes.push_back(node);
 	return node;
 }
@@ -37,7 +39,7 @@ void Graph::AddEdge(Node* a_start, Node* a_end, int data)
 Node::Node()
 {
 	//cost = 0;
-	Node* node = new Node(Vector2(0.0f, 0.0f));
+	//Node* node = new Node(Vector2(0.0f, 0.0f));
 	bIsStart = false;
 	bIsEnd = false;
 
@@ -46,14 +48,15 @@ Node::Node()
 }
 
 Node::Node(Vector2 VecData)
-{	
-	data = VecData;
-	Node* node = new Node(Vector2(0.0f, 0.0f));
+{
+	//	data = VecData;
+	//	Node* node = new Node(Vector2(33));
+	//	node->data = VecData;
 	bIsStart = false;
 	bIsEnd = false;
 
 	transversable = true;
-	
+
 
 }
 
@@ -209,10 +212,18 @@ std::vector<Vector2> Graph::Dijkstras(Node* a_startNode, Node* a_endNode)
 	a_startNode->previous = a_startNode;
 	a_startNode->G = 0.0f;
 	open.push_back(a_startNode);
-
+	float lowestG = 100.0f;
 	while (open.empty() != true)
 	{
-	//	std::sort(open.begin(), open.end());
+		//for (int i = 0; i < open.size(); i++)
+		//{
+		//	if (lowestG > open[i]->G)
+		//	{
+		//		lowestG = open[i]->G;
+		//	}
+		//}
+
+		std::sort(open.begin(), open.end(), SortByG);
 		currentNode = open.back();
 		currentNode->traversed = true;
 		open.pop_back();
@@ -263,36 +274,29 @@ std::vector<Vector2> Graph::Dijkstras(Node* a_startNode, Node* a_endNode)
 	}
 	std::reverse(Path.begin(), Path.end());
 
-	Path[5];
+	//Path[5];
 
 	return Path;
 
 }
 
-//Node* Graph::ClosestNode(Vector2 Pos)
-//{
-//	Node* currentNode = nodes[0];
-	//closestNode
-//	Vector2 aPos(Pos.x, Pos.y);
-//	for (int i = 0; i < nodes.size(); i++)
-//	{
-//		
-//		if (((currentNode->data - Pos).Magnitude) > ((nodes[i]->data - Pos).Magnitude))
-//
-//		{
-//			currentNode = nodes[i];
-//		}
-//
-//	}
-//	return currentNode;
+Node* Graph::ClosestNode(Vector3 Pos)
+{
+	Node* currentNode = nullptr;
+	//currentNode->data.Magnitude() = 200.0f;
+		Vector2 aPos(Pos.x, Pos.y);
+		float minDistance = std::numeric_limits<float>::max();
 
-//	for (int i = 0; i < nodes.size(); i++)
-//	{
-//		if (nodes[i]->data.x - Pos.x == 4 && nodes[i]->data.y - Pos.y == 4)
-//		{
-//			return nodes[i];
-//		}
-//	}
-//	return nodes[0];
+	for (int i = 0; i < nodes.size(); i++)
+	{
 
-//}
+		if ((aPos - nodes[i]->data).Magnitude() < minDistance)
+		{
+			currentNode = nodes[i];
+			minDistance = (aPos - nodes[i]->data).Magnitude();
+		}
+
+	}
+	return currentNode;
+
+}

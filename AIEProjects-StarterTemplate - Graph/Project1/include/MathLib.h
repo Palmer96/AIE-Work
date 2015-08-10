@@ -18,6 +18,8 @@ public:
 
 	bool EqualVector(Vector2 v1, Vector2 v2);
 
+//	bool operator<(const Vector2& v2) const;
+
 	Vector2 operator+(const Vector2& v2) const;
 	Vector2& operator+=(const Vector2& v2);
 

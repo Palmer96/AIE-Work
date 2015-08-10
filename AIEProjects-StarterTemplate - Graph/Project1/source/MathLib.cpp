@@ -45,7 +45,13 @@ bool Vector2::EqualVector(Vector2 v1, Vector2 v2)
 //		}
 //	}
 
-
+//bool Vector2::operator<(const Vector2& v2) const
+//{
+//	if ((x < v2.x) && (y < v2.y))
+//		return true;
+//	else
+//		return false;
+//}
 Vector2 Vector2::operator+(const Vector2& v2)const
 {
 	Vector2 newVec;
