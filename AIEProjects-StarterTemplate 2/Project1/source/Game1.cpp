@@ -100,6 +100,7 @@ void Game1::Update(float deltaTime)
 			Crotate += 2 * deltaTime;
 
 		}
+		ballPos = playerPos;
 	}
 	if (InputManager->IsKeyDown(GLFW_KEY_S))
 	{
@@ -124,29 +125,10 @@ void Game1::Update(float deltaTime)
 			Crotate -= 2 * deltaTime;
 
 		}
-
+		ballPos = playerPos;
 	}
 
 
-	if (InputManager->IsKeyDown(GLFW_KEY_LEFT))
-	{
-		//--------Rotate Cannon Left
-		CanMatRotate = CanMatRotate * cannonMat.Rotation(-1.5 * deltaTime);
-	}
-	if (InputManager->IsKeyDown(GLFW_KEY_RIGHT))
-	{
-		//--------Rotate Cannon Right
-		CanMatRotate = CanMatRotate * cannonMat.Rotation(1.5 * deltaTime);
-		//Crotate -= 1.5 * deltaTime;
-	}
-	if (InputManager->IsKeyDown(GLFW_KEY_UP))
-	{
-		scale = scale.VecFlo(scale, 1.1);
-	}
-	if (InputManager->IsKeyDown(GLFW_KEY_DOWN))
-	{
-		scale = scale.VecFlo(scale, 0.9);
-	}
 
 	//--------------collision
 
@@ -167,17 +149,23 @@ void Game1::Update(float deltaTime)
 	//ballPos.x += ballVel.x * deltaTime;
 
 	//ballPos +=  ballVel;
-
-	ballPos.x += Vel;
-	if (ballPos.x > 640)
+	//ballPos = playerPos;
+	if (InputManager->WasKeyPressed(GLFW_KEY_SPACE))
 	{
-		Vel = -10.0f;
+		
+		Vector3 shoot(upVec.x, upVec.y, upVec.z);
+		ballPos -= shoot * 100 * deltaTime;
 	}
-	if (ballPos.x < 0)
-	{
-		Vel = 10.0f;
-
-	}
+	//ballPos.x += Vel;
+	//if (ballPos.x > 640)
+	//{
+	//	Vel = -10.0f;
+	//}
+	//if (ballPos.x < 0)
+	//{
+	//	Vel = 10.0f;
+	//
+	//}
 
 
 
