@@ -9,6 +9,7 @@ Description:
 #include "Application.h"
 #include "Graph.h"
 #include "Blood.h"
+#include "Agents.h"
 
 
 
@@ -35,18 +36,13 @@ protected:
 	SpriteBatch *m_spritebatch;
 	Texture * playerTex;
 	Texture * personTex;
+	Texture * policeTex;
 	Texture * roadTex;
 	Texture * roofTex;
 	Texture * bloodTex;
 
 
 	std::vector <Vector2> Path;
-	//*
-	std::vector <Vector2> Path2;
-	std::vector <Vector2> Path3;
-	std::vector <Vector2> Path4;
-	std::vector <Vector2> Path5;
-	//*/
 
 	Graph *pGraph;
 
@@ -57,24 +53,27 @@ protected:
 	Vector3 playerPos;
 	Matrix3 playerMat;
 
-
 	float rotate;
 	Vector3 scale;
 
+	Vector2 policePos;
 	Vector2 agentPos;
 
 	float k;
 
 	std::vector<Blood*> blood;
+	std::vector<Agents*> agent;
 
 
 	float fTimer;
 
 	int counter;
+	int counter2;
 	int Alpha;
 
-	int counter2;
+	
 
+	bool bBloodTrail;
 
 
 private:

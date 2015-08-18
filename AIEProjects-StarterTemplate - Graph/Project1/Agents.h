@@ -4,6 +4,7 @@
 #include "MathLib.h"
 #include "IBehaviour.h"
 #include "Texture.h"
+#include "Graph.h"
 
 
 
@@ -21,7 +22,9 @@ public:
 	void AddAcceleration();
 
 
-
+	Wander* wander;
+	Seek* seek;
+	Avoid* avoid;
 //protected:
 
 //	SpriteBatch *m_spritebatch;
@@ -29,72 +32,14 @@ public:
 	std::vector < IBehaviour * > m_behaviours;
 
 	Texture * personTex;
+
 	Vector2 m_position;
 	Vector2 m_velocity;
 	Vector2 m_acceleration;
 	Vector2 m_force;
 
 
+	Node* closestNode;
+
 
 };
-
-
-/*
-class IBehaviour
-{
-public:
-	IBehaviour();
-	~IBehaviour();
-
-	virtual void Update(Agents *pAgent);
-
-};
-
-
-
-class Seek : public IBehaviour
-{
-public:
-	Seek();
-	~Seek();
-
-
-
-	virtual void Update(Agents *pAgent);
-};
-
-class Wander : public IBehaviour
-{
-public:
-	Wander();
-	~Wander();
-
-
-
-	virtual void Update(Agents *pAgent);
-};
-
-class Flee : public IBehaviour
-{
-public:
-	Flee();
-	~Flee();
-
-
-
-	virtual void Update(Agents *pAgent);
-};
-
-class Pursue : public IBehaviour
-{
-public:
-	Pursue();
-	~Pursue();
-
-
-
-	virtual void Update(Agents *pAgent);
-};
-
-
-*/
