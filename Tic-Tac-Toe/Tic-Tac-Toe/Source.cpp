@@ -8,12 +8,12 @@
 
 
 #include <iostream>
-#include "Header.h"
+//#include "Header.h"
 
 int main()
 {
 	system("COLOR f0");
-
+	/*
 	Game1 Game;
 	while (true)
 	{
@@ -33,7 +33,7 @@ int main()
 		}
 	}
 
-	/*
+	*/
 	int iGame = 0;
 	while (true)
 	{
@@ -280,6 +280,4 @@ int main()
 	}
 	system("pause");
 	}
-	*/
 }
-
